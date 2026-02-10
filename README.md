@@ -66,8 +66,11 @@ Connect to signals and load json project.
 func _ready():
 	ArcweaveManager.element_changed.connect(_on_element_changed)
 	ArcweaveManager.choice_presented.connect(_on_choice_presented)
-	ArcweaveManager.load_project_from_file(arcweave_project_json)
-	ArcweaveManager.start_story()
+	
+	if ArcweaveManager.load_project_from_file(arcweave_project_json):
+		ArcweaveManager.start_story()
+	else:
+		$StoryText.text = "Failed to load story!"
 
 func _on_element_changed(element):
 	print(element.evaluated_content)
