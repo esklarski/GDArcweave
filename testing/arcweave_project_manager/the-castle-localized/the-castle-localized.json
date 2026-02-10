@@ -1,0 +1,1460 @@
+{
+	"startingElement": "38375689-9e4d-430e-954c-65205eb622fe",
+	"boards": {
+		"2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+			"name": "Root",
+			"root": true,
+			"children": [
+				"630fdb8a-48d6-473e-9974-2460f7eb2b41",
+				"733b1cc4-6d51-4ad6-9fba-444b4f2d98f3",
+                "b924f43d-3c3c-4769-b9c2-34a7a5c8da49"
+			]
+		},
+		"630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+			"name": "Main Board",
+			"notes": [
+				"eda3ed5a-bdd5-4981-a72f-c7847630310a",
+				"585c89a5-a16c-44db-9346-6e2725afcd88",
+				"5f45b936-1a0f-4834-87c3-579fb72329b1",
+				"0d580890-add4-4750-9b0c-64a9be4bd9be",
+				"045fcf7a-0e29-4f29-a6b3-f1be825832ed",
+				"27bcf38e-cef9-4413-b4c9-97e6c7300ec3",
+				"c917680a-9884-41fb-832c-7ac41f87c520",
+				"4a702d8d-fa35-432d-b49d-41ed5067bdef",
+				"a023e2ed-18e3-4bfa-b818-c17b27fa882c",
+				"3beee4a2-1846-4d66-9259-4d05f4b4a450",
+				"149eee35-d5c7-4a82-9799-ca11215d3f89",
+                "e9f8905d-3f74-4480-9816-de7269b2ab8f"
+			],
+			"jumpers": [
+				"17251b2a-0930-4a93-8f14-e89eb3238146",
+                "60b22737-d18c-44ea-b24c-8d771dfd9f9d"
+			],
+			"branches": [],
+			"elements": [
+				"38375689-9e4d-430e-954c-65205eb622fe",
+				"59370898-e089-46cd-b7cf-072b79a76453",
+				"5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4",
+				"b2eb06f5-0a49-488b-8a60-7c469fd3af8a",
+				"81a30674-aa09-4eb8-8484-59298d37f984",
+                "188e6385-85e2-496b-82ac-a81696e7bcab"
+			],
+			"connections": [
+				"b7f7dfc4-46f9-40ee-a8e9-e8b584cecadf",
+				"e8fbe6f8-7ce4-404d-b693-d108d7125a75",
+				"6f0952d7-202a-4978-8d63-3fee4c5dde35",
+				"c903fd63-a07c-4d5f-829e-461eee7ce2b6",
+				"8ec9d83d-02cd-41fe-a16b-a7773e1ec678",
+				"337c4347-5b21-449c-b556-134e0acec12d",
+				"678e093e-537c-4161-b011-8d6763c4be14",
+				"9b8efafe-a73f-4c19-8b90-0cf18b7e4907",
+				"3461cb48-901b-49d5-99ba-dbfb69e6efe1",
+				"6a929b6d-c6d2-46c4-ab67-b0503e7213af",
+                "bd5fbb0a-481c-4b6a-8c77-21b153c4bb95"
+			]
+		},
+		"733b1cc4-6d51-4ad6-9fba-444b4f2d98f3": {
+			"name": "Dialogues",
+			"children": [
+                "fde6c03b-9c62-4d2d-82b9-9d6613cf6c6f"
+			]
+		},
+		"b924f43d-3c3c-4769-b9c2-34a7a5c8da49": {
+			"name": "Credits",
+			"notes": [
+                "e31f8c73-9d3a-43f2-a009-04a569b1c06b"
+			],
+			"jumpers": [],
+			"branches": [],
+			"elements": [],
+			"connections": []
+		},
+		"fde6c03b-9c62-4d2d-82b9-9d6613cf6c6f": {
+			"name": "Crusader Dialogue",
+			"notes": [
+                "ccd54214-e714-45ab-b0ea-f5f906e97352"
+			],
+			"jumpers": [
+                "3517a1bc-3b73-4850-b03d-09daf9b7bc89"
+			],
+			"branches": [
+				"e4ef520d-1a30-4fd8-97f7-ed7f3ccb1426",
+                "08250152-b633-4e0d-93fd-54a11192187e"
+			],
+			"elements": [
+				"d4823bca-643b-4d3a-a908-0056762a0476",
+				"601034d9-b442-449a-a927-cd112fca8f7e",
+				"d393f371-5aad-4dd9-a3ee-300bedaf993d",
+				"fa351fcb-f7cd-4b65-ae0a-4640e8a5275f",
+				"4d61d93e-e541-4dff-b10d-42c4fd81ad0b",
+				"4c7d10f2-e68b-498f-9ced-ffd74977a8f5",
+                "b6b7cebe-0c30-4da2-9839-2639f458f759"
+			],
+			"connections": [
+				"3bcf09a5-0680-4826-8fef-76e79f31fad4",
+				"80407dcb-6a30-4720-8d87-0d53419c4d30",
+				"6738d031-bbd5-4d98-993f-a4926fc7fa33",
+				"dd563c04-f2d3-4c7f-a66e-3bb649c34831",
+				"0c0cdd6d-3686-4198-88c7-d0753dda6945",
+				"64b12ec3-e4d4-475b-ab3b-d1187b043a04",
+				"10b4a35e-8329-4a0d-86d2-3d0144254aa1",
+				"a21bbb0e-2496-4cd9-81a5-08773b3a4044",
+				"63267ff2-9318-42e3-ad9b-aaadf1a2b05a",
+				"9951f72b-61c0-4ae7-b0b7-3a68c9b9761e",
+				"7dfa7a0b-fcdc-4d00-94be-6d21c7918989",
+                "92ba2d4e-dd7e-4a06-8eb3-4e1e5b522947"
+			]
+		}
+	},
+	"notes": {
+		"045fcf7a-0e29-4f29-a6b3-f1be825832ed": {
+			"theme": "blue",
+			"content": "<p>This is a <strong>note<\/strong>, by the way.<\/p><p>Change the color of an element or note by right clicking on it. You can also add an image or icon as<strong> cover<\/strong>!<\/p>",
+			"autoHeight": true
+		},
+		"0d580890-add4-4750-9b0c-64a9be4bd9be": {
+			"theme": "default",
+			"content": "<p>Create <strong>connections<\/strong> between elements by clicking and dragging near their perimeter. Add <strong>labels<\/strong> to connections by double clicking on them.<\/p>",
+			"autoHeight": true
+		},
+		"149eee35-d5c7-4a82-9799-ca11215d3f89": {
+			"theme": "default",
+			"content": "<p>Click on the <strong>Play Mode<\/strong> button on the top menu to run the story!<\/p>",
+			"autoHeight": true
+		},
+		"27bcf38e-cef9-4413-b4c9-97e6c7300ec3": {
+			"theme": "purple",
+			"content": "<p>Use <strong>arcscript<\/strong> code segments inside elements and labels, to set variables or conditionally display content.<\/p><p>Click the formatting bar's &lt; &gt; icon or press Ctr\/Cmd+Shift+C to create a segment.<\/p>",
+			"autoHeight": true
+		},
+		"3beee4a2-1846-4d66-9259-4d05f4b4a450": {
+			"theme": "brown",
+			"content": "<p>Attach <strong>audio assets<\/strong> to elements by dragging and dropping them from the sidebar's Assets list.<\/p><p>Click on the attached audio asset for more options!<\/p>",
+			"autoHeight": true
+		},
+		"4a702d8d-fa35-432d-b49d-41ed5067bdef": {
+			"theme": "purple",
+			"content": "<p>Use the <strong>visits()<\/strong> function to check how many times the player has visited an element.<\/p><p>To add an element title as argument, start by typing @the...<\/p><p>Use visits() without an argument if you are inside an element and mean that same element.<\/p>",
+			"autoHeight": true
+		},
+		"585c89a5-a16c-44db-9346-6e2725afcd88": {
+			"theme": "cyan",
+			"content": "<p>You can <strong>reference<\/strong> components and boards by @mentioning them. (The text in orange in the title below is a referenced component.<\/p>",
+			"autoHeight": true
+		},
+		"5f45b936-1a0f-4834-87c3-579fb72329b1": {
+			"theme": "default",
+			"content": "<p>The element below has a star by its title. This means it is the project's <strong>starting element<\/strong>.<\/p>",
+			"autoHeight": true
+		},
+		"a023e2ed-18e3-4bfa-b818-c17b27fa882c": {
+			"theme": "purple",
+			"content": "<p>Use the <strong>show()<\/strong> function to display one or more values (separated by commas).<\/p>",
+			"autoHeight": true
+		},
+		"c917680a-9884-41fb-832c-7ac41f87c520": {
+			"theme": "cyan",
+			"content": "<p>Attach <strong>components<\/strong> to elements by dragging and dropping them from the Components list on the sidebar.<\/p>",
+			"autoHeight": true
+		},
+		"ccd54214-e714-45ab-b0ea-f5f906e97352": {
+			"theme": "blue",
+			"content": "<p>A <strong>branch<\/strong> diverts the narrative flow according to its conditions.<\/p><p>A branch must have an <strong>if<\/strong> condition. It can also have an <strong>else<\/strong>, as well as several <strong>elseif<\/strong> conditions.<\/p>",
+			"autoHeight": true
+		},
+		"e31f8c73-9d3a-43f2-a009-04a569b1c06b": {
+			"theme": "pink",
+			"content": "<p><strong>Image Credits<\/strong><br>Images by <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https:\/\/rachelchen.itch.io\/\">Rachel Chen<\/a><\/p><p><strong>Audio Credits<\/strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https:\/\/freesound.org\/people\/geoneo0\/sounds\/193816\/\">Ancestral Whispers<\/a> by geoneo0 on <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http:\/\/Freesound.org\">Freesound.org<\/a><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https:\/\/freesound.org\/people\/NeoSpica\/sounds\/504617\/\">Body Falling<\/a> by Neospica on <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http:\/\/Freesound.org\">Freesound.org<\/a><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https:\/\/freesound.org\/people\/Sclolex\/sounds\/177958\/\">Water Dripping<\/a> by Sclolex on <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http:\/\/Freesound.org\">Freesound.org<\/a><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https:\/\/freesound.org\/people\/straget\/sounds\/402809\/\">Birds in the forest<\/a> by straget on <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http:\/\/Freesound.org\">Freesound.org<\/a><\/p>",
+			"autoHeight": false
+		},
+		"e9f8905d-3f74-4480-9816-de7269b2ab8f": {
+			"theme": "cyan",
+			"content": "<p><strong>Welcome to Arcweave!<\/strong><\/p><p>Double click on an empty spot in this <strong>board<\/strong> (this workspace) to create an <strong>element<\/strong>. To edit it, double click on its title or content.<\/p>",
+			"autoHeight": true
+		},
+		"eda3ed5a-bdd5-4981-a72f-c7847630310a": {
+			"theme": "pink",
+			"content": "<p>Links to elements are called <strong>jumpers<\/strong>.<\/p><p>To create a jumper, drag an element from the sidebar into the board or copy it and \"paste it as jumper\" with <strong>Ctrl\/Cmd + Shift + V<\/strong>.<\/p>",
+			"autoHeight": true
+		}
+	},
+	"elements": {
+		"188e6385-85e2-496b-82ac-a81696e7bcab": {
+			"theme": "cyan",
+			"assets": {
+				"audio": [
+					{
+						"id": "5059cdc6-02f1-41db-a6d1-d27f4247177e",
+						"mode": "once",
+						"asset": "60625785-9f74-4171-9346-a4206a6f6f5e",
+						"delay": 0
+					}
+				]
+			},
+			"outputs": [
+				"3461cb48-901b-49d5-99ba-dbfb69e6efe1",
+                "bd5fbb0a-481c-4b6a-8c77-21b153c4bb95"
+			],
+			"autoHeight": true,
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			]
+		},
+		"38375689-9e4d-430e-954c-65205eb622fe": {
+			"theme": "default",
+			"assets": {
+				"cover": {
+					"id": "b876170a-8f65-4091-b8b7-164738e476f9"
+				}
+			},
+			"outputs": [
+                "b7f7dfc4-46f9-40ee-a8e9-e8b584cecadf"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"4c7d10f2-e68b-498f-9ced-ffd74977a8f5": {
+			"theme": "red",
+			"assets": {
+				"audio": [
+					{
+						"id": "f3f80398-0922-4711-83c9-260130284ede",
+						"mode": "stop",
+						"asset": "5d1ceff2-38d1-4741-bf9f-106ca141717c",
+						"delay": 0
+					},
+					{
+						"id": "3720e660-4c76-40eb-86e5-17593915cce5",
+						"mode": "once",
+						"asset": "2fb13dcd-402e-4222-9b1a-f30a06241fab",
+						"delay": "1200"
+					}
+				]
+			},
+			"outputs": [
+                "6738d031-bbd5-4d98-993f-a4926fc7fa33"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"4d61d93e-e541-4dff-b10d-42c4fd81ad0b": {
+			"theme": "red",
+			"assets": {
+				"cover": {
+					"id": "c48178d4-0619-4c95-8ca1-02aad2358e12"
+				}
+			},
+			"outputs": [],
+			"autoHeight": true,
+			"components": []
+		},
+		"59370898-e089-46cd-b7cf-072b79a76453": {
+			"theme": "blue",
+			"assets": {
+				"audio": [
+					{
+						"id": "09030d5a-f047-4b18-b38b-38ff4719dd62",
+						"mode": "stop",
+						"asset": "5d1ceff2-38d1-4741-bf9f-106ca141717c",
+						"delay": 0
+					}
+				],
+				"cover": {
+					"id": "3b7bc968-2438-488d-b0de-629024746693"
+				}
+			},
+			"outputs": [
+				"678e093e-537c-4161-b011-8d6763c4be14",
+				"e8fbe6f8-7ce4-404d-b693-d108d7125a75",
+                "337c4347-5b21-449c-b556-134e0acec12d"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4": {
+			"theme": "pink",
+			"assets": {
+				"audio": [
+					{
+						"id": "bb27f2b1-1d4f-4477-bc1f-2002e6e1c506",
+						"mode": "stop",
+						"asset": "60625785-9f74-4171-9346-a4206a6f6f5e",
+						"delay": 0
+					}
+				],
+				"cover": {
+					"id": "b73aa11a-1b40-4636-a71d-adb21e616e11"
+				}
+			},
+			"outputs": [
+				"c903fd63-a07c-4d5f-829e-461eee7ce2b6",
+                "6f0952d7-202a-4978-8d63-3fee4c5dde35"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"601034d9-b442-449a-a927-cd112fca8f7e": {
+			"theme": "red",
+			"assets": {
+				"audio": [
+					{
+						"id": "22f8d35d-cc0b-4f09-accb-4d9b75580342",
+						"mode": "stop",
+						"asset": "5d1ceff2-38d1-4741-bf9f-106ca141717c",
+						"delay": 0
+					},
+					{
+						"id": "5dd511e1-7941-4306-8454-303bd51bbe71",
+						"mode": "once",
+						"asset": "2fb13dcd-402e-4222-9b1a-f30a06241fab",
+						"delay": "1200"
+					}
+				]
+			},
+			"outputs": [
+                "80407dcb-6a30-4720-8d87-0d53419c4d30"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"81a30674-aa09-4eb8-8484-59298d37f984": {
+			"theme": "brown",
+			"assets": {
+				"audio": [
+					{
+						"id": "c1d363fa-efe7-48e2-addc-a146f3ed4169",
+						"mode": "loop",
+						"asset": "5d1ceff2-38d1-4741-bf9f-106ca141717c",
+						"delay": 0
+					},
+					{
+						"id": "6b0d8188-a557-4f46-ba23-175a38d94e97",
+						"mode": "stop",
+						"asset": "60625785-9f74-4171-9346-a4206a6f6f5e",
+						"delay": 0
+					}
+				],
+				"cover": {
+					"id": "83bc18b9-1fae-4b47-9904-75c5da84a61d"
+				}
+			},
+			"outputs": [
+				"9b8efafe-a73f-4c19-8b90-0cf18b7e4907",
+                "6a929b6d-c6d2-46c4-ab67-b0503e7213af"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"b2eb06f5-0a49-488b-8a60-7c469fd3af8a": {
+			"theme": "purple",
+			"assets": {
+				"audio": [
+					{
+						"id": "d93923fe-3569-4e99-bb3a-01b4bb9c039e",
+						"mode": "once",
+						"asset": "60625785-9f74-4171-9346-a4206a6f6f5e",
+						"delay": 0
+					}
+				],
+				"cover": {
+					"id": "b73aa11a-1b40-4636-a71d-adb21e616e11"
+				}
+			},
+			"outputs": [
+                "8ec9d83d-02cd-41fe-a16b-a7773e1ec678"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"b6b7cebe-0c30-4da2-9839-2639f458f759": {
+			"theme": "green",
+			"assets": {
+				"cover": {
+					"id": "c48178d4-0619-4c95-8ca1-02aad2358e12"
+				}
+			},
+			"outputs": [],
+			"autoHeight": true,
+			"components": []
+		},
+		"d393f371-5aad-4dd9-a3ee-300bedaf993d": {
+			"theme": "cyan",
+			"assets": {
+				"cover": {
+					"id": "bcf8b35c-0ce5-4cbb-bfc7-5fa7a2dd90be"
+				}
+			},
+			"outputs": [
+				"64b12ec3-e4d4-475b-ab3b-d1187b043a04",
+				"a21bbb0e-2496-4cd9-81a5-08773b3a4044",
+                "dd563c04-f2d3-4c7f-a66e-3bb649c34831"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"d4823bca-643b-4d3a-a908-0056762a0476": {
+			"theme": "cyan",
+			"assets": {
+				"cover": {
+					"id": "bcf8b35c-0ce5-4cbb-bfc7-5fa7a2dd90be"
+				}
+			},
+			"outputs": [
+				"3bcf09a5-0680-4826-8fef-76e79f31fad4",
+                "0c0cdd6d-3686-4198-88c7-d0753dda6945"
+			],
+			"autoHeight": true,
+			"components": []
+		},
+		"fa351fcb-f7cd-4b65-ae0a-4640e8a5275f": {
+			"theme": "green",
+			"assets": {
+				"audio": [
+					{
+						"id": "84c27246-6f50-42c5-8d6a-c17041066a33",
+						"mode": "stop",
+						"asset": "5d1ceff2-38d1-4741-bf9f-106ca141717c",
+						"delay": 0
+					},
+					{
+						"id": "f8cbe6a1-2240-4b3e-b7f9-5d6db6cc27f2",
+						"mode": "stop",
+						"asset": "60625785-9f74-4171-9346-a4206a6f6f5e",
+						"delay": 0
+					}
+				],
+				"cover": {
+					"id": "206816c5-9c9a-4003-940c-5c5176caed18"
+				}
+			},
+			"outputs": [
+                "9951f72b-61c0-4ae7-b0b7-3a68c9b9761e"
+			],
+			"autoHeight": true,
+			"components": []
+		}
+	},
+	"jumpers": {
+		"17251b2a-0930-4a93-8f14-e89eb3238146": {
+			"elementId": "59370898-e089-46cd-b7cf-072b79a76453"
+		},
+		"3517a1bc-3b73-4850-b03d-09daf9b7bc89": {
+			"elementId": "81a30674-aa09-4eb8-8484-59298d37f984"
+		},
+		"60b22737-d18c-44ea-b24c-8d771dfd9f9d": {
+			"elementId": "d4823bca-643b-4d3a-a908-0056762a0476"
+		}
+	},
+	"connections": {
+		"0c0cdd6d-3686-4198-88c7-d0753dda6945": {
+			"type": "Bezier",
+			"theme": "brown",
+			"sourceid": "d4823bca-643b-4d3a-a908-0056762a0476",
+			"targetid": "3517a1bc-3b73-4850-b03d-09daf9b7bc89",
+			"sourceType": "elements",
+			"targetType": "jumpers"
+		},
+		"10b4a35e-8329-4a0d-86d2-3d0144254aa1": {
+			"type": "Straight",
+			"theme": "red",
+			"sourceid": "2a94652d-594c-4e8d-9a05-993e9155547b",
+			"targetid": "4c7d10f2-e68b-498f-9ced-ffd74977a8f5",
+			"sourceType": "conditions",
+			"targetType": "elements"
+		},
+		"337c4347-5b21-449c-b556-134e0acec12d": {
+			"type": "Straight",
+			"theme": "default",
+			"sourceid": "59370898-e089-46cd-b7cf-072b79a76453",
+			"targetid": "38375689-9e4d-430e-954c-65205eb622fe",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"3461cb48-901b-49d5-99ba-dbfb69e6efe1": {
+			"type": "Straight",
+			"theme": "cyan",
+			"sourceid": "188e6385-85e2-496b-82ac-a81696e7bcab",
+			"targetid": "60b22737-d18c-44ea-b24c-8d771dfd9f9d",
+			"sourceType": "elements",
+			"targetType": "jumpers"
+		},
+		"3bcf09a5-0680-4826-8fef-76e79f31fad4": {
+			"type": "Straight",
+			"theme": "cyan",
+			"sourceid": "d4823bca-643b-4d3a-a908-0056762a0476",
+			"targetid": "d393f371-5aad-4dd9-a3ee-300bedaf993d",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"63267ff2-9318-42e3-ad9b-aaadf1a2b05a": {
+			"type": "Straight",
+			"theme": "green",
+			"sourceid": "5caff231-4102-41f0-8eb6-755d48660fb7",
+			"targetid": "fa351fcb-f7cd-4b65-ae0a-4640e8a5275f",
+			"sourceType": "conditions",
+			"targetFace": "left",
+			"targetType": "elements"
+		},
+		"64b12ec3-e4d4-475b-ab3b-d1187b043a04": {
+			"type": "Straight",
+			"theme": "blue",
+			"sourceid": "d393f371-5aad-4dd9-a3ee-300bedaf993d",
+			"targetid": "e4ef520d-1a30-4fd8-97f7-ed7f3ccb1426",
+			"sourceType": "elements",
+			"targetType": "branches"
+		},
+		"6738d031-bbd5-4d98-993f-a4926fc7fa33": {
+			"type": "Bezier",
+			"theme": "red",
+			"sourceid": "4c7d10f2-e68b-498f-9ced-ffd74977a8f5",
+			"targetid": "4d61d93e-e541-4dff-b10d-42c4fd81ad0b",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"678e093e-537c-4161-b011-8d6763c4be14": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "59370898-e089-46cd-b7cf-072b79a76453",
+			"targetid": "81a30674-aa09-4eb8-8484-59298d37f984",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"6a929b6d-c6d2-46c4-ab67-b0503e7213af": {
+			"type": "Straight",
+			"theme": "blue",
+			"sourceid": "81a30674-aa09-4eb8-8484-59298d37f984",
+			"targetid": "59370898-e089-46cd-b7cf-072b79a76453",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"6f0952d7-202a-4978-8d63-3fee4c5dde35": {
+			"type": "Bezier",
+			"theme": "pink",
+			"sourceid": "5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4",
+			"targetid": "17251b2a-0930-4a93-8f14-e89eb3238146",
+			"sourceType": "elements",
+			"targetType": "jumpers"
+		},
+		"80407dcb-6a30-4720-8d87-0d53419c4d30": {
+			"type": "Bezier",
+			"theme": "red",
+			"sourceid": "601034d9-b442-449a-a927-cd112fca8f7e",
+			"targetid": "4d61d93e-e541-4dff-b10d-42c4fd81ad0b",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"8ec9d83d-02cd-41fe-a16b-a7773e1ec678": {
+			"type": "Straight",
+			"theme": "purple",
+			"sourceid": "b2eb06f5-0a49-488b-8a60-7c469fd3af8a",
+			"targetid": "5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"9b8efafe-a73f-4c19-8b90-0cf18b7e4907": {
+			"type": "Straight",
+			"theme": "cyan",
+			"sourceid": "81a30674-aa09-4eb8-8484-59298d37f984",
+			"targetid": "188e6385-85e2-496b-82ac-a81696e7bcab",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"a21bbb0e-2496-4cd9-81a5-08773b3a4044": {
+			"type": "Bezier",
+			"theme": "red",
+			"sourceid": "d393f371-5aad-4dd9-a3ee-300bedaf993d",
+			"targetid": "601034d9-b442-449a-a927-cd112fca8f7e",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"b7f7dfc4-46f9-40ee-a8e9-e8b584cecadf": {
+			"type": "Straight",
+			"theme": "blue",
+			"sourceid": "38375689-9e4d-430e-954c-65205eb622fe",
+			"targetid": "59370898-e089-46cd-b7cf-072b79a76453",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"bd5fbb0a-481c-4b6a-8c77-21b153c4bb95": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "188e6385-85e2-496b-82ac-a81696e7bcab",
+			"targetid": "81a30674-aa09-4eb8-8484-59298d37f984",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"c903fd63-a07c-4d5f-829e-461eee7ce2b6": {
+			"type": "Straight",
+			"theme": "purple",
+			"sourceid": "5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4",
+			"targetid": "b2eb06f5-0a49-488b-8a60-7c469fd3af8a",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"9951f72b-61c0-4ae7-b0b7-3a68c9b9761e": {
+			"type": "Bezier",
+			"targetType": "branches",
+			"targetid": "08250152-b633-4e0d-93fd-54a11192187e",
+			"sourceid": "fa351fcb-f7cd-4b65-ae0a-4640e8a5275f",
+			"theme": "blue",
+			"sourceType": "elements"
+		},
+		"dd563c04-f2d3-4c7f-a66e-3bb649c34831": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "d393f371-5aad-4dd9-a3ee-300bedaf993d",
+			"targetid": "3517a1bc-3b73-4850-b03d-09daf9b7bc89",
+			"sourceType": "elements",
+			"targetType": "jumpers"
+		},
+		"e8fbe6f8-7ce4-404d-b693-d108d7125a75": {
+			"type": "Straight",
+			"theme": "pink",
+			"sourceid": "59370898-e089-46cd-b7cf-072b79a76453",
+			"targetid": "5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4",
+			"sourceType": "elements",
+			"targetType": "elements"
+		},
+		"7dfa7a0b-fcdc-4d00-94be-6d21c7918989": {
+			"sourceType": "conditions",
+			"sourceid": "aa9f36d6-0c98-45e3-9981-060f164fdda2",
+			"targetid": "b6b7cebe-0c30-4da2-9839-2639f458f759",
+			"targetType": "elements",
+			"theme": "green",
+			"type": "Straight"
+		},
+		"92ba2d4e-dd7e-4a06-8eb3-4e1e5b522947": {
+			"targetFace": "left",
+			"type": "Bezier",
+			"targetType": "elements",
+			"targetid": "b6b7cebe-0c30-4da2-9839-2639f458f759",
+			"sourceid": "fadd81c4-21dd-46f2-9b83-089ba4d4c298",
+			"theme": "blue",
+			"sourceType": "conditions"
+		}
+	},
+	"branches": {
+		"e4ef520d-1a30-4fd8-97f7-ed7f3ccb1426": {
+			"theme": "blue",
+			"conditions": {
+				"ifCondition": "5caff231-4102-41f0-8eb6-755d48660fb7",
+				"elseCondition": "2a94652d-594c-4e8d-9a05-993e9155547b"
+			}
+		},
+		"08250152-b633-4e0d-93fd-54a11192187e": {
+			"conditions": {
+				"ifCondition": "fadd81c4-21dd-46f2-9b83-089ba4d4c298",
+				"elseCondition": "aa9f36d6-0c98-45e3-9981-060f164fdda2"
+			},
+			"theme": "blue"
+		}
+	},
+	"contents": {
+		"036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
+			"name": {
+				"en": {
+					"text": "Characters"
+				}
+			}
+		},
+		"0c0cdd6d-3686-4198-88c7-d0753dda6945": {
+			"label": {
+				"en": {
+					"text": "<p><em>\"I\u2019ll come back later.\"<\/em><\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"10b4a35e-8329-4a0d-86d2-3d0144254aa1": {
+			"label": {
+				"en": {
+					"text": "<p><em>\"Uh... Crusader?\"<\/em><\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"11e527ff-9579-412c-ae5c-6ff548ebcfc0": {
+			"name": {
+				"en": {
+					"text": "Castle Courtyard"
+				},
+				"de": {
+					"text": "Schloss Innenhof"
+				},
+				"el": {
+					"text": "\u03a0\u03af\u03c3\u03c9 \u03b1\u03c5\u03bb\u03ae \u03c4\u03bf\u03c5 \u03ba\u03ac\u03c3\u03c4\u03c1\u03bf\u03c5"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "final"
+			}
+		},
+		"188e6385-85e2-496b-82ac-a81696e7bcab": {
+			"title": {
+				"en": {
+					"text": "<p>The <span class=\"mention-component mention\" data-id=\"647349ca-9ebb-4d5f-b81e-500761ec1c5a\" data-label=\"Crusader\" data-type=\"component\">Crusader<\/span><\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>You reach a wooden door. In front of you stands a strange man dressed as a medieval crusader.<\/p>"
+				},
+				"de": {
+					"text": "<p>Du erreichst eine Holzt\u00fcr. Vor dir steht ein seltsamer Mann, gekleidet wie ein mittelalterlicher Kreuzritter.<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"337c4347-5b21-449c-b556-134e0acec12d": {
+			"label": {
+				"en": {
+					"text": "<p>Exit <span class=\"mention mention-component\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Castle Monsignor\" data-type=\"component\">Castle Monsignor<\/span><\/p>"
+				},
+				"de": {
+					"text": "<p><span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Schloss Monsignor\" data-type=\"component\">Schloss Monsignor<\/span> verlassen<\/p>"
+				},
+				"el": {
+					"text": "<p>\u0392\u03b3\u03b5\u03c2 \u03b1\u03c0\u03cc \u03c4\u03bf <span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1\" data-type=\"component\">\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1<\/span> <\/p>"
+				}
+			},
+			"_status": {
+				"de": "review",
+				"el": "final"
+			}
+		},
+		"3461cb48-901b-49d5-99ba-dbfb69e6efe1": {
+			"label": {
+				"en": {
+					"text": "<p>Talk to the man<\/p>"
+				},
+				"de": {
+					"text": "<p>Mit dem Mann sprechen<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"38375689-9e4d-430e-954c-65205eb622fe": {
+			"title": {
+				"en": {
+					"text": "<p style=\"margin-left: 0px\">Outside <span class=\"mention mention-component\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Castle Monsignor\" data-type=\"component\">Castle Monsignor<\/span><\/p>"
+				},
+				"el": {
+					"text": "<p>\u0395\u03be\u03c9 \u03b1\u03c0\u03cc \u03c4\u03bf <span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1\" data-type=\"component\">\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1<\/span> <\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>You have just arrived at <span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Castle Monsignor\" data-type=\"component\">Castle Monsignor<\/span>, your uncle's home for the past 20 years. The tone of his letter was desperate, urgently asking for your help. Worried, you quickly packed your suitcase and took the first plane.<\/p><p>Faint bird sounds break the eerie silence and a pale mist engulfs the castle hill.<\/p><p><strong>To the north you can see the castle entrance.<\/strong><\/p>"
+				},
+				"de": {
+					"text": "<p>Du bist gerade auf <span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Schloss Monsignor\" data-type=\"component\">Schloss Monsignor<\/span> angekommen, dem Zuhause deines Onkels seit nunmehr 20 Jahren. Der Ton seines Briefes war verzweifelt und bat dich dringend um Hilfe. Besorgt hast du hastig deinen Koffer gepackt und den n\u00e4chsten Flug genommen.<\/p><p>Leise Vogelrufe durchbrechen die unheimliche Stille und ein blasser Nebel h\u00fcllt den Schlossh\u00fcgel ein.<\/p><p><strong>Im Norden kannst du den Eingang des Schlosses sehen.<\/strong><\/p>"
+				},
+				"el": {
+					"text": "<p>\u039c\u03cc\u03bb\u03b9\u03c2 \u03ad\u03c6\u03c4\u03b1\u03c3\u03b5\u03c2 \u03c3\u03c4\u03bf <span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1\" data-type=\"component\">\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1<\/span>, \u03c4\u03bf \u03c3\u03c0\u03af\u03c4\u03b9 \u03c4\u03bf\u03c5 \u03b8\u03b5\u03af\u03bf\u03c5 \u03c3\u03bf\u03c5 \u03c4\u03b1 \u03c4\u03b5\u03bb\u03b5\u03c5\u03c4\u03b1\u03af\u03b1 20 \u03c7\u03c1\u03cc\u03bd\u03b9\u03b1. \u039f \u03c4\u03cc\u03bd\u03bf\u03c2 \u03c4\u03bf\u03c5 \u03b3\u03c1\u03ac\u03bc\u03bc\u03b1\u03c4\u03cc\u03c2 \u03c4\u03bf\u03c5 \u03ae\u03c4\u03b1\u03bd \u03b1\u03c0\u03b5\u03bb\u03c0\u03b9\u03c3\u03bc\u03ad\u03bd\u03bf\u03c2, \u03b6\u03b7\u03c4\u03ce\u03bd\u03c4\u03b1\u03c2 \u03b5\u03c0\u03b5\u03b9\u03b3\u03cc\u03bd\u03c4\u03c9\u03c2 \u03c4\u03b7 \u03b2\u03bf\u03ae\u03b8\u03b5\u03b9\u03ac \u03c3\u03bf\u03c5. \u0391\u03bd\u03b7\u03c3\u03c5\u03c7\u03ce\u03bd\u03c4\u03b1\u03c2, \u03ad\u03c3\u03c5\u03c1\u03b5\u03c2 \u03b3\u03c1\u03ae\u03b3\u03bf\u03c1\u03b1 \u03c4\u03b7\u03bd \u03b2\u03b1\u03bb\u03af\u03c4\u03c3\u03b1 \u03c3\u03bf\u03c5 \u03ba\u03b1\u03b9 \u03c0\u03ae\u03c1\u03b5\u03c2 \u03c4\u03bf \u03c0\u03c1\u03ce\u03c4\u03bf \u03b1\u03b5\u03c1\u03bf\u03c0\u03bb\u03ac\u03bd\u03bf.<\/p><p>\u0391\u03c7\u03bd\u03ad\u03c2 \u03c6\u03c9\u03bd\u03ad\u03c2 \u03c0\u03bf\u03c5\u03bb\u03b9\u03ce\u03bd \u03b4\u03b9\u03b1\u03ba\u03cc\u03c0\u03c4\u03bf\u03c5\u03bd \u03c4\u03b7 \u03b4\u03c5\u03c3\u03bf\u03af\u03c9\u03bd\u03b7 \u03c3\u03b9\u03c9\u03c0\u03ae \u03ba\u03b1\u03b9 \u03bc\u03b9\u03b1 \u03c9\u03c7\u03c1\u03ae \u03bf\u03bc\u03af\u03c7\u03bb\u03b7 \u03c3\u03ba\u03b5\u03c0\u03ac\u03b6\u03b5\u03b9 \u03c4\u03bf\u03bd \u03bb\u03cc\u03c6\u03bf \u03c4\u03bf\u03c5 \u03ba\u03ac\u03c3\u03c4\u03c1\u03bf\u03c5.<\/p><p>\u03a0\u03c1\u03bf\u03c2 \u03c4\u03b1 \u03b2\u03cc\u03c1\u03b5\u03b9\u03b1 \u03b2\u03bb\u03ad\u03c0\u03b5\u03b9\u03c2 \u03c4\u03b7\u03bd \u03b5\u03af\u03c3\u03bf\u03b4\u03bf \u03c4\u03bf\u03c5 \u03ba\u03ac\u03c3\u03c4\u03c1\u03bf\u03c5.<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "final"
+			}
+		},
+		"3bcf09a5-0680-4826-8fef-76e79f31fad4": {
+			"label": {
+				"en": {
+					"text": "<p><em>\"Can I pass?\"<\/em><\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"4c7d10f2-e68b-498f-9ced-ffd74977a8f5": {
+			"title": {
+				"en": {
+					"text": "<p>Wrong answer<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p><em>\"Wrong!\"<\/em><strong> <\/strong>he shouts. Before you can utter another word he strikes you with the back of his sword hilt.<\/p><p>Everything fades to black...<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"4d61d93e-e541-4dff-b10d-42c4fd81ad0b": {
+			"title": {
+				"en": {
+					"text": "<p>Game over<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>Alas, you did not manage to find what lies behind the ominous door...<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"59370898-e089-46cd-b7cf-072b79a76453": {
+			"title": {
+				"en": {
+					"text": "<p><span class=\"mention mention-component\" data-id=\"11e527ff-9579-412c-ae5c-6ff548ebcfc0\" data-label=\"Castle Courtyard\" data-type=\"component\">Castle Courtyard<\/span> <\/p>"
+				},
+				"de": {
+					"text": "<p><span class=\"mention-component mention\" data-id=\"11e527ff-9579-412c-ae5c-6ff548ebcfc0\" data-label=\"Schloss Innenhof\" data-type=\"component\">Schloss Innenhof<\/span> <\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>You stand inside a small courtyard. Everything is unusually silent here.<\/p><p><strong>The path leads further to the north. An abandoned house lies to your left.<\/strong><\/p>"
+				},
+				"de": {
+					"text": "<p>Du stehst in einem kleinen Innenhof. Alles ist hier ungew\u00f6hnlich still.<\/p><p><strong>Der Weg f\u00fchrt weiter nach Norden. Ein verlassenes Haus liegt zu deiner Linken.<\/strong><\/p>"
+				},
+				"el": {
+					"text": "<p>\u03a3\u03c4\u03ad\u03ba\u03b5\u03c3\u03b1\u03b9 \u03bc\u03ad\u03c3\u03b1 \u03c3\u03b5 \u03bc\u03b9\u03b1 \u03bc\u03b9\u03ba\u03c1\u03ae \u03b1\u03c5\u03bb\u03ae. \u038c\u03bb\u03b1 \u03b5\u03b4\u03ce \u03b5\u03af\u03bd\u03b1\u03b9 \u03b1\u03c3\u03c5\u03bd\u03ae\u03b8\u03b9\u03c3\u03c4\u03b1 \u03ae\u03c3\u03c5\u03c7\u03b1.<\/p><p><strong>\u03a4\u03bf \u03bc\u03bf\u03bd\u03bf\u03c0\u03ac\u03c4\u03b9 \u03c3\u03c5\u03bd\u03b5\u03c7\u03af\u03b6\u03b5\u03b9 \u03c0\u03c1\u03bf\u03c2 \u03c4\u03b1 \u03b2\u03cc\u03c1\u03b5\u03b9\u03b1. \u0388\u03bd\u03b1 \u03b5\u03b3\u03ba\u03b1\u03c4\u03b1\u03bb\u03b5\u03bb\u03b5\u03b9\u03bc\u03bc\u03ad\u03bd\u03bf \u03c3\u03c0\u03af\u03c4\u03b9 \u03b2\u03c1\u03af\u03c3\u03ba\u03b5\u03c4\u03b1\u03b9 \u03c3\u03c4\u03b1 \u03b1\u03c1\u03b9\u03c3\u03c4\u03b5\u03c1\u03ac \u03c3\u03bf\u03c5.<\/strong><\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "review"
+			}
+		},
+		"5e0d8b0c-ae7c-42a6-83d1-fc2c13b8e6b4": {
+			"title": {
+				"en": {
+					"text": "<p>The small house - Overview<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>The interior looks more like an artist's studio than a house. A few abstract paintings lie scattered around.<\/p><p>One of the paintings depicts a strange figure: a knight dressed in white, with a red cross on his chest.<\/p>"
+				},
+				"de": {
+					"text": "<p>Das Innere wirkt eher wie ein Atelier als wie ein Haus. Einige abstrakte Gem\u00e4lde liegen verstreut herum.<\/p><p>Eines der Gem\u00e4lde zeigt eine seltsame Gestalt: einen Ritter in Wei\u00df, mit einem roten Kreuz auf der Brust.<\/p>"
+				},
+				"el": {
+					"text": "<p>\u03a4\u03bf \u03b5\u03c3\u03c9\u03c4\u03b5\u03c1\u03b9\u03ba\u03cc \u03bc\u03bf\u03b9\u03ac\u03b6\u03b5\u03b9 \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03bf \u03bc\u03b5 \u03b1\u03c4\u03b5\u03bb\u03b9\u03ad \u03ba\u03b1\u03bb\u03bb\u03b9\u03c4\u03ad\u03c7\u03bd\u03b7 \u03c0\u03b1\u03c1\u03ac \u03bc\u03b5 \u03c3\u03c0\u03af\u03c4\u03b9. \u039c\u03b5\u03c1\u03b9\u03ba\u03bf\u03af \u03b1\u03c6\u03b7\u03c1\u03b7\u03bc\u03ad\u03bd\u03bf\u03b9 \u03c0\u03af\u03bd\u03b1\u03ba\u03b5\u03c2 \u03b5\u03af\u03bd\u03b1\u03b9 \u03c3\u03ba\u03bf\u03c1\u03c0\u03b9\u03c3\u03bc\u03ad\u03bd\u03bf\u03b9 \u03b3\u03cd\u03c1\u03c9.<\/p><p>\u0388\u03bd\u03b1\u03c2 \u03b1\u03c0\u03cc \u03c4\u03bf\u03c5\u03c2 \u03c0\u03af\u03bd\u03b1\u03ba\u03b5\u03c2 \u03b1\u03c0\u03b5\u03b9\u03ba\u03bf\u03bd\u03af\u03b6\u03b5\u03b9 \u03bc\u03b9\u03b1 \u03c0\u03b1\u03c1\u03ac\u03be\u03b5\u03bd\u03b7 \u03bc\u03bf\u03c1\u03c6\u03ae: \u03ad\u03bd\u03b1\u03bd \u03b9\u03c0\u03c0\u03cc\u03c4\u03b7 \u03bd\u03c4\u03c5\u03bc\u03ad\u03bd\u03bf \u03c3\u03c4\u03b1 \u03bb\u03b5\u03c5\u03ba\u03ac, \u03bc\u03b5 \u03ad\u03bd\u03b1\u03bd \u03ba\u03cc\u03ba\u03ba\u03b9\u03bd\u03bf \u03c3\u03c4\u03b1\u03c5\u03c1\u03cc \u03c3\u03c4\u03bf \u03c3\u03c4\u03ae\u03b8\u03bf\u03c2.<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "final"
+			}
+		},
+		"601034d9-b442-449a-a927-cd112fca8f7e": {
+			"title": {
+				"en": {
+					"text": "<p>Trying to run past<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>As you try to run past him, he swiftly grabs you by the neck. You fight for freedom but his grip is inhumanly strong. <\/p><p>You drift into unconsciousness...<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"63267ff2-9318-42e3-ad9b-aaadf1a2b05a": {
+			"label": {
+				"en": {
+					"text": "<p><em>\"Conrad IV, Count of Exeter?\"<\/em><\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"647349ca-9ebb-4d5f-b81e-500761ec1c5a": {
+			"name": {
+				"en": {
+					"text": "Crusader"
+				},
+				"de": {
+					"text": "Kreuzfahrer"
+				},
+				"el": {
+					"text": "\u03a3\u03c4\u03b1\u03c5\u03c1\u03bf\u03c6\u0384\u03cc\u03c1\u03bf\u03c2"
+				}
+			},
+			"_status": {
+				"de": "review",
+				"el": "final"
+			}
+		},
+		"678e093e-537c-4161-b011-8d6763c4be14": {
+			"label": {
+				"en": {
+					"text": "<p>Follow the path north<\/p>"
+				},
+				"de": {
+					"text": "<p>Dem Pfad nach Norden folgen<\/p>"
+				},
+				"el": {
+					"text": "<p>\u0391\u03ba\u03bf\u03bb\u03bf\u03cd\u03b8\u03b7\u03c3\u03b5 \u03c4\u03bf \u03bc\u03bf\u03bd\u03bf\u03c0\u03ac\u03c4\u03b9 \u03c3\u03c4\u03b1 \u03b2\u03cc\u03c1\u03b5\u03b9\u03b1<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "progress"
+			}
+		},
+		"6a929b6d-c6d2-46c4-ab67-b0503e7213af": {
+			"label": {
+				"en": {
+					"text": "<p>Back to <span class=\"mention mention-component\" data-id=\"11e527ff-9579-412c-ae5c-6ff548ebcfc0\" data-label=\"Castle Courtyard\" data-type=\"component\">Castle Courtyard<\/span><\/p>"
+				},
+				"de": {
+					"text": "<p>Zur\u00fcck zum <span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Schloss Monsignor\" data-type=\"component\">Schloss Monsignor<\/span> <\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"6f0952d7-202a-4978-8d63-3fee4c5dde35": {
+			"label": {
+				"en": {
+					"text": "<p>Back to <span class=\"mention mention-component\" data-id=\"11e527ff-9579-412c-ae5c-6ff548ebcfc0\" data-label=\"Castle Courtyard\" data-type=\"component\">Castle Courtyard<\/span> <\/p>"
+				},
+				"de": {
+					"text": "<p>Zur\u00fcck zum <span class=\"mention-component mention\" data-id=\"11e527ff-9579-412c-ae5c-6ff548ebcfc0\" data-label=\"Schloss Innenhof\" data-type=\"component\">Schloss Innenhof<\/span> <\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"81a30674-aa09-4eb8-8484-59298d37f984": {
+			"title": {
+				"en": {
+					"text": "<p>The stone passage<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>A stone passage. The sound of dripping water is echoing in the distance. You feel uneasy.<\/p>"
+				},
+				"de": {
+					"text": "<p>Ein steinerner Gang. Das Tropfen von Wasser hallt in der Ferne wider. Du f\u00fchlst dich unbehaglich.<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"894c2a71-952e-45c9-b55a-340794307a1d": {
+			"name": {
+				"en": {
+					"text": "Castle Monsignor"
+				},
+				"de": {
+					"text": "Schloss Monsignor"
+				},
+				"el": {
+					"text": "\u039a\u03b1\u03c3\u03c4\u03c1\u03bf \u039c\u03bf\u03bd\u03c3\u03b9\u03bd\u03b9\u03bf\u03c1"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "progress"
+			}
+		},
+		"8ec9d83d-02cd-41fe-a16b-a7773e1ec678": {
+			"label": {
+				"en": {
+					"text": "<p>Step back from the painting<\/p>"
+				},
+				"de": {
+					"text": "<p>Einen Schritt vom Gem\u00e4lde zur\u00fccktreten<\/p>"
+				},
+				"el": {
+					"text": "<p><\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"9b8efafe-a73f-4c19-8b90-0cf18b7e4907": {
+			"label": {
+				"en": {
+					"text": "<p>Walk further down the path<\/p>"
+				},
+				"de": {
+					"text": "<p>Dem Weg weiter folgen<\/p>"
+				}
+			},
+			"_status": {
+				"de": "review",
+				"el": "untranslated"
+			}
+		},
+		"a21bbb0e-2496-4cd9-81a5-08773b3a4044": {
+			"label": {
+				"en": {
+					"text": "<p>Try to run past him<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"b2eb06f5-0a49-488b-8a60-7c469fd3af8a": {
+			"title": {
+				"en": {
+					"text": "<p>Examine the painting<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>The knight is guarding a mysterious gate. You see a name written above his head:<\/p><blockquote><p>\"Conrad IV, Count of Exeter\"<\/p><\/blockquote><pre spellcheck=\"false\" data-id=\"f3409c45-451b-4cf6-9fd7-b5200c7dc6e4\"><code class=\"language-arcscript\">if visits(<span class=\"mention-element mention\" data-id=\"188e6385-85e2-496b-82ac-a81696e7bcab\" data-label=\"The Crusader\" data-type=\"element\">the_crusader<\/span>)<\/code><\/pre><p style=\"margin-left: 20px\"><\/p><p style=\"margin-left: 20px\">He looks just like the crusader you saw guarding the door!<\/p><pre spellcheck=\"false\" data-id=\"9e6fd508-6fb0-4474-b23c-ad037c121eaa\"><code class=\"language-arcscript\">endif<\/code><\/pre><pre spellcheck=\"false\" data-id=\"b9e0c9e6-4fed-44dd-ba14-4862395e0478\"><code class=\"language-arcscript\">if visits() == 1<\/code><\/pre><p style=\"margin-left: 20px\"><\/p><p style=\"margin-left: 20px\">You make a mental note of the knight's name.<\/p><pre style=\"margin-left: 20px\" spellcheck=\"false\" data-id=\"c25973b0-e4ae-4b91-92c7-3f204c76b38a\"><code class=\"language-arcscript\">score += 2<\/code><\/pre><p style=\"margin-left: 20px\">(Your score just went up 2 points. You now have a score of<\/p><pre style=\"margin-left: 20px\" spellcheck=\"false\" data-id=\"a50669c2-bbd7-4a52-8233-1d324916ff26\"><code class=\"language-arcscript\">show(score, \".)\")<\/code><\/pre><pre spellcheck=\"false\" data-id=\"bed4eab9-2aa8-47e1-a797-8a7888541466\"><code class=\"language-arcscript\">endif<\/code><\/pre>"
+				},
+				"de": {
+					"text": "<p>Der Ritter bewacht ein geheimnisvolles Tor. \u00dcber seinem Kopf siehst du einen Namen stehen:<\/p><blockquote><p>\u201eConrad IV., Graf von Exeter\u201c<\/p><\/blockquote><pre data-id=\"f3409c45-451b-4cf6-9fd7-b5200c7dc6e4\" spellcheck=\"false\"><code class=\"language-arcscript\">if visits(<span class=\"mention-element mention\" data-id=\"188e6385-85e2-496b-82ac-a81696e7bcab\" data-label=\"The Crusader\" data-type=\"element\">the_crusader<\/span>)<\/code><\/pre><p style=\"margin-left: 20px;\">Er sieht genau aus wie der Kreuzritter, den du zuvor am Tor gesehen hast!<\/p><pre data-id=\"9e6fd508-6fb0-4474-b23c-ad037c121eaa\" spellcheck=\"false\"><code class=\"language-arcscript\">endif<\/code><\/pre><pre data-id=\"b9e0c9e6-4fed-44dd-ba14-4862395e0478\" spellcheck=\"false\"><code class=\"language-arcscript\">if visits() == 1<\/code><\/pre><p style=\"margin-left: 20px;\">Du merkst dir den Namen des Ritters.<\/p><pre data-id=\"c25973b0-e4ae-4b91-92c7-3f204c76b38a\" spellcheck=\"false\" style=\"margin-left: 20px;\"><code class=\"language-arcscript\">score += 2<\/code><\/pre><p style=\"margin-left: 20px;\">(Dein Punktestand ist gerade um 2 Punkte gestiegen. Du hast nun <strong>eine Punktzahl von<\/strong><\/p><pre data-id=\"a50669c2-bbd7-4a52-8233-1d324916ff26\" spellcheck=\"false\" style=\"margin-left: 20px;\"><code class=\"language-arcscript\">show(score, \".)\")<\/code><\/pre><pre data-id=\"bed4eab9-2aa8-47e1-a797-8a7888541466\" spellcheck=\"false\"><code class=\"language-arcscript\">endif<\/code><\/pre>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"b6b7cebe-0c30-4da2-9839-2639f458f759": {
+			"title": {
+				"en": {
+					"text": "<p>Success<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>Congrats, you finished the example project! \ud83c\udf89Now try and make your own interactive experience. If you need help check the <a href=\"https:\/\/docs.arcweave.com\" target=\"__blank\" rel=\"noopener noreferrer nofollow\" title=\"https:\/\/docs.arcweave.com\">docs<\/a>, our <a href=\"https:\/\/youtu.be\/Dfm6dKQH3I0\" target=\"__blank\" rel=\"noopener noreferrer nofollow\" title=\"https:\/\/youtu.be\/Dfm6dKQH3I0\">Youtube tutorials<\/a> or ping us on <a href=\"https:\/\/discord.gg\/atVXxAK\" target=\"__blank\" rel=\"noopener noreferrer nofollow\" title=\"https:\/\/discord.gg\/atVXxAK\">Discord<\/a>!<\/p><p>Happy creations! \ud83d\ude0a<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"b7f7dfc4-46f9-40ee-a8e9-e8b584cecadf": {
+			"label": {
+				"en": {
+					"text": "<p>Enter the castle<\/p>"
+				},
+				"de": {
+					"text": "<p><span class=\"mention-component mention\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Schloss Monsignor\" data-type=\"component\">Schloss Monsignor<\/span> betreten<\/p>"
+				},
+				"el": {
+					"text": "<p>\u039c\u03c0\u03b5\u03c2 \u03c3\u03c4\u03bf \u03ba\u03ac\u03c3\u03c4\u03c1\u03bf<\/p>"
+				}
+			},
+			"_status": {
+				"de": "review",
+				"el": "progress"
+			}
+		},
+		"bd5fbb0a-481c-4b6a-8c77-21b153c4bb95": {
+			"label": {
+				"en": {
+					"text": "<p>Back to the stone passage<\/p>"
+				},
+				"de": {
+					"text": "<p>Zur\u00fcck zum steinernen Gang<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"c903fd63-a07c-4d5f-829e-461eee7ce2b6": {
+			"label": {
+				"en": {
+					"text": "<p>Examine the painting<\/p><pre data-id=\"0a56c076-c26c-4fbc-99f3-3dc8815fce65\" spellcheck=\"false\"><code class=\"language-arcscript\">if visits(<span class=\"mention-element mention\" data-id=\"b2eb06f5-0a49-488b-8a60-7c469fd3af8a\" data-label=\"Examine the painting\" data-type=\"element\">examine_the_painting<\/span>)<\/code><\/pre><p style=\"margin-left: 20px;\">one more time<\/p><pre data-id=\"77c3d084-1a88-49da-97a5-95f55214d27a\" spellcheck=\"false\"><code class=\"language-arcscript\">endif<\/code><\/pre>"
+				},
+				"de": {
+					"text": "<p>Das Gem\u00e4lde untersuchen<\/p><pre data-id=\"0a56c076-c26c-4fbc-99f3-3dc8815fce65\" spellcheck=\"false\"><code class=\"language-arcscript\">if visits(<span class=\"mention-element mention\" data-id=\"b2eb06f5-0a49-488b-8a60-7c469fd3af8a\" data-label=\"Examine the painting\" data-type=\"element\">examine_the_painting<\/span>)<\/code><\/pre><p style=\"margin-left: 20px;\">noch einmal<\/p><pre data-id=\"77c3d084-1a88-49da-97a5-95f55214d27a\" spellcheck=\"false\"><code class=\"language-arcscript\">endif<\/code><\/pre>"
+				},
+				"el": {
+					"text": "<p>\u0395\u03be\u03ad\u03c4\u03b1\u03c3\u03b5 \u03c4\u03bf\u03bd \u03c0\u03af\u03bd\u03b1\u03ba\u03b1<\/p><pre data-id=\"0a56c076-c26c-4fbc-99f3-3dc8815fce65\" spellcheck=\"false\"><code class=\"language-arcscript\">if visits(<span class=\"mention-element mention\" data-id=\"b2eb06f5-0a49-488b-8a60-7c469fd3af8a\" data-label=\"Examine the painting\" data-type=\"element\">examine_the_painting<\/span>)<\/code><\/pre><p style=\"margin-left: 20px;\">\u03b1\u03ba\u03cc\u03bc\u03b1 \u03bc\u03b9\u03b1 \u03c6\u03bf\u03c1\u03ac<\/p><pre data-id=\"77c3d084-1a88-49da-97a5-95f55214d27a\" spellcheck=\"false\"><code class=\"language-arcscript\">endif<\/code><\/pre>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "untranslated"
+			}
+		},
+		"fa351fcb-f7cd-4b65-ae0a-4640e8a5275f": {
+			"title": {
+				"en": {
+					"text": "<p>Correct answer<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>At once, you utter the name you remember from the painting. In the blink of an eye, the <span class=\"mention-component mention\" data-id=\"647349ca-9ebb-4d5f-b81e-500761ec1c5a\" data-label=\"Crusader\" data-type=\"component\">Crusader<\/span> disappears... Almost as if he were never there.<\/p><p>Weird.<\/p><p><\/p><pre spellcheck=\"false\" data-id=\"fbf747ae-3d46-45ea-9379-88736928b329\"><code class=\"language-arcscript\">score += 3<\/code><\/pre><p>(Your score just went up 3 points. You now have a score of<\/p><pre spellcheck=\"false\" data-id=\"6679c8ee-e500-4860-b356-fdb42b3ac6f4\"><code class=\"language-arcscript\">show(score, \".)\")<\/code><\/pre>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"d393f371-5aad-4dd9-a3ee-300bedaf993d": {
+			"title": {
+				"en": {
+					"text": "<p>The Question<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p><em>\"Only he who knows my name shall pass,\"<\/em> he hisses.<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"d4823bca-643b-4d3a-a908-0056762a0476": {
+			"title": {
+				"en": {
+					"text": "<p>Dialogue start<\/p>"
+				}
+			},
+			"content": {
+				"en": {
+					"text": "<p>The man looks at you suspiciously and tightens his sword grip. He speaks in a deep voice: <em>\"What do you want stranger?\"<\/em><\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"dd563c04-f2d3-4c7f-a66e-3bb649c34831": {
+			"label": {
+				"en": {
+					"text": "<p><em>\"I'll come back later.\"<\/em><\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		},
+		"e175e706-97ec-42a8-8791-7855b29396e7": {
+			"name": {
+				"en": {
+					"text": "Locations"
+				}
+			}
+		},
+		"e8fbe6f8-7ce4-404d-b693-d108d7125a75": {
+			"label": {
+				"en": {
+					"text": "<p>Enter the house<\/p>"
+				},
+				"de": {
+					"text": "<p>Das Haus eintreten<\/p>"
+				},
+				"el": {
+					"text": "<p>\u039c\u03c0\u03b5\u03c2 \u03c3\u03c4\u03bf \u03c3\u03c0\u03af\u03c4\u03b9<\/p>"
+				}
+			},
+			"_status": {
+				"de": "final",
+				"el": "final"
+			}
+		},
+		"7dfa7a0b-fcdc-4d00-94be-6d21c7918989": {
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			},
+			"label": {
+				"en": {
+					"text": "<p>Open the door<\/p>"
+				},
+				"de": {
+					"text": "<p><\/p>"
+				}
+			}
+		},
+		"92ba2d4e-dd7e-4a06-8eb3-4e1e5b522947": {
+			"label": {
+				"en": {
+					"text": "<p>open 10 door<\/p>"
+				}
+			},
+			"_status": {
+				"de": "untranslated",
+				"el": "untranslated"
+			}
+		}
+	},
+	"components": {
+		"036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
+			"children": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			]
+		},
+		"11e527ff-9579-412c-ae5c-6ff548ebcfc0": {
+			"assets": {
+				"cover": {
+					"file": "delapouite\/castle",
+					"type": "icon"
+				}
+			},
+			"attributes": [
+                "b7aa7bdf-26eb-41b0-bcc3-54fe13a9a31c"
+			]
+		},
+		"647349ca-9ebb-4d5f-b81e-500761ec1c5a": {
+			"assets": {
+				"cover": {
+					"id": "bcf8b35c-0ce5-4cbb-bfc7-5fa7a2dd90be"
+				}
+			},
+			"attributes": [
+				"d46b5c77-6441-4d30-8d74-b5a191b5ffc6",
+				"3e148d58-6b88-4976-94a0-188df6ce55da",
+                "c9607db4-f1d3-468d-8dfe-0f9b493600d8"
+			]
+		},
+		"65005bda-15d0-41c5-867f-68c118829f08": {
+			"root": true,
+			"children": [
+				"036db898-0cb9-4a29-b19d-3e8f3288d9a2",
+                "e175e706-97ec-42a8-8791-7855b29396e7"
+			]
+		},
+		"894c2a71-952e-45c9-b55a-340794307a1d": {
+			"assets": {
+				"cover": {
+					"id": "b876170a-8f65-4091-b8b7-164738e476f9"
+				}
+			},
+			"attributes": [
+				"a1f9c1b1-0514-466d-a71e-756916ec2e04",
+                "dbedf071-8334-4ae1-8646-b23a93299fce"
+			]
+		},
+		"e175e706-97ec-42a8-8791-7855b29396e7": {
+			"children": [
+				"11e527ff-9579-412c-ae5c-6ff548ebcfc0",
+                "894c2a71-952e-45c9-b55a-340794307a1d"
+			]
+		}
+	},
+	"attributes": {
+		"3e148d58-6b88-4976-94a0-188df6ce55da": {
+			"cId": "647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+			"name": "Real name",
+			"cType": "components",
+			"value": {
+				"data": "<p>Conrad IV, Count of Exeter<\/p>",
+				"type": "string"
+			}
+		},
+		"a1f9c1b1-0514-466d-a71e-756916ec2e04": {
+			"cId": "894c2a71-952e-45c9-b55a-340794307a1d",
+			"name": "Info",
+			"cType": "components",
+			"value": {
+				"data": "<p>Castle Monsignor is where the game plot and narrative take place. It was built in 1562 near Devonshire, England. The Castle is home to Lord Monsignor, the player's uncle, who has been living there for the past 20 years. The castle has recently become a time traveling portal, allowing people from the 16th century to travel to the present.<\/p>",
+				"type": "string"
+			}
+		},
+		"b7aa7bdf-26eb-41b0-bcc3-54fe13a9a31c": {
+			"cId": "11e527ff-9579-412c-ae5c-6ff548ebcfc0",
+			"name": "Description",
+			"cType": "components",
+			"value": {
+				"data": "<p>The courtyard of <span class=\"mention mention-component\" data-id=\"894c2a71-952e-45c9-b55a-340794307a1d\" data-label=\"Castle Monsignor\" data-type=\"component\">Castle Monsignor<\/span> <\/p>",
+				"type": "string"
+			}
+		},
+		"c9607db4-f1d3-468d-8dfe-0f9b493600d8": {
+			"cId": "647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+			"name": "Defeated by",
+			"cType": "components",
+			"value": {
+				"data": "<p>Telling him his real name, which can be found on a painting inside the small house<\/p>",
+				"type": "string"
+			}
+		},
+		"d46b5c77-6441-4d30-8d74-b5a191b5ffc6": {
+			"cId": "647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+			"name": "Description",
+			"cType": "components",
+			"value": {
+				"data": "<p>The Crusader exists as an early obstacle to the player, introducing an atmosphere of danger and anachronism throughout the game<\/p>",
+				"type": "string"
+			}
+		},
+		"dbedf071-8334-4ae1-8646-b23a93299fce": {
+			"cId": "894c2a71-952e-45c9-b55a-340794307a1d",
+			"name": "Characters living here",
+			"cType": "components",
+			"value": {
+				"data": [
+                    "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+				],
+				"type": "component-list"
+			}
+		}
+	},
+	"assets": {
+		"206816c5-9c9a-4003-940c-5c5176caed18": {
+			"name": "door.jpeg",
+			"type": "template-image"
+		},
+		"2758c91c-03e5-49b1-adce-7eca23ab2a55": {
+			"name": "Audio",
+			"children": [
+				"60625785-9f74-4171-9346-a4206a6f6f5e",
+				"2fb13dcd-402e-4222-9b1a-f30a06241fab",
+                "5d1ceff2-38d1-4741-bf9f-106ca141717c"
+			]
+		},
+		"2fb13dcd-402e-4222-9b1a-f30a06241fab": {
+			"name": "body_falling.mp3",
+			"type": "template-audio",
+			"volume": 0.71
+		},
+		"3b7bc968-2438-488d-b0de-629024746693": {
+			"name": "courtyard.jpeg",
+			"type": "template-image"
+		},
+		"5d1ceff2-38d1-4741-bf9f-106ca141717c": {
+			"name": "water_dripping.mp3",
+			"type": "template-audio",
+			"volume": 0.77
+		},
+		"60625785-9f74-4171-9346-a4206a6f6f5e": {
+			"name": "ancestral_whispers.mp3",
+			"type": "template-audio",
+			"volume": 0.32
+		},
+		"647d0495-341f-42b2-8788-b47dace22bf8": {
+			"root": true,
+			"children": [
+				"f73cf39e-4873-4600-877f-eb255f3b5927",
+                "2758c91c-03e5-49b1-adce-7eca23ab2a55"
+			]
+		},
+		"83bc18b9-1fae-4b47-9904-75c5da84a61d": {
+			"name": "corridor.jpeg",
+			"type": "template-image"
+		},
+		"b73aa11a-1b40-4636-a71d-adb21e616e11": {
+			"name": "painter room.jpeg",
+			"type": "template-image"
+		},
+		"b876170a-8f65-4091-b8b7-164738e476f9": {
+			"name": "monsignor.jpeg",
+			"type": "template-image"
+		},
+		"bcf8b35c-0ce5-4cbb-bfc7-5fa7a2dd90be": {
+			"name": "crusader.jpeg",
+			"type": "template-image"
+		},
+		"c48178d4-0619-4c95-8ca1-02aad2358e12": {
+			"name": "end.jpeg",
+			"type": "template-image"
+		},
+		"f73cf39e-4873-4600-877f-eb255f3b5927": {
+			"name": "Images",
+			"children": [
+				"206816c5-9c9a-4003-940c-5c5176caed18",
+				"b876170a-8f65-4091-b8b7-164738e476f9",
+				"bcf8b35c-0ce5-4cbb-bfc7-5fa7a2dd90be",
+				"3b7bc968-2438-488d-b0de-629024746693",
+				"c48178d4-0619-4c95-8ca1-02aad2358e12",
+				"b73aa11a-1b40-4636-a71d-adb21e616e11",
+                "83bc18b9-1fae-4b47-9904-75c5da84a61d"
+			]
+		}
+	},
+	"variables": {
+		"747d0495-341f-42b2-8788-b47dace22bf8": {
+			"root": true,
+			"children": [
+                "990d6321-43cb-430b-84bd-6b48c574c489"
+			]
+		},
+		"990d6321-43cb-430b-84bd-6b48c574c489": {
+			"name": "score",
+			"type": "integer",
+			"value": 0
+		}
+	},
+	"conditions": {
+		"2a94652d-594c-4e8d-9a05-993e9155547b": {
+			"output": "10b4a35e-8329-4a0d-86d2-3d0144254aa1",
+			"script": null
+		},
+		"5caff231-4102-41f0-8eb6-755d48660fb7": {
+			"output": "63267ff2-9318-42e3-ad9b-aaadf1a2b05a",
+			"script": "visits(<span class=\"mention-element mention\" data-id=\"b2eb06f5-0a49-488b-8a60-7c469fd3af8a\" data-label=\"Examine the painting\" data-type=\"element\">examine_the_painting<\/span>)"
+		},
+		"fadd81c4-21dd-46f2-9b83-089ba4d4c298": {
+			"script": "score=10",
+			"output": "92ba2d4e-dd7e-4a06-8eb3-4e1e5b522947"
+		},
+		"aa9f36d6-0c98-45e3-9981-060f164fdda2": {
+			"script": null,
+			"output": "7dfa7a0b-fcdc-4d00-94be-6d21c7918989"
+		}
+	},
+	"locales": [
+		{
+			"iso": "en",
+			"base": null,
+			"name": "English"
+		},
+		{
+			"iso": "de",
+			"name": "Deutsch",
+			"base": "en"
+		},
+		{
+			"iso": "el",
+			"name": "Greek",
+			"base": "en"
+		}
+	],
+	"name": "The Castle - Translation demo",
+	"cover": {
+		"file": "cover.jpg",
+		"type": "template-image"
+	}
+}

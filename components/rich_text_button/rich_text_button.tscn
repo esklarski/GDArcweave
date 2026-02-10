@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://csj1155a8smth"]
+
+[ext_resource type="Script" uid="uid://faqxi5rd5vhk" path="res://components/rich_text_button/rich_text_button.gd" id="1_ionpu"]
+
+[node name="RichTextButton" type="PanelContainer"]
+offset_right = 63.0
+offset_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_ionpu")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

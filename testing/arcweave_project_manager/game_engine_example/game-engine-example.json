@@ -1,0 +1,1132 @@
+{
+	"startingElement": "5bb43181-eebd-40b8-9561-2e58223c6016",
+	"boards": {
+		"1c11fa2a-f76c-4be7-aac4-6bf92a63240f": {
+			"name": "Healer Dialogue",
+			"notes": [
+				"034133c4-42d2-45af-9db6-351eadfd5a1e",
+                "3701967c-5c90-4474-8838-39d634d1ebf7"
+			],
+			"jumpers": [
+                "49be178c-30a9-4160-b065-1a72e3626a65"
+			],
+			"branches": [
+                "bce80b17-0165-41a2-a29d-e814f6e9f110"
+			],
+			"elements": [
+				"540d5fc7-aa78-4b1a-8c11-bc2d4dc24ba9",
+				"ddc209cc-7832-4ff6-ae1f-4eea592d07d4",
+				"d852a577-bd1f-44cf-8187-77a86f97baef",
+				"e14fa106-d418-4935-ab44-0de013995605",
+				"a8965b1b-4841-427e-8cf5-d8eda2f59bf2",
+				"9c3607e5-4fb7-49db-ac8d-ccd7a1bf6d56",
+                "3893f5e9-d85e-4e5b-9423-e02ac03eb34f"
+			],
+			"connections": [
+				"57572c19-ca11-4223-bdb7-718971ef7951",
+				"90872a7c-0f63-472b-8330-a6b14d824aeb",
+				"9b1224a4-5546-4f81-96c7-a1865c618291",
+				"cb3312b7-33b5-43fa-97c9-4f0b7eced680",
+				"0879ddb5-e1a2-4b95-a28c-d4df8df845e9",
+				"bc517d71-2899-4d3c-9c92-e72ca2b00174",
+				"cff4ab38-b38b-4aca-981e-c1e04561421b",
+				"993d8d9a-ff84-48eb-b531-7b9b2d37cb91",
+				"c6932ce2-0e49-4f25-8595-6432208338c2",
+                "008e74f9-5c23-4111-838e-44b4121db526"
+			]
+		},
+		"2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+			"name": "Root",
+			"root": true,
+			"children": [
+				"449db8e2-4a21-4a73-aece-f0435e7319fb",
+                "733b1cc4-6d51-4ad6-9fba-444b4f2d98f3"
+			]
+		},
+		"449db8e2-4a21-4a73-aece-f0435e7319fb": {
+			"name": "Starting Board",
+			"notes": [
+				"efda66b1-9841-4a02-a4d2-0d782430726b",
+                "43cf8efd-f69f-421b-b65e-227b0b29a37f"
+			],
+			"jumpers": [
+				"2480e3fc-bfe3-49a6-a32d-a5ea4c9c5a22",
+                "ae78f3a6-dea3-45a5-935f-bbb45825043e"
+			],
+			"branches": [],
+			"customId": "starting_dialogue_elements",
+			"elements": [
+				"9cde645d-6e9e-492b-9103-a65b60dcfd9a",
+				"e7204f2d-842a-4ab4-8aa6-349e441e4935",
+                "5bb43181-eebd-40b8-9561-2e58223c6016"
+			],
+			"connections": [
+				"da4e52f1-34f6-4cd8-90de-abf7c24c648a",
+				"27fb996a-efe4-45fd-adae-7e63827b2ce5",
+				"d6934b95-7e92-4323-bdd5-35d6a70683fa",
+                "a89eea4c-0498-419e-9b21-1ce8ddd706bf"
+			]
+		},
+		"733b1cc4-6d51-4ad6-9fba-444b4f2d98f3": {
+			"name": "Dialogues",
+			"children": [
+				"ef8116b9-c38d-473d-9c0a-600bc37a010d",
+                "1c11fa2a-f76c-4be7-aac4-6bf92a63240f"
+			]
+		},
+		"ef8116b9-c38d-473d-9c0a-600bc37a010d": {
+			"name": "Wanda Dialogue",
+			"notes": [
+				"d974242a-a65d-4bd6-8670-24c6b02a487f",
+                "94049948-836b-436d-9105-61a87595fb35"
+			],
+			"jumpers": [
+				"7a7524ef-e636-4baa-99ae-582efdd902b0",
+				"d7f26011-d6d6-4c92-aa3b-3a074ff647aa",
+				"28e3009a-e164-4679-92c3-977615b1eb4b",
+                "895bcae0-a11a-4d57-8cdc-82d8f95f75a6"
+			],
+			"branches": [
+				"0d845415-33d5-4486-9514-32b88e17e6b2",
+				"b16dc6eb-d3f3-40da-b00a-3c71b17ed257",
+				"5d6f37af-3b82-484b-a3c9-5802db1c575f",
+                "c995129b-2d4e-4c01-8f3d-ad66914ee2a1"
+			],
+			"elements": [
+				"dbbbec36-4a9c-4cad-8533-c9f421a5093d",
+				"5265ceac-f13f-47fc-a02c-6eda7eea6b90",
+				"50ba3de5-f14b-4703-9e2e-c0b2ccb9d407",
+				"63bee155-1348-4b82-a52d-24c96143c9db",
+				"045ab2b6-6d77-43f7-a7b4-e275f41667c3",
+				"4d7d2516-68e0-450c-a580-65c0b2616965",
+				"62d0eaea-ccd4-4020-8bf9-7b00c7397684",
+				"a690068b-49db-44ee-94ca-ebf4627c8141",
+				"61b54b64-7376-4b5e-ae0d-cc1b390e16b7",
+                "be67a949-dd00-4460-98c9-45067f0d331f"
+			],
+			"connections": [
+				"8a89cabd-7542-48db-b501-3c0019145989",
+				"6cb7b540-1bb4-4eac-88ae-bfd8e7703013",
+				"62a9e84c-9652-4636-a796-73a75488bb79",
+				"2b9d43d7-6eee-42d0-82ae-dcd08a897130",
+				"9327955d-269b-4c52-8c93-3172f7b4f721",
+				"325f3cda-c786-4259-b95b-e09a399c58fd",
+				"55f77cc3-8c0f-4ff5-b020-2098736aef4d",
+				"3b190ec6-1525-484f-aa4f-5422ff176288",
+				"02dfbe78-ae86-4525-8af9-51a54d58193b",
+				"b7c621dc-9c04-4e58-b59a-395521ecb171",
+				"e2c7e296-ab05-49f8-9247-e9a3b33dd6e9",
+				"929b7bfd-ff9a-471f-ba1b-a5ace253c5f4",
+				"4a58bb7e-43b4-4cc9-9a84-9c05618ad8ac",
+				"a8cf1f72-a10e-44ca-b026-86895f7bcc40",
+				"4fd2cc78-c8ff-48fd-bcbc-b0e8c42f857d",
+				"60df4786-8a65-46ee-a3e9-1df36a5e1f39",
+				"d334c938-ed9e-4869-8307-1dc3a2a1149f",
+                "542a8cf5-54fe-42ea-8b23-694dee1106da"
+			]
+		}
+	},
+	"notes": {
+		"034133c4-42d2-45af-9db6-351eadfd5a1e": {
+			"theme": "cyan",
+			"content": "<p>We've given dialogue starting elements a custom element attribute:<\/p><p><strong>tag: dialogue_start<\/strong><\/p><p>This way, the game engine knows where to look for each NPC's dialogue start.<\/p><p><em>We've used this solution in the Unreal Engine demo game.<\/em><\/p><p>Right click the element and choose \"Properties,\" to see it.<\/p>"
+		},
+		"3701967c-5c90-4474-8838-39d634d1ebf7": {
+			"theme": "cyan",
+			"content": "<p>Just as with dialogue starts, we've given <strong>dialogue ending elements<\/strong> a custom element attribute:<\/p><p><strong>tag: dialogue_end<\/strong><\/p><p>This way, the game engine knows not to follow the [Back] connections, which are for Arcweave's Play Mode playability only.<\/p><p>Right click these elements and choose \"Properties,\" to see the tag attribute.<\/p>"
+		},
+		"43cf8efd-f69f-421b-b65e-227b0b29a37f": {
+			"theme": "pink",
+			"content": "<p>These are the elements that the game engine must look for:<\/p><p>1. They are in the <strong>Starting Board<\/strong> (which has custom id: <strong>starting_dialogue_elements<\/strong>\u2014see board's properties).<strong><br><\/strong>2. They have the relevant NPC's <strong>character component<\/strong> attached.<\/p><p><em>We are using this solution in the Godot &amp; Unity demo games.<\/em><\/p>"
+		},
+		"94049948-836b-436d-9105-61a87595fb35": {
+			"theme": "moss",
+			"content": "<p>Just as with dialogue starts, we've given <strong>dialogue ending elements<\/strong> a custom element attribute:<\/p><p><strong>tag: dialogue_end<\/strong><\/p><p>This way, the game engine knows not to follow the [Back] connections, which are for Arcweave's Play Mode playability only.<\/p><p>Right click these elements and choose \"Properties,\" to see the tag attribute.<\/p>"
+		},
+		"d974242a-a65d-4bd6-8670-24c6b02a487f": {
+			"theme": "cyan",
+			"content": "<p>We've given dialogue starting elements a custom element attribute:<\/p><p><strong>tag: dialogue_start<\/strong><\/p><p>This way, the game engine knows where to look for each NPC's dialogue start.<\/p><p><em>We've used this solution in the Unreal Engine demo game.<\/em><\/p><p>Right click the element and choose \"Properties,\" to see it.<\/p>"
+		},
+		"efda66b1-9841-4a02-a4d2-0d782430726b": {
+			"theme": "blue",
+			"content": "<p>This is the starting element for Arcweave's Play Mode. The game engine should ignore this.<\/p>"
+		}
+	},
+	"elements": {
+		"045ab2b6-6d77-43f7-a7b4-e275f41667c3": {
+			"theme": "moss",
+			"outputs": [
+                "9327955d-269b-4c52-8c93-3172f7b4f721"
+			],
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			],
+			"content": "<pre><code>wanda_health += 50<\/code><\/pre><pre><code>have_potion = false<\/code><\/pre><p><em>[Wanda gulps down the potion.]<\/em><\/p>",
+			"title": "<p>Giving healing potion<\/p>"
+		},
+		"3893f5e9-d85e-4e5b-9423-e02ac03eb34f": {
+			"theme": "brown",
+			"outputs": [
+                "008e74f9-5c23-4111-838e-44b4121db526"
+			],
+			"attributes": [
+                "4adffe26-5221-4dcd-b611-80f372469a13"
+			],
+			"components": [
+                "82820a96-708d-4a05-b2aa-21e8d582d5de"
+			],
+			"content": "<p>No worries. Don't be a stranger.<\/p>",
+			"title": "<p>wrong turn no worries<\/p>"
+		},
+		"4d7d2516-68e0-450c-a580-65c0b2616965": {
+			"theme": "gold",
+			"outputs": [
+                "542a8cf5-54fe-42ea-8b23-694dee1106da"
+			],
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			],
+			"content": "<p>The healer.... potion....<\/p>",
+			"title": "<p>No potion to give<\/p>"
+		},
+		"50ba3de5-f14b-4703-9e2e-c0b2ccb9d407": {
+			"theme": "gold",
+			"outputs": [
+                "325f3cda-c786-4259-b95b-e09a399c58fd"
+			],
+			"attributes": [
+                "1ac75bb2-05e9-46e4-8278-74550fb55f1d"
+			],
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			],
+			"content": "<p>Please... Be quick...<\/p>",
+			"title": "<p>Please, quickly<\/p>"
+		},
+		"5265ceac-f13f-47fc-a02c-6eda7eea6b90": {
+			"theme": "cyan",
+			"outputs": [
+				"8a89cabd-7542-48db-b501-3c0019145989",
+				"02dfbe78-ae86-4525-8af9-51a54d58193b",
+                "4a58bb7e-43b4-4cc9-9a84-9c05618ad8ac"
+			],
+			"attributes": [
+                "11006864-6f66-4c2c-a3b7-d3fae8febc42"
+			],
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			],
+			"content": "<pre><code>if wanda_health < 40<\/code><\/pre><p>Help me, Stranger.... I am wounded...<\/p><pre><code>else<\/code><\/pre><p>Thank you for saving my life!<\/p><pre><code>endif<\/code><\/pre>",
+			"title": "<p>Start<\/p>"
+		},
+		"540d5fc7-aa78-4b1a-8c11-bc2d4dc24ba9": {
+			"theme": "moss",
+			"outputs": [
+                "90872a7c-0f63-472b-8330-a6b14d824aeb"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>There's a girl by the road in grave danger. Do you have anything to heal her?<\/p>",
+			"title": "<p>Ask for help (successfully)<\/p>"
+		},
+		"5bb43181-eebd-40b8-9561-2e58223c6016": {
+			"theme": "blue",
+			"outputs": [
+				"d6934b95-7e92-4323-bdd5-35d6a70683fa",
+                "a89eea4c-0498-419e-9b21-1ce8ddd706bf"
+			],
+			"components": [],
+			"content": "<p><strong>Setting<\/strong>:<br>\u2022 a forest<\/p><p><strong>Player<\/strong>:<br>\u2022 <span class=\"mention-component mention\" data-id=\"3846c37c-07a1-4c04-98e2-26cd026295d1\" data-label=\"Drake Miles\" data-type=\"component\">Drake Miles<\/span><\/p><p><strong>NPCs<\/strong>:<br>\u2022 <span class=\"mention-component mention\" data-id=\"647349ca-9ebb-4d5f-b81e-500761ec1c5a\" data-label=\"Wanda Elandor\" data-type=\"component\">Wanda Elandor<\/span><br>\u2022 <span class=\"mention-component mention\" data-id=\"82820a96-708d-4a05-b2aa-21e8d582d5de\" data-label=\"Healer\" data-type=\"component\">Healer<\/span><\/p>",
+			"title": "<p>Play Mode Start<\/p>"
+		},
+		"61b54b64-7376-4b5e-ae0d-cc1b390e16b7": {
+			"theme": "gold",
+			"outputs": [
+                "4fd2cc78-c8ff-48fd-bcbc-b0e8c42f857d"
+			],
+			"attributes": [],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>Hang on. I'll be back with help!<\/p>",
+			"title": "<p>I'll be back<\/p>"
+		},
+		"62d0eaea-ccd4-4020-8bf9-7b00c7397684": {
+			"theme": "moss",
+			"outputs": [
+                "3b190ec6-1525-484f-aa4f-5422ff176288"
+			],
+			"attributes": [
+                "978e009a-3a8d-4c7a-b669-d2a3b50c1fa8"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>I'm glad I helped.<\/p>",
+			"title": "<p>Helped successfully<\/p>"
+		},
+		"63bee155-1348-4b82-a52d-24c96143c9db": {
+			"theme": "gold",
+			"outputs": [
+				"62a9e84c-9652-4636-a796-73a75488bb79",
+                "60df4786-8a65-46ee-a3e9-1df36a5e1f39"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>[She looks weak... What should I do?]<\/p>",
+			"title": "<p>Health bad<\/p>"
+		},
+		"9c3607e5-4fb7-49db-ac8d-ccd7a1bf6d56": {
+			"theme": "brown",
+			"outputs": [
+                "c6932ce2-0e49-4f25-8595-6432208338c2"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>I'm sorry, I must have taken a wrong turn.<\/p>",
+			"title": "<p>oops wrong turn<\/p>"
+		},
+		"9cde645d-6e9e-492b-9103-a65b60dcfd9a": {
+			"theme": "pink",
+			"outputs": [
+                "da4e52f1-34f6-4cd8-90de-abf7c24c648a"
+			],
+			"components": [
+                "82820a96-708d-4a05-b2aa-21e8d582d5de"
+			],
+			"content": "<p><em>This element must not be rendered. It only points to the next element (via jumper), where the dialogue begins.<\/em><\/p>",
+			"title": "<p><span class=\"mention-component mention\" data-id=\"82820a96-708d-4a05-b2aa-21e8d582d5de\" data-label=\"Healer\" data-type=\"component\">Healer<\/span> starting element<\/p>"
+		},
+		"a690068b-49db-44ee-94ca-ebf4627c8141": {
+			"theme": "moss",
+			"outputs": [
+                "929b7bfd-ff9a-471f-ba1b-a5ace253c5f4"
+			],
+			"attributes": [
+                "8db5417a-26ff-4c99-b8de-f7e3f911608b"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>[She's strong now.]<\/p>",
+			"title": "<p>Health good<\/p>"
+		},
+		"a8965b1b-4841-427e-8cf5-d8eda2f59bf2": {
+			"theme": "brown",
+			"outputs": [
+                "cff4ab38-b38b-4aca-981e-c1e04561421b"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>Hi again. Could you perhaps give me another potion?<\/p>",
+			"title": "<p>Ask for another potion<\/p>"
+		},
+		"be67a949-dd00-4460-98c9-45067f0d331f": {
+			"theme": "gold",
+			"outputs": [
+                "d334c938-ed9e-4869-8307-1dc3a2a1149f"
+			],
+			"components": [
+                "3846c37c-07a1-4c04-98e2-26cd026295d1"
+			],
+			"content": "<p>I don't know what to do!<\/p>",
+			"title": "<p>Don't know what to do<\/p>"
+		},
+		"d852a577-bd1f-44cf-8187-77a86f97baef": {
+			"theme": "moss",
+			"outputs": [
+                "9b1224a4-5546-4f81-96c7-a1865c618291"
+			],
+			"attributes": [
+                "45a15656-47e5-463a-a3ed-c508965e6010"
+			],
+			"components": [
+                "82820a96-708d-4a05-b2aa-21e8d582d5de"
+			],
+			"content": "<pre><code>have_potion = true<\/code><\/pre><p>Oh my! But of course! Here, take this healing potion.<\/p>",
+			"title": "<p>Get potion<\/p>"
+		},
+		"dbbbec36-4a9c-4cad-8533-c9f421a5093d": {
+			"theme": "moss",
+			"outputs": [
+                "55f77cc3-8c0f-4ff5-b020-2098736aef4d"
+			],
+			"attributes": [
+                "9cd31ce5-e6b2-4723-9b67-7c2a051b6a6a"
+			],
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			],
+			"content": "<p>Thank you, stranger! I feel better already.<\/p>",
+			"title": "<p>Got healing potion<\/p>"
+		},
+		"ddc209cc-7832-4ff6-ae1f-4eea592d07d4": {
+			"theme": "cyan",
+			"outputs": [
+				"0879ddb5-e1a2-4b95-a28c-d4df8df845e9",
+                "993d8d9a-ff84-48eb-b531-7b9b2d37cb91"
+			],
+			"attributes": [
+                "955b9b0d-372a-45d9-a68f-33ddfebf2bf6"
+			],
+			"components": [
+                "82820a96-708d-4a05-b2aa-21e8d582d5de"
+			],
+			"content": "<p>Greetings traveller, may I help you?<\/p>",
+			"title": "<p>Start<\/p>"
+		},
+		"e14fa106-d418-4935-ab44-0de013995605": {
+			"theme": "brown",
+			"outputs": [
+                "cb3312b7-33b5-43fa-97c9-4f0b7eced680"
+			],
+			"attributes": [
+                "ce8c0b5f-c6bc-410f-8f23-7831c2f5a4c4"
+			],
+			"components": [
+                "82820a96-708d-4a05-b2aa-21e8d582d5de"
+			],
+			"content": "<p>I only had one vial of it, I'm afraid.<\/p>",
+			"title": "<p>Ask for help (already have)<\/p>"
+		},
+		"e7204f2d-842a-4ab4-8aa6-349e441e4935": {
+			"theme": "pink",
+			"outputs": [
+                "27fb996a-efe4-45fd-adae-7e63827b2ce5"
+			],
+			"components": [
+                "647349ca-9ebb-4d5f-b81e-500761ec1c5a"
+			],
+			"content": "<p><em>This element must not be rendered. It only points to the next element (via jumper), where the dialogue begins.<\/em><\/p>",
+			"title": "<p><span class=\"mention-component mention\" data-id=\"647349ca-9ebb-4d5f-b81e-500761ec1c5a\" data-label=\"Wanda Elandor\" data-type=\"component\">Wanda Elandor<\/span> starting element<\/p>"
+		}
+	},
+	"jumpers": {
+		"2480e3fc-bfe3-49a6-a32d-a5ea4c9c5a22": {
+			"elementId": "5265ceac-f13f-47fc-a02c-6eda7eea6b90"
+		},
+		"28e3009a-e164-4679-92c3-977615b1eb4b": {
+			"elementId": "5bb43181-eebd-40b8-9561-2e58223c6016"
+		},
+		"49be178c-30a9-4160-b065-1a72e3626a65": {
+			"elementId": "5bb43181-eebd-40b8-9561-2e58223c6016"
+		},
+		"7a7524ef-e636-4baa-99ae-582efdd902b0": {
+			"elementId": "5bb43181-eebd-40b8-9561-2e58223c6016"
+		},
+		"895bcae0-a11a-4d57-8cdc-82d8f95f75a6": {
+			"elementId": "61b54b64-7376-4b5e-ae0d-cc1b390e16b7"
+		},
+		"ae78f3a6-dea3-45a5-935f-bbb45825043e": {
+			"elementId": "ddc209cc-7832-4ff6-ae1f-4eea592d07d4"
+		},
+		"d7f26011-d6d6-4c92-aa3b-3a074ff647aa": {
+			"elementId": "5bb43181-eebd-40b8-9561-2e58223c6016"
+		}
+	},
+	"connections": {
+		"008e74f9-5c23-4111-838e-44b4121db526": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "3893f5e9-d85e-4e5b-9423-e02ac03eb34f",
+			"targetid": "49be178c-30a9-4160-b065-1a72e3626a65",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"02dfbe78-ae86-4525-8af9-51a54d58193b": {
+			"type": "Straight",
+			"theme": "default",
+			"sourceid": "5265ceac-f13f-47fc-a02c-6eda7eea6b90",
+			"targetid": "5d6f37af-3b82-484b-a3c9-5802db1c575f",
+			"sourceType": "elements",
+			"targetType": "branches",
+			"label": "<p>Examine her.<\/p>"
+		},
+		"0879ddb5-e1a2-4b95-a28c-d4df8df845e9": {
+			"type": "Straight",
+			"theme": "default",
+			"sourceid": "ddc209cc-7832-4ff6-ae1f-4eea592d07d4",
+			"targetid": "bce80b17-0165-41a2-a29d-e814f6e9f110",
+			"sourceType": "elements",
+			"targetType": "branches",
+			"label": null
+		},
+		"27fb996a-efe4-45fd-adae-7e63827b2ce5": {
+			"type": "Straight",
+			"theme": "pink",
+			"sourceid": "e7204f2d-842a-4ab4-8aa6-349e441e4935",
+			"targetid": "2480e3fc-bfe3-49a6-a32d-a5ea4c9c5a22",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": null
+		},
+		"2b9d43d7-6eee-42d0-82ae-dcd08a897130": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "f8e12e95-43b7-4d42-9844-5402665b24ef",
+			"targetid": "62d0eaea-ccd4-4020-8bf9-7b00c7397684",
+			"sourceType": "conditions",
+			"targetType": "elements",
+			"label": null
+		},
+		"325f3cda-c786-4259-b95b-e09a399c58fd": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "50ba3de5-f14b-4703-9e2e-c0b2ccb9d407",
+			"targetid": "7a7524ef-e636-4baa-99ae-582efdd902b0",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"3b190ec6-1525-484f-aa4f-5422ff176288": {
+			"type": "Straight",
+			"theme": "default",
+			"sourceid": "62d0eaea-ccd4-4020-8bf9-7b00c7397684",
+			"targetid": "28e3009a-e164-4679-92c3-977615b1eb4b",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"4a58bb7e-43b4-4cc9-9a84-9c05618ad8ac": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "5265ceac-f13f-47fc-a02c-6eda7eea6b90",
+			"targetid": "c995129b-2d4e-4c01-8f3d-ad66914ee2a1",
+			"sourceFace": "right",
+			"sourceType": "elements",
+			"targetFace": "left",
+			"targetType": "branches",
+			"label": "<p>\"Hang on. I'll be back with help.\"<\/p>"
+		},
+		"4fd2cc78-c8ff-48fd-bcbc-b0e8c42f857d": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "61b54b64-7376-4b5e-ae0d-cc1b390e16b7",
+			"targetid": "50ba3de5-f14b-4703-9e2e-c0b2ccb9d407",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": null
+		},
+		"542a8cf5-54fe-42ea-8b23-694dee1106da": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "4d7d2516-68e0-450c-a580-65c0b2616965",
+			"targetid": "895bcae0-a11a-4d57-8cdc-82d8f95f75a6",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": null
+		},
+		"55f77cc3-8c0f-4ff5-b020-2098736aef4d": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "dbbbec36-4a9c-4cad-8533-c9f421a5093d",
+			"targetid": "d7f26011-d6d6-4c92-aa3b-3a074ff647aa",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"57572c19-ca11-4223-bdb7-718971ef7951": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "66acc3a7-454a-43db-a923-1b0d3cb17805",
+			"targetid": "540d5fc7-aa78-4b1a-8c11-bc2d4dc24ba9",
+			"sourceType": "conditions",
+			"targetFace": "left",
+			"targetType": "elements",
+			"label": "<p>Ask for help<\/p>"
+		},
+		"60df4786-8a65-46ee-a3e9-1df36a5e1f39": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "63bee155-1348-4b82-a52d-24c96143c9db",
+			"targetid": "be67a949-dd00-4460-98c9-45067f0d331f",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": "<p>\"I don't know what to do!\"<\/p>"
+		},
+		"62a9e84c-9652-4636-a796-73a75488bb79": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "63bee155-1348-4b82-a52d-24c96143c9db",
+			"targetid": "b16dc6eb-d3f3-40da-b00a-3c71b17ed257",
+			"sourceType": "elements",
+			"targetFace": "left",
+			"targetType": "branches",
+			"label": null
+		},
+		"6cb7b540-1bb4-4eac-88ae-bfd8e7703013": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "023d7f8c-413a-4643-8408-af6501c2cdff",
+			"targetid": "045ab2b6-6d77-43f7-a7b4-e275f41667c3",
+			"sourceType": "conditions",
+			"targetFace": "left",
+			"targetType": "elements",
+			"label": "<p>Give her the potion.<\/p>"
+		},
+		"8a89cabd-7542-48db-b501-3c0019145989": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "5265ceac-f13f-47fc-a02c-6eda7eea6b90",
+			"targetid": "0d845415-33d5-4486-9514-32b88e17e6b2",
+			"sourceType": "elements",
+			"targetFace": "left",
+			"targetType": "branches",
+			"label": "<p>\"I am glad I helped.\"<\/p>"
+		},
+		"90872a7c-0f63-472b-8330-a6b14d824aeb": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "540d5fc7-aa78-4b1a-8c11-bc2d4dc24ba9",
+			"targetid": "d852a577-bd1f-44cf-8187-77a86f97baef",
+			"sourceType": "elements",
+			"targetFace": "left",
+			"targetType": "elements",
+			"label": null
+		},
+		"929b7bfd-ff9a-471f-ba1b-a5ace253c5f4": {
+			"type": "Straight",
+			"theme": "default",
+			"sourceid": "a690068b-49db-44ee-94ca-ebf4627c8141",
+			"targetid": "28e3009a-e164-4679-92c3-977615b1eb4b",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"9327955d-269b-4c52-8c93-3172f7b4f721": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "045ab2b6-6d77-43f7-a7b4-e275f41667c3",
+			"targetid": "dbbbec36-4a9c-4cad-8533-c9f421a5093d",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": null
+		},
+		"993d8d9a-ff84-48eb-b531-7b9b2d37cb91": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "ddc209cc-7832-4ff6-ae1f-4eea592d07d4",
+			"targetid": "9c3607e5-4fb7-49db-ac8d-ccd7a1bf6d56",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": "<p>\"I'm sorry, wrong turn.\"<\/p>"
+		},
+		"9b1224a4-5546-4f81-96c7-a1865c618291": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "d852a577-bd1f-44cf-8187-77a86f97baef",
+			"targetid": "49be178c-30a9-4160-b065-1a72e3626a65",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"a89eea4c-0498-419e-9b21-1ce8ddd706bf": {
+			"type": "Bezier",
+			"theme": "blue",
+			"sourceid": "5bb43181-eebd-40b8-9561-2e58223c6016",
+			"targetid": "ae78f3a6-dea3-45a5-935f-bbb45825043e",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>Go to <span class=\"mention-component mention\" data-id=\"82820a96-708d-4a05-b2aa-21e8d582d5de\" data-label=\"Healer\" data-type=\"component\">Healer<\/span>.<\/p>"
+		},
+		"a8cf1f72-a10e-44ca-b026-86895f7bcc40": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "462433eb-bc14-49df-af13-91c19e63b65c",
+			"targetid": "61b54b64-7376-4b5e-ae0d-cc1b390e16b7",
+			"sourceType": "conditions",
+			"targetType": "elements",
+			"label": null
+		},
+		"b7c621dc-9c04-4e58-b59a-395521ecb171": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "48d4095c-c6d2-4009-b68e-9ce92a61edd1",
+			"targetid": "63bee155-1348-4b82-a52d-24c96143c9db",
+			"sourceType": "conditions",
+			"targetFace": "left",
+			"targetType": "elements",
+			"label": null
+		},
+		"bc517d71-2899-4d3c-9c92-e72ca2b00174": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "d24a6cbe-85fb-4059-8867-fa8ba0af6aa0",
+			"targetid": "a8965b1b-4841-427e-8cf5-d8eda2f59bf2",
+			"sourceType": "conditions",
+			"targetType": "elements",
+			"label": "<p>\"Can you give me another potion?\"<\/p>"
+		},
+		"c6932ce2-0e49-4f25-8595-6432208338c2": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "9c3607e5-4fb7-49db-ac8d-ccd7a1bf6d56",
+			"targetid": "3893f5e9-d85e-4e5b-9423-e02ac03eb34f",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": null
+		},
+		"cb3312b7-33b5-43fa-97c9-4f0b7eced680": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "e14fa106-d418-4935-ab44-0de013995605",
+			"targetid": "49be178c-30a9-4160-b065-1a72e3626a65",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>[Back]<\/p>"
+		},
+		"cff4ab38-b38b-4aca-981e-c1e04561421b": {
+			"type": "Straight",
+			"theme": "brown",
+			"sourceid": "a8965b1b-4841-427e-8cf5-d8eda2f59bf2",
+			"targetid": "e14fa106-d418-4935-ab44-0de013995605",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": null
+		},
+		"d334c938-ed9e-4869-8307-1dc3a2a1149f": {
+			"type": "Straight",
+			"theme": "gold",
+			"sourceid": "be67a949-dd00-4460-98c9-45067f0d331f",
+			"targetid": "4d7d2516-68e0-450c-a580-65c0b2616965",
+			"sourceType": "elements",
+			"targetType": "elements",
+			"label": null
+		},
+		"d6934b95-7e92-4323-bdd5-35d6a70683fa": {
+			"type": "Bezier",
+			"theme": "blue",
+			"sourceid": "5bb43181-eebd-40b8-9561-2e58223c6016",
+			"targetid": "2480e3fc-bfe3-49a6-a32d-a5ea4c9c5a22",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": "<p>Go to <span class=\"mention-component mention\" data-id=\"647349ca-9ebb-4d5f-b81e-500761ec1c5a\" data-label=\"Wanda Elandor\" data-type=\"component\">Wanda Elandor<\/span>.<\/p>"
+		},
+		"da4e52f1-34f6-4cd8-90de-abf7c24c648a": {
+			"type": "Straight",
+			"theme": "pink",
+			"sourceid": "9cde645d-6e9e-492b-9103-a65b60dcfd9a",
+			"targetid": "ae78f3a6-dea3-45a5-935f-bbb45825043e",
+			"sourceType": "elements",
+			"targetType": "jumpers",
+			"label": null
+		},
+		"e2c7e296-ab05-49f8-9247-e9a3b33dd6e9": {
+			"type": "Straight",
+			"theme": "moss",
+			"sourceid": "d9854a9f-617f-4d0f-8ccf-42f2e0419c36",
+			"targetid": "a690068b-49db-44ee-94ca-ebf4627c8141",
+			"sourceType": "conditions",
+			"targetType": "elements",
+			"label": null
+		}
+	},
+	"branches": {
+		"0d845415-33d5-4486-9514-32b88e17e6b2": {
+			"theme": "moss",
+			"conditions": {
+				"ifCondition": "f8e12e95-43b7-4d42-9844-5402665b24ef"
+			}
+		},
+		"5d6f37af-3b82-484b-a3c9-5802db1c575f": {
+			"theme": "default",
+			"conditions": {
+				"ifCondition": "d9854a9f-617f-4d0f-8ccf-42f2e0419c36",
+				"elseCondition": "48d4095c-c6d2-4009-b68e-9ce92a61edd1"
+			}
+		},
+		"b16dc6eb-d3f3-40da-b00a-3c71b17ed257": {
+			"theme": "moss",
+			"conditions": {
+				"ifCondition": "023d7f8c-413a-4643-8408-af6501c2cdff"
+			}
+		},
+		"bce80b17-0165-41a2-a29d-e814f6e9f110": {
+			"theme": "default",
+			"conditions": {
+				"ifCondition": "66acc3a7-454a-43db-a923-1b0d3cb17805",
+				"elseCondition": "d24a6cbe-85fb-4059-8867-fa8ba0af6aa0"
+			}
+		},
+		"c995129b-2d4e-4c01-8f3d-ad66914ee2a1": {
+			"theme": "gold",
+			"conditions": {
+				"ifCondition": "462433eb-bc14-49df-af13-91c19e63b65c"
+			}
+		}
+	},
+	"components": {
+		"036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
+			"children": [
+				"3846c37c-07a1-4c04-98e2-26cd026295d1",
+				"647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+                "82820a96-708d-4a05-b2aa-21e8d582d5de"
+			],
+			"name": "Characters"
+		},
+		"3846c37c-07a1-4c04-98e2-26cd026295d1": {
+			"assets": {
+				"cover": {
+					"id": "190e9e72-32e9-4c51-adbb-dbad343134fc"
+				}
+			},
+			"attributes": [
+				"9d863621-49d6-4f34-a893-20dd24645345",
+				"5f504b6a-8dfd-4a32-b1b2-e45cb1772e8a",
+                "22780ff3-64a2-40e8-a2e4-e753809c020a"
+			],
+			"name": "Drake Miles"
+		},
+		"5feea546-dde8-4445-b8a1-29194c6ff0d5": {
+			"assets": {
+				"cover": {
+					"file": "delapouite\/sun-cloud",
+					"type": "icon"
+				}
+			},
+			"attributes": [
+				"8b411368-82b1-4166-a308-f2ffeed71a4e",
+				"50e58bbc-9084-4b14-81f1-173393835d5e",
+                "eac1cd3b-d6ad-41a1-b2cd-f1734e8c46e3"
+			],
+			"name": "Environment"
+		},
+		"647349ca-9ebb-4d5f-b81e-500761ec1c5a": {
+			"assets": {
+				"cover": {
+					"id": "fd70f4a4-578f-442f-9e5c-78872289818f"
+				}
+			},
+			"attributes": [
+				"a15b1c0d-c674-4b42-99a2-659d9bfcc049",
+				"4804bbd8-32c0-4c5e-8905-35c17f0b948f",
+                "3701ac1c-4d2d-4418-8ab6-4b773cfe98d9"
+			],
+			"name": "Wanda Elandor"
+		},
+		"65005bda-15d0-41c5-867f-68c118829f08": {
+			"root": true,
+			"children": [
+				"036db898-0cb9-4a29-b19d-3e8f3288d9a2",
+                "e175e706-97ec-42a8-8791-7855b29396e7"
+			],
+			"name": "Root"
+		},
+		"82820a96-708d-4a05-b2aa-21e8d582d5de": {
+			"assets": {
+				"cover": {
+					"id": "4de16200-4175-4aff-b753-3d40ff849289"
+				}
+			},
+			"attributes": [
+				"b36b6cc2-7dab-4582-b420-7e470ceb90d4",
+				"96cefbf8-2c24-424c-9538-3533e52d38c6",
+                "5efdbbc2-5a4d-4fb9-bb9b-994e1b4bb35c"
+			],
+			"name": "Healer"
+		},
+		"e175e706-97ec-42a8-8791-7855b29396e7": {
+			"children": [
+                "5feea546-dde8-4445-b8a1-29194c6ff0d5"
+			],
+			"name": "Environment"
+		}
+	},
+	"attributes": {
+		"11006864-6f66-4c2c-a3b7-d3fae8febc42": {
+			"cId": "5265ceac-f13f-47fc-a02c-6eda7eea6b90",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_start",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"1ac75bb2-05e9-46e4-8278-74550fb55f1d": {
+			"cId": "50ba3de5-f14b-4703-9e2e-c0b2ccb9d407",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"22780ff3-64a2-40e8-a2e4-e753809c020a": {
+			"cId": "3846c37c-07a1-4c04-98e2-26cd026295d1",
+			"name": "obj_id",
+			"cType": "components",
+			"value": {
+				"data": "DRAKE",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"3701ac1c-4d2d-4418-8ab6-4b773cfe98d9": {
+			"cId": "647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+			"name": "obj_id",
+			"cType": "components",
+			"value": {
+				"data": "WANDA",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"45a15656-47e5-463a-a3ed-c508965e6010": {
+			"cId": "d852a577-bd1f-44cf-8187-77a86f97baef",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"4804bbd8-32c0-4c5e-8905-35c17f0b948f": {
+			"cId": "647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+			"name": "Race",
+			"cType": "components",
+			"value": {
+				"data": "<p>Half-elf<\/p>",
+				"type": "string"
+			}
+		},
+		"4adffe26-5221-4dcd-b611-80f372469a13": {
+			"cId": "3893f5e9-d85e-4e5b-9423-e02ac03eb34f",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"50e58bbc-9084-4b14-81f1-173393835d5e": {
+			"cId": "5feea546-dde8-4445-b8a1-29194c6ff0d5",
+			"name": "Weather",
+			"cType": "components",
+			"value": {
+				"data": "Clear",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"5efdbbc2-5a4d-4fb9-bb9b-994e1b4bb35c": {
+			"cId": "82820a96-708d-4a05-b2aa-21e8d582d5de",
+			"name": "obj_id",
+			"cType": "components",
+			"value": {
+				"data": "HEALER",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"5f504b6a-8dfd-4a32-b1b2-e45cb1772e8a": {
+			"cId": "3846c37c-07a1-4c04-98e2-26cd026295d1",
+			"name": "Race",
+			"cType": "components",
+			"value": {
+				"data": "Human",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"8b411368-82b1-4166-a308-f2ffeed71a4e": {
+			"cId": "5feea546-dde8-4445-b8a1-29194c6ff0d5",
+			"name": "Time",
+			"cType": "components",
+			"value": {
+				"data": "Day",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"8db5417a-26ff-4c99-b8de-f7e3f911608b": {
+			"cId": "a690068b-49db-44ee-94ca-ebf4627c8141",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"955b9b0d-372a-45d9-a68f-33ddfebf2bf6": {
+			"cId": "ddc209cc-7832-4ff6-ae1f-4eea592d07d4",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_start",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"96cefbf8-2c24-424c-9538-3533e52d38c6": {
+			"cId": "82820a96-708d-4a05-b2aa-21e8d582d5de",
+			"name": "Race",
+			"cType": "components",
+			"value": {
+				"data": "Human",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"978e009a-3a8d-4c7a-b669-d2a3b50c1fa8": {
+			"cId": "62d0eaea-ccd4-4020-8bf9-7b00c7397684",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"9cd31ce5-e6b2-4723-9b67-7c2a051b6a6a": {
+			"cId": "dbbbec36-4a9c-4cad-8533-c9f421a5093d",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"9d863621-49d6-4f34-a893-20dd24645345": {
+			"cId": "3846c37c-07a1-4c04-98e2-26cd026295d1",
+			"name": "Color",
+			"cType": "components",
+			"value": {
+				"data": "Brown",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"a15b1c0d-c674-4b42-99a2-659d9bfcc049": {
+			"cId": "647349ca-9ebb-4d5f-b81e-500761ec1c5a",
+			"name": "Color",
+			"cType": "components",
+			"value": {
+				"data": "Blue",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"b36b6cc2-7dab-4582-b420-7e470ceb90d4": {
+			"cId": "82820a96-708d-4a05-b2aa-21e8d582d5de",
+			"name": "Color",
+			"cType": "components",
+			"value": {
+				"data": "Red",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"ce8c0b5f-c6bc-410f-8f23-7831c2f5a4c4": {
+			"cId": "e14fa106-d418-4935-ab44-0de013995605",
+			"name": "tag",
+			"cType": "elements",
+			"value": {
+				"data": "dialogue_end",
+				"type": "string",
+				"plain": true
+			}
+		},
+		"eac1cd3b-d6ad-41a1-b2cd-f1734e8c46e3": {
+			"cId": "5feea546-dde8-4445-b8a1-29194c6ff0d5",
+			"name": "Acceptable Values",
+			"cType": "components",
+			"value": {
+				"data": "<p>Time: <strong>Day<\/strong> or <strong>Night<\/strong><\/p><p>Weather: <strong>Clear<\/strong> or <strong>Rain<\/strong><\/p>",
+				"type": "string"
+			}
+		}
+	},
+	"assets": {
+		"190e9e72-32e9-4c51-adbb-dbad343134fc": {
+			"name": "player.png",
+			"type": "template-image"
+		},
+		"4de16200-4175-4aff-b753-3d40ff849289": {
+			"name": "healer.png",
+			"type": "template-image"
+		},
+		"647d0495-341f-42b2-8788-b47dace22bf8": {
+			"root": true,
+			"children": [
+				"4de16200-4175-4aff-b753-3d40ff849289",
+				"190e9e72-32e9-4c51-adbb-dbad343134fc",
+                "fd70f4a4-578f-442f-9e5c-78872289818f"
+			]
+		},
+		"fd70f4a4-578f-442f-9e5c-78872289818f": {
+			"name": "wanda.png",
+			"type": "template-image"
+		}
+	},
+	"variables": {
+		"6e25dd6b-e976-4a80-afc5-5ce2cbcc8228": {
+			"name": "have_potion",
+			"type": "boolean",
+			"value": false
+		},
+		"747d0495-341f-42b2-8788-b47dace22bf8": {
+			"root": true,
+			"children": [
+				"990d6321-43cb-430b-84bd-6b48c574c489",
+				"ddee7af7-0fc3-474d-ad6a-4938a330506a",
+                "6e25dd6b-e976-4a80-afc5-5ce2cbcc8228"
+			]
+		},
+		"990d6321-43cb-430b-84bd-6b48c574c489": {
+			"name": "healer_health",
+			"type": "integer",
+			"value": 50
+		},
+		"ddee7af7-0fc3-474d-ad6a-4938a330506a": {
+			"name": "wanda_health",
+			"type": "integer",
+			"value": 20
+		}
+	},
+	"conditions": {
+		"023d7f8c-413a-4643-8408-af6501c2cdff": {
+			"output": "6cb7b540-1bb4-4eac-88ae-bfd8e7703013",
+			"script": "have_potion"
+		},
+		"462433eb-bc14-49df-af13-91c19e63b65c": {
+			"output": "a8cf1f72-a10e-44ca-b026-86895f7bcc40",
+			"script": "wanda_health &lt; 40"
+		},
+		"48d4095c-c6d2-4009-b68e-9ce92a61edd1": {
+			"output": "b7c621dc-9c04-4e58-b59a-395521ecb171",
+			"script": null
+		},
+		"66acc3a7-454a-43db-a923-1b0d3cb17805": {
+			"output": "57572c19-ca11-4223-bdb7-718971ef7951",
+			"script": "not visits(<span class=\"mention-element mention\" data-id=\"d852a577-bd1f-44cf-8187-77a86f97baef\" data-label=\"Get potion\" data-type=\"element\">get_potion<\/span>)"
+		},
+		"d24a6cbe-85fb-4059-8867-fa8ba0af6aa0": {
+			"output": "bc517d71-2899-4d3c-9c92-e72ca2b00174",
+			"script": null
+		},
+		"d9854a9f-617f-4d0f-8ccf-42f2e0419c36": {
+			"output": "e2c7e296-ab05-49f8-9247-e9a3b33dd6e9",
+			"script": "wanda_health &gt;= 40"
+		},
+		"f8e12e95-43b7-4d42-9844-5402665b24ef": {
+			"output": "2b9d43d7-6eee-42d0-82ae-dcd08a897130",
+			"script": "visits(<span class=\"mention-element mention\" data-id=\"045ab2b6-6d77-43f7-a7b4-e275f41667c3\" data-label=\"Giving healing potion\" data-type=\"element\">giving_healing_potion<\/span>)"
+		}
+	},
+	"name": "Game Engine Example",
+	"cover": {
+		"file": "game-engine-cover.png",
+		"type": "template-image"
+	}
+}

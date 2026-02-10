@@ -1,0 +1,149 @@
+{
+    "startingElement": "043d6db7-f23b-4eba-afd3-f8f2410d4bdc",
+    "boards": {
+        "2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+            "name": "Root",
+            "root": true,
+            "children": [
+                "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+            ]
+        },
+        "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+            "name": "Main Board",
+            "notes": [],
+            "jumpers": [
+                "b0b0baf5-f345-41d0-b030-cbf64002db45"
+            ],
+            "branches": [],
+            "elements": [
+                "043d6db7-f23b-4eba-afd3-f8f2410d4bdc",
+                "c79be109-52f3-456a-8ae1-7dae32d833f7",
+                "684f6c2a-1af7-4d62-8fbc-1374ca76c972"
+            ],
+            "connections": [
+                "6f0fcd01-bdcb-4a61-bf79-fc3f7f3359da",
+                "027ca872-88c4-46b1-bbf3-5e618f9e0785",
+                "3c643736-f0c6-4060-b9dd-56b6afe4944e"
+            ]
+        }
+    },
+    "notes": {},
+    "elements": {
+        "043d6db7-f23b-4eba-afd3-f8f2410d4bdc": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "6f0fcd01-bdcb-4a61-bf79-fc3f7f3359da"
+            ],
+            "content": "<p>This is the min() and max() test.<\/p>",
+            "title": "<p>Min Max Test<\/p>"
+        },
+        "c79be109-52f3-456a-8ae1-7dae32d833f7": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "027ca872-88c4-46b1-bbf3-5e618f9e0785"
+            ],
+            "content": "<p>Hello, the lowest number of 5,8,3,4 is <\/p><pre><code>show( min(5,8,3,4) )<\/code><\/pre><p>!<\/p><p><\/p><p>Isn't that nice?<\/p>",
+            "title": "<p>Min<\/p>"
+        },
+        "684f6c2a-1af7-4d62-8fbc-1374ca76c972": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "3c643736-f0c6-4060-b9dd-56b6afe4944e"
+            ],
+            "content": "<p>Hello, the highest number of 5,8,3,4 is <\/p><pre><code>show( max(5,8,3,4) )<\/code><\/pre><p>!<\/p><p><\/p><p>Isn't that nice?<\/p>",
+            "title": "<p>Max<\/p>"
+        }
+    },
+    "jumpers": {
+        "b0b0baf5-f345-41d0-b030-cbf64002db45": {
+            "elementId": "043d6db7-f23b-4eba-afd3-f8f2410d4bdc",
+            "align": {
+                "y": "center",
+                "x": "left"
+            },
+            "height": 86,
+            "width": 185
+        }
+    },
+    "connections": {
+        "027ca872-88c4-46b1-bbf3-5e618f9e0785": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "684f6c2a-1af7-4d62-8fbc-1374ca76c972",
+            "sourceid": "c79be109-52f3-456a-8ae1-7dae32d833f7",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "3c643736-f0c6-4060-b9dd-56b6afe4944e": {
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "targetid": "b0b0baf5-f345-41d0-b030-cbf64002db45",
+            "sourceid": "684f6c2a-1af7-4d62-8fbc-1374ca76c972",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "6f0fcd01-bdcb-4a61-bf79-fc3f7f3359da": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "c79be109-52f3-456a-8ae1-7dae32d833f7",
+            "sourceid": "043d6db7-f23b-4eba-afd3-f8f2410d4bdc",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        }
+    },
+    "branches": {},
+    "components": {
+        "65005bda-15d0-41c5-867f-68c118829f08": {
+            "root": true,
+            "children": [
+                "7e6c719b-5960-46ab-923a-808d4937a929"
+            ],
+            "name": "Root"
+        },
+        "7e6c719b-5960-46ab-923a-808d4937a929": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/button-finger",
+                    "type": "icon"
+                }
+            },
+            "attributes": [],
+            "name": "Testing"
+        }
+    },
+    "attributes": {},
+    "assets": {
+        "647d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": []
+        }
+    },
+    "variables": {
+        "2a7a1df1-8bef-4487-abbf-d61487f04f45": {
+            "name": "Dice_roll",
+            "type": "integer",
+            "value": 0
+        },
+        "747d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": [
+                "2a7a1df1-8bef-4487-abbf-d61487f04f45",
+                "23574100-5748-4720-a531-1709ce4a8254"
+            ]
+        },
+        "23574100-5748-4720-a531-1709ce4a8254": {
+            "type": "integer",
+            "name": "Hidden_Roll",
+            "value": 0
+        }
+    },
+    "conditions": {},
+    "name": "Test_Project",
+    "cover": null
+}

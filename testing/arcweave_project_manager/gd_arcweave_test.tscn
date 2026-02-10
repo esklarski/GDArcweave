@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxnnobqm2q1e2"]
+
+[ext_resource type="Script" uid="uid://dpaq1kqo5xxbh" path="res://testing/arcweave_project_manager/gd_arcweave_test.gd" id="1_6v3nc"]
+[ext_resource type="PackedScene" uid="uid://csj1155a8smth" path="res://components/rich_text_button/rich_text_button.tscn" id="2_r77rg"]
+
+[node name="GdArcweaveTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6v3nc")
+arcweave_project_json = "res://testing/arcweave_project_manager/the-castle.json/project_settings.json"
+option_button_scene = ExtResource("2_r77rg")
+
+[node name="TextContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="TextContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TextContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StoryText" type="RichTextLabel" parent="TextContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="ChoicesContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Choices" type="VBoxContainer" parent="ChoicesContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2

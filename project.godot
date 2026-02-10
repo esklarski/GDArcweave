@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GD_Arcweave"
+run/main_scene="uid://cxnnobqm2q1e2"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ArcweaveManager="*res://addons/gd_arcweave/arcweave_manager.gd"
+
+[dotnet]
+
+project/assembly_name="GD_Arcweave"
+
+[gui]
+
+theme/custom_font="uid://dnryee0f4h8bp"
+
+[rendering]
+
+renderer/rendering_method="mobile"

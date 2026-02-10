@@ -1,0 +1,249 @@
+{
+	"startingElement": "6c5de9cf-40b1-44dc-ad7d-6428b65b0795",
+	"boards": {
+		"2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+			"name": "Root",
+			"root": true,
+			"children": [
+                "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+			]
+		},
+		"630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+			"name": "Main Board",
+			"notes": [],
+			"jumpers": [
+                "f5bc97e6-fd05-4d29-8edd-929f9eec19df"
+			],
+			"branches": [],
+			"elements": [
+				"6c5de9cf-40b1-44dc-ad7d-6428b65b0795",
+                "30a2b34d-28fd-49f9-a275-4d61331622c4"
+			],
+			"connections": [
+				"c596ff1a-1613-4de3-8f8e-fc5252d3c15b",
+                "ad9c453c-28e9-476b-8188-5244572f1d74"
+			]
+		}
+	},
+	"notes": {},
+	"elements": {
+		"6c5de9cf-40b1-44dc-ad7d-6428b65b0795": {
+			"theme": "default",
+			"components": [],
+			"outputs": [
+                "c596ff1a-1613-4de3-8f8e-fc5252d3c15b"
+			],
+			"content": "<p>This is a component and attribute test. The next element should have a bunch of stuff.<\/p>",
+			"title": "<p>Attribute Test<\/p>"
+		},
+		"30a2b34d-28fd-49f9-a275-4d61331622c4": {
+			"theme": "default",
+			"components": [
+                "7e6c719b-5960-46ab-923a-808d4937a929"
+			],
+			"outputs": [
+                "ad9c453c-28e9-476b-8188-5244572f1d74"
+			],
+			"content": "<p>Check your debug log.<\/p>",
+			"title": ""
+		}
+	},
+	"jumpers": {
+		"f5bc97e6-fd05-4d29-8edd-929f9eec19df": {
+			"elementId": "6c5de9cf-40b1-44dc-ad7d-6428b65b0795",
+			"align": {
+				"y": "center",
+				"x": "left"
+			},
+			"height": 86,
+			"width": 185
+		}
+	},
+	"connections": {
+		"c596ff1a-1613-4de3-8f8e-fc5252d3c15b": {
+			"targetFace": "left",
+			"type": "Bezier",
+			"targetType": "elements",
+			"targetid": "30a2b34d-28fd-49f9-a275-4d61331622c4",
+			"sourceid": "6c5de9cf-40b1-44dc-ad7d-6428b65b0795",
+			"theme": "default",
+			"sourceType": "elements",
+			"label": "<p>Proceed<\/p>"
+		},
+		"ad9c453c-28e9-476b-8188-5244572f1d74": {
+			"type": "Bezier",
+			"targetType": "jumpers",
+			"targetid": "f5bc97e6-fd05-4d29-8edd-929f9eec19df",
+			"sourceid": "30a2b34d-28fd-49f9-a275-4d61331622c4",
+			"theme": "default",
+			"sourceType": "elements",
+			"label": null
+		}
+	},
+	"branches": {},
+	"components": {
+		"65005bda-15d0-41c5-867f-68c118829f08": {
+			"root": true,
+			"children": [
+				"c8878972-9360-43fc-89d3-c4592627cac8",
+				"33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+				"f2ac2730-9aad-43a1-821a-16ca11f4437d",
+                "7e6c719b-5960-46ab-923a-808d4937a929"
+			],
+			"name": "Root"
+		},
+		"7e6c719b-5960-46ab-923a-808d4937a929": {
+			"assets": {
+				"cover": {
+					"file": "delapouite\/button-finger",
+					"type": "icon"
+				}
+			},
+			"attributes": [
+				"6cca1543-6b0b-4e80-8797-797991d34454",
+				"9eda5800-309d-464b-be4b-0dc5a09b56fd",
+                "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81"
+			],
+			"name": "Testing"
+		},
+		"f2ac2730-9aad-43a1-821a-16ca11f4437d": {
+			"attributes": [
+				"f81e401d-d1df-4728-b68f-0fa524b59e1c",
+                "a08f7279-a64a-4172-8c2a-ee7a8ef56692"
+			],
+			"assets": {
+				"cover": {
+					"type": "icon",
+					"file": "carl-olsen\/mite-alt"
+				}
+			},
+			"name": "Sub Component"
+		},
+		"33bcf1f2-bc39-4f3a-9c3d-e5366242b825": {
+			"attributes": [
+                "4ba7b4c1-1fae-4031-b2b2-881c548acbb6"
+			],
+			"assets": {
+				"cover": {
+					"type": "icon",
+					"file": "delapouite\/dolphin"
+				}
+			},
+			"name": "Sub Sub Component 1"
+		},
+		"c8878972-9360-43fc-89d3-c4592627cac8": {
+			"attributes": [
+                "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191"
+			],
+			"assets": {
+				"cover": {
+					"type": "icon",
+					"file": "delapouite\/tomahawk"
+				}
+			},
+			"name": "Sub Sub Component 2"
+		}
+	},
+	"attributes": {
+		"6cca1543-6b0b-4e80-8797-797991d34454": {
+			"name": "name",
+			"cType": "components",
+			"value": {
+				"plain": true,
+				"type": "string",
+				"data": "Bob"
+			},
+			"cId": "7e6c719b-5960-46ab-923a-808d4937a929"
+		},
+		"9eda5800-309d-464b-be4b-0dc5a09b56fd": {
+			"name": "rich_name",
+			"cType": "components",
+			"value": {
+				"data": "<p>Bob\ud83e\udd73<\/p>",
+				"type": "string"
+			},
+			"cId": "7e6c719b-5960-46ab-923a-808d4937a929"
+		},
+		"f81e401d-d1df-4728-b68f-0fa524b59e1c": {
+			"name": "name",
+			"cType": "components",
+			"value": {
+				"plain": true,
+				"type": "string",
+				"data": "Susan"
+			},
+			"cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+		},
+		"caa7460e-dd6f-4a2f-b660-e49c7bdbfb81": {
+			"name": "sub components",
+			"cType": "components",
+			"value": {
+				"data": [
+                    "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+				],
+				"type": "component-list"
+			},
+			"cId": "7e6c719b-5960-46ab-923a-808d4937a929"
+		},
+		"4ba7b4c1-1fae-4031-b2b2-881c548acbb6": {
+			"name": "name",
+			"cType": "components",
+			"value": {
+				"plain": true,
+				"type": "string",
+				"data": "Stringy"
+			},
+			"cId": "33bcf1f2-bc39-4f3a-9c3d-e5366242b825"
+		},
+		"0f0f6644-86a0-4bfa-8fb5-ad61a90ac191": {
+			"name": "name",
+			"cType": "components",
+			"value": {
+				"plain": true,
+				"type": "string",
+				"data": "Thingy"
+			},
+			"cId": "c8878972-9360-43fc-89d3-c4592627cac8"
+		},
+		"a08f7279-a64a-4172-8c2a-ee7a8ef56692": {
+			"name": "sub sub components",
+			"cType": "components",
+			"value": {
+				"data": [
+					"33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                    "c8878972-9360-43fc-89d3-c4592627cac8"
+				],
+				"type": "component-list"
+			},
+			"cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+		}
+	},
+	"assets": {
+		"647d0495-341f-42b2-8788-b47dace22bf8": {
+			"root": true,
+			"children": []
+		}
+	},
+	"variables": {
+		"2a7a1df1-8bef-4487-abbf-d61487f04f45": {
+			"name": "Dice_roll",
+			"type": "integer",
+			"value": 0
+		},
+		"747d0495-341f-42b2-8788-b47dace22bf8": {
+			"root": true,
+			"children": [
+				"2a7a1df1-8bef-4487-abbf-d61487f04f45",
+                "23574100-5748-4720-a531-1709ce4a8254"
+			]
+		},
+		"23574100-5748-4720-a531-1709ce4a8254": {
+			"type": "integer",
+			"name": "Hidden_Roll",
+			"value": 0
+		}
+	},
+	"conditions": {},
+	"name": "Test_Project",
+	"cover": null
+}
