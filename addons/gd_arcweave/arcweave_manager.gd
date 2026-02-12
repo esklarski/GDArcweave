@@ -482,8 +482,8 @@ func get_all_elements() -> Dictionary:
 
 
 ## Get all boards
-func get_all_boards() -> Dictionary:
-	return project.boards
+func get_all_boards() -> Array[ArcweaveBoard]:
+	return project.boards.values()
 
 
 ## Get elements on a specific board
