@@ -2,6 +2,7 @@ extends Control
 
 
 @export_file_path("*.json") var arcweave_project_json: String
+@export var custom_start_id: String = ""
 @export var option_button_scene: PackedScene
 @export var randomize_locale: bool = false
 
@@ -14,7 +15,7 @@ func _ready():
 	
 	# Load and start
 	if ArcweaveManager.load_project_from_file(arcweave_project_json):
-		ArcweaveManager.start_story()
+		ArcweaveManager.start_story(custom_start_id)
 
 		if ArcweaveManager.project.is_multi_language_project and randomize_locale:
 			var available_locales = ArcweaveManager.get_available_locales()
@@ -67,4 +68,4 @@ func _on_restart_pressed():
 
 	# Reset and start the story
 	ArcweaveManager.reset_story_state()
-	ArcweaveManager.start_story()
+	ArcweaveManager.start_story(custom_start_id)
