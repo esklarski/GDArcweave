@@ -82,6 +82,10 @@ func load_from_project_resource(project_resource: GDArcweaveProject) -> bool:
 	return not project_resource == null
 
 
+func has_project() -> bool:
+	return project != null
+
+
 ## Start the story from the beginning if no start id is provided.
 func start_story(custom_start_id: String = "") -> void:
 	# Determine starting element
