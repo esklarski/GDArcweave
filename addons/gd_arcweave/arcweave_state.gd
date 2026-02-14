@@ -55,16 +55,6 @@ func reset_variables() -> void:
 		variables[var_name] = initial_value
 
 
-## Get a variable value
-func get_variable(var_name: String, default_value = null):
-	return variables.get(var_name, default_value)
-
-
-## Set a variable value
-func set_variable(var_name: String, value: Variant) -> void:
-	variables[var_name] = value
-
-
 ## Check if variable exists
 func has_variable(var_name: String) -> bool:
 	return variables.has(var_name)

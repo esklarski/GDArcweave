@@ -1,0 +1,280 @@
+{
+    "startingElement": "8436c309-1a43-474b-89bd-d87d0bd7668f",
+    "boards": {
+        "2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+            "name": "Root",
+            "root": true,
+            "children": [
+                "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+            ]
+        },
+        "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+            "name": "Main Board",
+            "notes": [],
+            "jumpers": [
+                "405c5734-3b2a-4d98-a5af-b1cd1c4393ea"
+            ],
+            "branches": [],
+            "elements": [
+                "8436c309-1a43-474b-89bd-d87d0bd7668f",
+                "735149f2-5e30-4239-be0b-d491ab2441c2"
+            ],
+            "connections": [
+                "d33258de-bb5a-4cb5-a826-80d4b1a91aa8",
+                "3fb97e09-e2c8-4621-844f-c8c86b4fa85c"
+            ]
+        }
+    },
+    "notes": {},
+    "elements": {
+        "735149f2-5e30-4239-be0b-d491ab2441c2": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "3fb97e09-e2c8-4621-844f-c8c86b4fa85c"
+            ],
+            "content": "<pre><code>show(shadowed_variable_1)<\/code><\/pre>",
+            "title": "<p>Print Shadowed Variable<\/p>"
+        },
+        "8436c309-1a43-474b-89bd-d87d0bd7668f": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "d33258de-bb5a-4cb5-a826-80d4b1a91aa8"
+            ],
+            "content": "",
+            "title": "<p>Shadow Variable Test<\/p>"
+        }
+    },
+    "jumpers": {
+        "405c5734-3b2a-4d98-a5af-b1cd1c4393ea": {
+            "elementId": "735149f2-5e30-4239-be0b-d491ab2441c2",
+            "align": {
+                "y": "top",
+                "x": "center"
+            },
+            "height": 86,
+            "width": 185
+        }
+    },
+    "connections": {
+        "d33258de-bb5a-4cb5-a826-80d4b1a91aa8": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "735149f2-5e30-4239-be0b-d491ab2441c2",
+            "sourceid": "8436c309-1a43-474b-89bd-d87d0bd7668f",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "3fb97e09-e2c8-4621-844f-c8c86b4fa85c": {
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "targetid": "405c5734-3b2a-4d98-a5af-b1cd1c4393ea",
+            "sourceid": "735149f2-5e30-4239-be0b-d491ab2441c2",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        }
+    },
+    "branches": {},
+    "components": {
+        "33bcf1f2-bc39-4f3a-9c3d-e5366242b825": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/dolphin",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "4ba7b4c1-1fae-4031-b2b2-881c548acbb6"
+            ],
+            "name": "Sub Sub Component 1"
+        },
+        "450e5413-9fe3-4c16-ab99-9b9f58334c32": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/radio-tower",
+                    "type": "icon"
+                }
+            },
+            "attributes": [],
+            "name": "Radio_Chatter"
+        },
+        "5b329aff-116d-400d-8a27-89ab6d86ccc9": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/pocket-radio",
+                    "type": "icon"
+                }
+            },
+            "attributes": [],
+            "name": "Radio_Broadcast"
+        },
+        "65005bda-15d0-41c5-867f-68c118829f08": {
+            "root": true,
+            "children": [
+                "5b329aff-116d-400d-8a27-89ab6d86ccc9",
+                "450e5413-9fe3-4c16-ab99-9b9f58334c32",
+                "c8878972-9360-43fc-89d3-c4592627cac8",
+                "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                "7e6c719b-5960-46ab-923a-808d4937a929",
+                "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+            ],
+            "name": "Root"
+        },
+        "7e6c719b-5960-46ab-923a-808d4937a929": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/button-finger",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "6cca1543-6b0b-4e80-8797-797991d34454",
+                "9eda5800-309d-464b-be4b-0dc5a09b56fd",
+                "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81"
+            ],
+            "name": "Testing"
+        },
+        "c8878972-9360-43fc-89d3-c4592627cac8": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/tomahawk",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191"
+            ],
+            "name": "Sub Sub Component 2"
+        },
+        "f2ac2730-9aad-43a1-821a-16ca11f4437d": {
+            "assets": {
+                "cover": {
+                    "file": "carl-olsen\/mite-alt",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "f81e401d-d1df-4728-b68f-0fa524b59e1c",
+                "a08f7279-a64a-4172-8c2a-ee7a8ef56692"
+            ],
+            "name": "Sub Component"
+        }
+    },
+    "attributes": {
+        "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191": {
+            "cId": "c8878972-9360-43fc-89d3-c4592627cac8",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Thingy",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "4ba7b4c1-1fae-4031-b2b2-881c548acbb6": {
+            "cId": "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Stringy",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "6cca1543-6b0b-4e80-8797-797991d34454": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Bob",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "9eda5800-309d-464b-be4b-0dc5a09b56fd": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "rich_name",
+            "cType": "components",
+            "value": {
+                "data": "<p>Bob\ud83e\udd73<\/p>",
+                "type": "string"
+            }
+        },
+        "a08f7279-a64a-4172-8c2a-ee7a8ef56692": {
+            "cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+            "name": "sub sub components",
+            "cType": "components",
+            "value": {
+                "data": [
+                    "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                    "c8878972-9360-43fc-89d3-c4592627cac8"
+                ],
+                "type": "component-list"
+            }
+        },
+        "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "sub components",
+            "cType": "components",
+            "value": {
+                "data": [
+                    "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+                ],
+                "type": "component-list"
+            }
+        },
+        "f81e401d-d1df-4728-b68f-0fa524b59e1c": {
+            "cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Susan",
+                "type": "string",
+                "plain": true
+            }
+        }
+    },
+    "assets": {
+        "647d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": []
+        }
+    },
+    "variables": {
+        "23574100-5748-4720-a531-1709ce4a8254": {
+            "name": "Hidden_Roll",
+            "type": "integer",
+            "value": 0
+        },
+        "2a7a1df1-8bef-4487-abbf-d61487f04f45": {
+            "name": "Dice_roll",
+            "type": "integer",
+            "value": 0
+        },
+        "5b6870be-0fc3-45e4-ae3c-b10673f99e57": {
+            "name": "score",
+            "type": "integer",
+            "value": 0
+        },
+        "747d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": [
+                "2a7a1df1-8bef-4487-abbf-d61487f04f45",
+                "23574100-5748-4720-a531-1709ce4a8254",
+                "5b6870be-0fc3-45e4-ae3c-b10673f99e57",
+                "22993cb2-c88b-4de8-ba32-48f7eaa07fef"
+            ]
+        },
+        "22993cb2-c88b-4de8-ba32-48f7eaa07fef": {
+            "type": "string",
+            "name": "shadowed_variable_1",
+            "value": "cat"
+        }
+    },
+    "conditions": {},
+    "name": "Test_Project",
+    "cover": null
+}

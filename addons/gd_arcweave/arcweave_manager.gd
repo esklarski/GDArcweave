@@ -452,13 +452,13 @@ func get_component(component_id: String) -> ArcweaveComponent:
 
 ## Set a story variable
 func set_variable(var_name: String, value) -> void:
-	state.set_variable(var_name, value)
-	variable_changed.emit(var_name, value)
+	if interpreter.set_variable_value(var_name, value):
+		variable_changed.emit(var_name, value)
 
 
 ## Get a story variable
 func get_variable(var_name: String, default_value = null):
-	return state.get_variable(var_name, default_value)
+	return interpreter.get_variable_value(var_name)
 
 
 ## Check if variable exists

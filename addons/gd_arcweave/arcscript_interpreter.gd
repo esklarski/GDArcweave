@@ -9,6 +9,9 @@ extends RefCounted
 ## Game Manager
 var manager: ArcweaveManagerInstance = null
 
+## Registry of shadow variables and their callbacks
+## Format: { "variable_name": Callable }
+var _shadow_variables: Dictionary = {}
 
 ## Callback for when variables change (so manager can stay in sync)
 var on_variable_changed: Callable = Callable()
@@ -64,6 +67,108 @@ func evaluate(arcscript_text: String, skip_assignments: bool = false) -> String:
 			i += 1
 	
 	return output.strip_edges()
+
+
+## Get the value for a variable,
+## or calls registered callback if it's a shadowed variable.
+## [br]
+## Returns null if the variable doesn't exist
+func get_variable_value(variable_name: String) -> Variant:
+	# Check if it's a shadow variable first
+	if _shadow_variables.has(variable_name):
+		var callback: Callable = _shadow_variables[variable_name]
+		return callback.call()
+	
+	# Otherwise, return the stored value
+	return manager.state.variables.get(variable_name, null)
+
+
+## Set the value for a variable.
+## [br]
+## Returns false if variable is shadowed or does not exist.
+func set_variable_value(variable_name: String, value: Variant) -> bool:
+	# Check if it's a shadow variable first
+	if _shadow_variables.has(variable_name):
+		push_warning("Tried to set shadowed variable: \"%s\" near element: %s" % [ variable_name, manager.state.current_element_id ])
+	elif manager.has_variable(variable_name):
+		manager.state.variables[variable_name] = value
+		return true
+
+	return false
+
+
+func get_shadowed_variable_default_value(variable_name: String) -> Variant:
+	if not is_shadow_variable(variable_name): return null
+
+	return manager.state.variables.get(variable_name, null)
+
+
+## Register a shadow variable with a custom callback.
+## [br]
+## [variable_name]: The name of the variable in Arcweave
+## [br]
+## [callback]: A Callable that returns the value for this variable
+## [br]
+## Example:
+## [codeblock]
+## register_shadow_variable("random_bark", func() -> String:
+##     return ["Woof!", "Bark!", "Arf!"].pick_random()
+## )
+## [/codeblock]
+func register_shadow_variable(variable_name: String, callback: Callable) -> void:
+	if not callback.is_valid():
+		push_error("Invalid callback provided for shadow variable: " + variable_name)
+		return
+	
+	_shadow_variables[variable_name] = callback
+	
+	# Ensure the variable exists in Arcweave's global variables with a placeholder
+	# This allows it to be referenced in expressions without errors
+	if not manager.state.variables.has(variable_name):
+		manager.state.variables[variable_name] = null
+
+
+## Unregister a shadow variable.
+func unregister_shadow_variable(variable_name: String) -> void:
+	_shadow_variables.erase(variable_name)
+
+
+## Check if a variable is a registered shadow variable.
+func is_shadow_variable(variable_name: String) -> bool:
+	return _shadow_variables.has(variable_name)
+
+
+## Clear all shadow variables
+func clear_all_shadow_variables() -> void:
+	_shadow_variables.clear()
+
+
+## Get all registered shadow variable names.
+func get_shadow_variable_names() -> Array[String]:
+	var names: Array[String] = []
+	for key in _shadow_variables.keys():
+		names.append(key)
+	return names
+
+
+## Register multiple shadow variables at once.
+## [br]
+## [variables]: [Dictionary] { "var_name": Callable }
+## [br]
+## Example:
+## [codeblock]
+## interpreter.register_shadow_variables({
+##     "random_bark": func() -> String: return ["Woof!", "Bark!"].pick_random(),
+##     "current_time": func() -> String: return Time.get_time_string_from_system()
+## })
+## [/codeblock]
+func register_shadow_variables(variables: Dictionary) -> void:
+	for var_name in variables:
+		var callback = variables[var_name]
+		if callback is Callable:
+			register_shadow_variable(var_name, callback)
+		else:
+			push_error("Invalid callback for variable '%s': expected Callable" % var_name)
 
 
 ## Evaluate a single line of text (may contain inline expressions)
@@ -176,7 +281,7 @@ func _evaluate_assignment(line: String) -> void:
 					push_error("Division by zero in assignment: " + line)
 					return
 		
-		manager.state.variables[var_name] = value
+		set_variable_value(var_name, value)
 		
 		# Notify manager if callback is set
 		if on_variable_changed.is_valid():
@@ -388,8 +493,19 @@ func _evaluate_expression(expr_text: String) -> Variant:
 	var normalized = _normalize_arcscript(expr_text)
 	
 	var expr = Expression.new()
+	
+	# Build variable lists, but use shadow variable values where applicable
 	var var_names = manager.state.variables.keys()
-	var var_values = manager.state.variables.values()
+	var var_values = []
+	
+	for var_name in var_names:
+		# Check if this is a shadow variable
+		if is_shadow_variable(var_name):
+			# Get the custom value from the callback
+			var_values.append(get_variable_value(var_name))
+		else:
+			# Use the stored value
+			var_values.append(manager.state.variables[var_name])
 	
 	var error = expr.parse(normalized, var_names)
 	if error != OK:
@@ -549,7 +665,7 @@ func reset(args = null):
 		
 		if manager.project.initial_variables.has(var_name):
 			var initial_value = manager.project.initial_variables[var_name]
-			manager.state.variables[var_name] = initial_value
+			set_variable_value(var_name, initial_value)
 			
 			# Notify manager if callback is set
 			if on_variable_changed.is_valid():
@@ -587,7 +703,7 @@ func resetAll(args = null):
 	for var_name in manager.project.initial_variables.keys():
 		if not exclude_set.has(var_name):
 			var initial_value = manager.project.initial_variables[var_name]
-			manager.state.variables[var_name] = initial_value
+			set_variable_value(var_name, initial_value)
 			
 			# Notify manager if callback is set
 			if on_variable_changed.is_valid():
