@@ -606,3 +606,11 @@ func visits(element_id: String = "") -> int:
 	# If no element_id provided, use current element being evaluated
 	var id_to_check = element_id if element_id != "" else manager.state.current_element_id
 	return manager.state.visit_counts.get(id_to_check, 0)
+
+
+## Example of custom function capability:
+## in Acrweave you can use this function signature,
+## and despite the gui complaining,
+## this function will be called, evaluated, and return a value.
+func custom_function(number: int) -> int:
+	return number + 7

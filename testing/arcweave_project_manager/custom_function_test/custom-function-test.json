@@ -1,0 +1,353 @@
+{
+    "startingElement": null,
+    "boards": {
+        "2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+            "name": "Root",
+            "root": true,
+            "children": [
+                "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+            ]
+        },
+        "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+            "name": "Main Board",
+            "notes": [
+                "8a067e44-27cb-4192-8ef1-05f60c4f3b07"
+            ],
+            "jumpers": [
+                "101c5dcc-1b95-44fb-84ad-1cac9aaa7581"
+            ],
+            "branches": [
+                "b615a6c4-a6a4-4028-bda2-a593757af27d"
+            ],
+            "elements": [
+                "3863b3a9-bbd6-4a7c-8bdc-54b444c285a9",
+                "1a977372-4a81-4d05-bea3-3ce8dea9f365",
+                "cc3183fb-e001-4c17-bfb3-3ca97a49ed6b",
+                "4c42f530-dff8-4949-938c-9f9c67490bbe"
+            ],
+            "connections": [
+                "57fe3de0-b80f-4423-ba78-80a999e8d2c1",
+                "b47b5c4a-65f8-43a6-88ec-7b3775405734",
+                "961ff588-b668-4c4e-9203-4aae3a8b3c70",
+                "421a47c6-a8ca-4d57-a7ca-47ee78b39f1e",
+                "28dc6915-cb73-43e7-be4f-833ac5182c91",
+                "568e1c83-3344-4acd-a104-f8665fae9d9f",
+                "20f328c1-442e-45ea-bcfd-6f306e9ba8e0"
+            ]
+        }
+    },
+    "notes": {
+        "8a067e44-27cb-4192-8ef1-05f60c4f3b07": {
+            "content": "<p>This is a malformed condition (score=10) so it evaluates as false.<\/p><p>The \"else\" should be displayed.<\/p>",
+            "theme": "red"
+        }
+    },
+    "elements": {
+        "3863b3a9-bbd6-4a7c-8bdc-54b444c285a9": {
+            "components": [],
+            "theme": "default",
+            "outputs": [
+                "b47b5c4a-65f8-43a6-88ec-7b3775405734",
+                "20f328c1-442e-45ea-bcfd-6f306e9ba8e0"
+            ],
+            "content": "<p>This is a component and attribute test. The next element should have a bunch of stuff.<\/p><p>Score: <\/p><pre><code>show(score)<\/code><\/pre>",
+            "title": "<p>Attribute Test<\/p>"
+        },
+        "1a977372-4a81-4d05-bea3-3ce8dea9f365": {
+            "components": [
+                "7e6c719b-5960-46ab-923a-808d4937a929"
+            ],
+            "theme": "default",
+            "outputs": [
+                "57fe3de0-b80f-4423-ba78-80a999e8d2c1",
+                "421a47c6-a8ca-4d57-a7ca-47ee78b39f1e"
+            ],
+            "content": "<p>This element has many components.<\/p><pre><code>score = 15<\/code><\/pre>",
+            "title": ""
+        },
+        "4c42f530-dff8-4949-938c-9f9c67490bbe": {
+            "components": [],
+            "theme": "default",
+            "outputs": [],
+            "content": "<p>Hi<\/p><pre><code>if score > 10<\/code><\/pre><pre><code>if score < 20<\/code><\/pre><p>booger...<\/p><pre><code>endif<\/code><\/pre><pre><code>endif<\/code><\/pre><p><\/p><p>and Byee!<\/p>",
+            "title": ""
+        },
+        "cc3183fb-e001-4c17-bfb3-3ca97a49ed6b": {
+            "components": [],
+            "theme": "default",
+            "outputs": [
+                "961ff588-b668-4c4e-9203-4aae3a8b3c70"
+            ],
+            "content": "<p>Fail!<\/p><pre><code>score = custom_function(score)<\/code><\/pre><p><\/p><p>Score: <\/p><pre><code>show(score)<\/code><\/pre>",
+            "title": ""
+        }
+    },
+    "jumpers": {
+        "101c5dcc-1b95-44fb-84ad-1cac9aaa7581": {
+            "elementId": "3863b3a9-bbd6-4a7c-8bdc-54b444c285a9",
+            "height": 86,
+            "align": {
+                "y": "center",
+                "x": "left"
+            },
+            "width": 185
+        }
+    },
+    "connections": {
+        "20f328c1-442e-45ea-bcfd-6f306e9ba8e0": {
+            "sourceType": "elements",
+            "sourceid": "3863b3a9-bbd6-4a7c-8bdc-54b444c285a9",
+            "targetid": "cc3183fb-e001-4c17-bfb3-3ca97a49ed6b",
+            "targetFace": "left",
+            "targetType": "elements",
+            "theme": "default",
+            "type": "Bezier",
+            "label": "<p>Other Label<\/p>"
+        },
+        "961ff588-b668-4c4e-9203-4aae3a8b3c70": {
+            "targetType": "jumpers",
+            "type": "Bezier",
+            "targetFace": "left",
+            "sourceType": "elements",
+            "sourceid": "cc3183fb-e001-4c17-bfb3-3ca97a49ed6b",
+            "theme": "default",
+            "targetid": "101c5dcc-1b95-44fb-84ad-1cac9aaa7581",
+            "label": null
+        },
+        "57fe3de0-b80f-4423-ba78-80a999e8d2c1": {
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "sourceType": "elements",
+            "sourceid": "1a977372-4a81-4d05-bea3-3ce8dea9f365",
+            "theme": "default",
+            "targetid": "101c5dcc-1b95-44fb-84ad-1cac9aaa7581",
+            "label": null
+        },
+        "b47b5c4a-65f8-43a6-88ec-7b3775405734": {
+            "type": "Bezier",
+            "targetType": "branches",
+            "sourceType": "elements",
+            "sourceid": "3863b3a9-bbd6-4a7c-8bdc-54b444c285a9",
+            "theme": "default",
+            "targetid": "b615a6c4-a6a4-4028-bda2-a593757af27d",
+            "label": null
+        },
+        "568e1c83-3344-4acd-a104-f8665fae9d9f": {
+            "sourceType": "conditions",
+            "sourceid": "7dd839f2-bc79-4d6d-ac89-e1e29cee81a4",
+            "targetid": "1a977372-4a81-4d05-bea3-3ce8dea9f365",
+            "targetFace": "left",
+            "targetType": "elements",
+            "theme": "default",
+            "type": "Bezier",
+            "label": "<p>else label<\/p>"
+        },
+        "28dc6915-cb73-43e7-be4f-833ac5182c91": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "sourceType": "conditions",
+            "sourceid": "961c6cec-ec19-413d-8602-ba3f45afc2a9",
+            "theme": "default",
+            "targetid": "cc3183fb-e001-4c17-bfb3-3ca97a49ed6b",
+            "label": "<p>you shouldn't see this<\/p>"
+        },
+        "421a47c6-a8ca-4d57-a7ca-47ee78b39f1e": {
+            "sourceType": "elements",
+            "type": "Bezier",
+            "targetType": "elements",
+            "sourceid": "1a977372-4a81-4d05-bea3-3ce8dea9f365",
+            "theme": "default",
+            "targetid": "4c42f530-dff8-4949-938c-9f9c67490bbe",
+            "label": "<p>function test<\/p>"
+        }
+    },
+    "branches": {
+        "b615a6c4-a6a4-4028-bda2-a593757af27d": {
+            "conditions": {
+                "ifCondition": "961c6cec-ec19-413d-8602-ba3f45afc2a9",
+                "elseCondition": "7dd839f2-bc79-4d6d-ac89-e1e29cee81a4"
+            },
+            "theme": "default"
+        }
+    },
+    "components": {
+        "33bcf1f2-bc39-4f3a-9c3d-e5366242b825": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/dolphin",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "4ba7b4c1-1fae-4031-b2b2-881c548acbb6"
+            ],
+            "name": "Sub Sub Component 1"
+        },
+        "65005bda-15d0-41c5-867f-68c118829f08": {
+            "root": true,
+            "children": [
+                "c8878972-9360-43fc-89d3-c4592627cac8",
+                "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+                "7e6c719b-5960-46ab-923a-808d4937a929"
+            ],
+            "name": "Root"
+        },
+        "7e6c719b-5960-46ab-923a-808d4937a929": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/button-finger",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "6cca1543-6b0b-4e80-8797-797991d34454",
+                "9eda5800-309d-464b-be4b-0dc5a09b56fd",
+                "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81"
+            ],
+            "name": "Testing"
+        },
+        "c8878972-9360-43fc-89d3-c4592627cac8": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/tomahawk",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191"
+            ],
+            "name": "Sub Sub Component 2"
+        },
+        "f2ac2730-9aad-43a1-821a-16ca11f4437d": {
+            "assets": {
+                "cover": {
+                    "file": "carl-olsen\/mite-alt",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "f81e401d-d1df-4728-b68f-0fa524b59e1c",
+                "a08f7279-a64a-4172-8c2a-ee7a8ef56692"
+            ],
+            "name": "Sub Component"
+        }
+    },
+    "attributes": {
+        "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191": {
+            "cId": "c8878972-9360-43fc-89d3-c4592627cac8",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Thingy",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "4ba7b4c1-1fae-4031-b2b2-881c548acbb6": {
+            "cId": "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Stringy",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "6cca1543-6b0b-4e80-8797-797991d34454": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Bob",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "9eda5800-309d-464b-be4b-0dc5a09b56fd": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "rich_name",
+            "cType": "components",
+            "value": {
+                "data": "<p>Bob\ud83e\udd73<\/p>",
+                "type": "string"
+            }
+        },
+        "a08f7279-a64a-4172-8c2a-ee7a8ef56692": {
+            "cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+            "name": "sub sub components",
+            "cType": "components",
+            "value": {
+                "data": [
+                    "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                    "c8878972-9360-43fc-89d3-c4592627cac8"
+                ],
+                "type": "component-list"
+            }
+        },
+        "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "sub components",
+            "cType": "components",
+            "value": {
+                "data": [
+                    "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+                ],
+                "type": "component-list"
+            }
+        },
+        "f81e401d-d1df-4728-b68f-0fa524b59e1c": {
+            "cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Susan",
+                "type": "string",
+                "plain": true
+            }
+        }
+    },
+    "assets": {
+        "647d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": []
+        }
+    },
+    "variables": {
+        "23574100-5748-4720-a531-1709ce4a8254": {
+            "name": "Hidden_Roll",
+            "type": "integer",
+            "value": 0
+        },
+        "2a7a1df1-8bef-4487-abbf-d61487f04f45": {
+            "name": "Dice_roll",
+            "type": "integer",
+            "value": 0
+        },
+        "5b6870be-0fc3-45e4-ae3c-b10673f99e57": {
+            "name": "score",
+            "type": "integer",
+            "value": 0
+        },
+        "747d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": [
+                "2a7a1df1-8bef-4487-abbf-d61487f04f45",
+                "23574100-5748-4720-a531-1709ce4a8254",
+                "5b6870be-0fc3-45e4-ae3c-b10673f99e57"
+            ]
+        }
+    },
+    "conditions": {
+        "7dd839f2-bc79-4d6d-ac89-e1e29cee81a4": {
+            "script": null,
+            "output": "568e1c83-3344-4acd-a104-f8665fae9d9f"
+        },
+        "961c6cec-ec19-413d-8602-ba3f45afc2a9": {
+            "script": "score=10",
+            "output": "28dc6915-cb73-43e7-be4f-833ac5182c91"
+        }
+    },
+    "name": "Test_Project",
+    "cover": null
+}
