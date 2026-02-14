@@ -16,6 +16,7 @@ Load and navigate Arcweave story projects exported as JSON, with support for:
 - ✅ Multi-language projects with fallback chains
 - ✅ Visit tracking and history
 - ✅ HTML to BBCode conversion
+- ✅ Shadowing project variables with user defined `Callable`s
 - ⚠️ Image, audio, and video assets parsed, but not retrieved.
 - ❌ Note objects not implemented
 - ❌ Coordinates not parsed
