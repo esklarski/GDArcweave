@@ -6,6 +6,7 @@ class_name ArcweaveManagerInstance
 extends Node
 
 ## Signals for story navigation and events
+signal project_updated()
 signal element_changed(element: ArcweaveElement)
 signal choice_presented(choices: Array)
 signal variable_changed(var_name: String, value: Variant)
@@ -66,9 +67,7 @@ func load_project_from_file(file_path: String) -> bool:
 		else:
 			return false
 	elif project.update_project(json_text):
-		state.initial_variables = project.initial_variables
-		state.reset()
-		return true
+		return load_from_project_resource(project)
 	else:
 		return false
 
@@ -78,6 +77,7 @@ func load_from_project_resource(project_resource: GDArcweaveProject) -> bool:
 	
 	state.initial_variables = project_resource.initial_variables
 	state.reset()
+	project_updated.emit()
 	
 	return not project_resource == null
 

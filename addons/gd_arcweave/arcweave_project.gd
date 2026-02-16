@@ -1,7 +1,5 @@
 class_name GDArcweaveProject extends Resource
 
-signal project_updated()
-
 ## Exported project JSON. Export project -> JSON
 @export_file_path("*.json") var arcweave_project_json: String
 
@@ -121,7 +119,6 @@ func load_project_from_data(data: Dictionary) -> bool:
 	if not project_cover.is_empty():
 		print("  Project cover: ", project_cover.get("file", ""))
 	
-	project_updated.emit()
 	#TODO: some actual error checking....
 	return true
 
