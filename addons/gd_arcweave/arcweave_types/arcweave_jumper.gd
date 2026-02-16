@@ -17,7 +17,13 @@ static func from_dict(data: Dictionary, jumper_id: String) -> ArcweaveJumper:
 	var jumper = ArcweaveJumper.new()
 	
 	jumper.id = jumper_id
-	jumper.elementId = data.get("elementId", "")
+	
+	var output_id = data.get("elementId", "")
+	if output_id:
+		jumper.elementId = output_id
+	else:
+		jumper.elementId = ""
+		printerr("No element id on jumper: %s" % jumper_id)
 	
 	return jumper
 
