@@ -13,24 +13,24 @@ extends Resource
 
 ## Create an AttributeValue from a dictionary
 static func from_dict(value_dict: Dictionary) -> AttributeValue:
-    var av = AttributeValue.new()
-    av.type = value_dict.get("type", "")
-    av.data = value_dict.get("data", null)
-    av.plain = value_dict.get("plain", false)
-    return av
+	var av = AttributeValue.new()
+	av.type = value_dict.get("type", "")
+	av.data = value_dict.get("data", null)
+	av.plain = value_dict.get("plain", false)
+	return av
 
 ## Convert back to dictionary
 func to_dict() -> Dictionary:
-    return {
-        "type": type,
-        "data": data,
-        "plain" : plain
-    }
+	return {
+		"type": type,
+		"data": data,
+		"plain" : plain
+	}
 
 ## Check if value has data set
 func has_data() -> bool:
-    return data != null
+	return data != null
 
 ## Get a string representation
-func to_string() -> String:
-    return "AttributeValue(type=%s, data=%s)" % [type, str(data)]
+func _to_string() -> String:
+	return "AttributeValue(type=%s, data=%s)" % [type, str(data)]
