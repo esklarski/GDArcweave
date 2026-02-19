@@ -31,6 +31,7 @@ var track_history: bool = true
 var use_extended_html_cleaning: bool = false  # Set to true for more HTML tag support
 var parse_color_tags: bool = false  # Set to true to convert HTML color tags
 var clean_choice_labels: bool = true  # Set to true to clean HTML from choice button text
+var present_choices: bool = true
 
 
 func _init():
@@ -162,18 +163,21 @@ func goto_element(element_id: String, increment_visit: bool = true) -> ArcweaveE
 		)
 	
 	# Always add evaluated_content to element (even if empty)
-	element["evaluated_content"] = evaluated_content
-	
-	# Get available choices
-	var choices = get_choices_for_element(element_id)
+	element.evaluated_content = evaluated_content
 	
 	# Emit signals
 	element_changed.emit(element)
-	if choices.size() > 0:
-		choice_presented.emit(choices)
-	else:
-		# No choices means end of story
-		story_ended.emit()
+
+	if present_choices:
+		# Get available choices
+		var choices = get_choices_for_element(element_id)
+		
+		# Emit signals
+		if choices.size() > 0:
+			choice_presented.emit(choices)
+		else:
+			# No choices means end of story
+			story_ended.emit()
 	
 	return element
 
@@ -242,10 +246,6 @@ func get_choices_for_element(element_id: String) -> Array:
 				if label == null:
 					label = incoming_label
 				
-				# FOURTH: Final fallback
-				if label == null:
-					label = "Continue"
-				
 				choices.append({
 					"label": _process_choice_label(label),
 					"raw_label": label,
@@ -257,8 +257,7 @@ func get_choices_for_element(element_id: String) -> Array:
 		elif project.elements.has(target_id):
 			# Direct connection to another element
 			var label = localization.get_connection_label(output_id)
-			if label == "" or label == null:
-				label = "Continue"
+			
 			choices.append({
 				"label": _process_choice_label(label),
 				"raw_label": label,
@@ -273,8 +272,7 @@ func get_choices_for_element(element_id: String) -> Array:
 			var jumper_element_id = jumper.elementId
 			if jumper_element_id != "":
 				var label = localization.get_connection_label(output_id)
-				if label == "" or label == null:
-					label = "Continue"
+				
 				choices.append({
 					"label": _process_choice_label(label),
 					"raw_label": label,
@@ -289,13 +287,12 @@ func get_choices_for_element(element_id: String) -> Array:
 ## Process a choice label (clean HTML and evaluate variables)
 func _process_choice_label(label) -> String:
 	# Handle null or non-string labels
-	if label == null:
+	if label == null or ArcweaveUtils.clean_string(label).is_empty():
 		return "Continue"
 	
 	var label_str = str(label)
 	
-	if not clean_choice_labels or label_str.is_empty():
-		return label_str if label_str != "" else "Continue"
+	if not clean_choice_labels: return label_str
 	
 	var processed_label = label_str
 	
