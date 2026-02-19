@@ -87,7 +87,7 @@ func has_project() -> bool:
 
 
 ## Start the story from the beginning if no start id is provided.
-func start_story(custom_start_id: String = "") -> void:
+func start_story(custom_start_id: String = "") -> ArcweaveElement:
 	# Determine starting element
 	var start_id = custom_start_id if custom_start_id != "" else project.starting_element_id
 	
@@ -96,7 +96,7 @@ func start_story(custom_start_id: String = "") -> void:
 		return
 	
 	story_started.emit()
-	goto_element(start_id)
+	return goto_element(start_id)
 
 
 ## Navigate to a specific element
