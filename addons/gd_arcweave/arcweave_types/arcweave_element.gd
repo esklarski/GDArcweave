@@ -11,6 +11,9 @@ extends Resource
 ## Title of the element (can be displayed as a header or used for navigation)
 @export var title: String = ""
 
+## Title of the element cleaned using ArcweaveUtils.clean_string()
+@export var title_cleaned: StringName = ""
+
 ## Raw content text of the element (may contain Arcscript code)
 @export var content: String = ""
 
@@ -41,7 +44,9 @@ static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
 	element.id = element_id
 	var found_title = data.get("title") if data.get("title") else ""
 	element.title = found_title if found_title else ""
-	element.content = data.get("content", "")
+	element.title_cleaned = ArcweaveUtils.clean_string(element.title)
+	var found_content =  data.get("content", "") if data.get("content", "") else ""
+	element.content = found_content
 	
 	# Parse components array
 	var comps = data.get("components", [])
