@@ -42,11 +42,11 @@ static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
 	var element := ArcweaveElement.new()
 	
 	element.id = element_id
-	var found_title = data.get("title") if data.has("title") else ""
+	var found_title = data.get("title")
 	element.title = found_title if found_title else ""
 	element.title_cleaned = ArcweaveUtils.clean_string(element.title)
-	var found_content =  data.get("content", "") if data.has("content") else ""
-	element.content = found_content
+	var found_content =  data.get("content")
+	element.content = found_content if found_content else ""
 	
 	# Parse components array
 	var comps = data.get("components", [])
