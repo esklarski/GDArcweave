@@ -8,8 +8,8 @@ extends Resource
 ## Unique identifier for this attribute
 @export var id: String = ""
 
-## Attribute name (can be null or localized)
-@export var name: Variant = null
+## Attribute name
+@export var name: String = ""
 
 ## Component type this attribute belongs to
 @export var cType: String = ""
@@ -26,7 +26,8 @@ static func from_dict(data: Dictionary, attribute_id: String) -> ArcweaveAttribu
 	var attribute = ArcweaveAttribute.new()
 	
 	attribute.id = attribute_id
-	attribute.name = data.get("name", null)
+	var found_name = data.get("name")
+	attribute.name = found_name if found_name else ""
 	attribute.cType = data.get("cType", "")
 	attribute.cId = data.get("cId", "")
 	
