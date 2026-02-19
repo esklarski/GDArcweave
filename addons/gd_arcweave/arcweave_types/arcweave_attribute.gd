@@ -92,8 +92,8 @@ func belongs_to_component(component_id: String) -> bool:
 
 
 ## Get a debug-friendly string representation
-func to_string() -> String:
+func _to_string() -> String:
 	var name_str = get_name_string()
 	if name_str == "":
 		name_str = "<unnamed>"
-	return "ArcweaveAttribute(id=%s, name=%s, cType=%s)" % [id, name_str, cType]
+	return "ArcweaveAttribute(name=%s, value=%s)" % [name_str, get_data()]
