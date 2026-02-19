@@ -20,11 +20,11 @@ extends Resource
 ## Array of component IDs attached to this element
 @export var components: Array[String] = []
 
+## Array of Attribute ID's attached to this Element
+@export var attributes: Array[String] = []
+
 ## Array of output IDs (connections, branches, jumpers) from this element
 @export var outputs: Array[String] = []
-
-# ## Theme/styling information
-# @export var theme: Dictionary = {}
 
 ## Cover asset ID (if present)
 @export var cover: Variant = null
@@ -39,13 +39,13 @@ var evaluated_content: String = ""
 
 ## Create an element from parsed JSON dictionary
 static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
-	var element = ArcweaveElement.new()
+	var element := ArcweaveElement.new()
 	
 	element.id = element_id
-	var found_title = data.get("title") if data.get("title") else ""
+	var found_title = data.get("title") if data.has("title") else ""
 	element.title = found_title if found_title else ""
 	element.title_cleaned = ArcweaveUtils.clean_string(element.title)
-	var found_content =  data.get("content", "") if data.get("content", "") else ""
+	var found_content =  data.get("content", "") if data.has("content") else ""
 	element.content = found_content
 	
 	# Parse components array
@@ -56,6 +56,14 @@ static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
 			if typeof(comp_id) == TYPE_STRING:
 				element.components.append(comp_id)
 	
+	# Parse attributes array
+	var attrs = data.get("attributes", [])
+	if typeof(attrs) == TYPE_ARRAY:
+		element.attributes.clear()
+		for attr_id in attrs:
+			if typeof(attr_id) == TYPE_STRING:
+				element.attributes.append(attr_id)
+	
 	# Parse outputs array
 	var outs = data.get("outputs", [])
 	if typeof(outs) == TYPE_ARRAY:
@@ -63,11 +71,6 @@ static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
 		for out_id in outs:
 			if typeof(out_id) == TYPE_STRING:
 				element.outputs.append(out_id)
-	
-	# # Parse theme
-	# var theme_data = data.get("theme", {})
-	# if typeof(theme_data) == TYPE_DICTIONARY:
-	# 	element.theme = theme_data.duplicate(true)
 	
 	# Parse assets
 	var assets_data = data.get("assets", {})
@@ -91,7 +94,7 @@ func to_dict() -> Dictionary:
 		"content": content,
 		"components": components.duplicate(),
 		"outputs": outputs.duplicate(),
-		# "theme": theme.duplicate(true),
+		"attributes": attributes.duplicate(),
 		"assets": assets.duplicate(true)
 	}
 	
