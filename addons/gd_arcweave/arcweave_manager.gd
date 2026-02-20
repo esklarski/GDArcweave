@@ -244,7 +244,7 @@ func get_choices_for_element(element_id: String) -> Array:
 				
 				# SECOND: If outgoing is null, try incoming connection label (element -> branch)
 				if label == null:
-					label = incoming_label
+					label = incoming_label if incoming_label else ""
 				
 				choices.append({
 					"label": _process_choice_label(label),
@@ -480,6 +480,11 @@ func reset_story_state() -> void:
 ## Get all elements
 func get_all_elements() -> Dictionary:
 	return project.elements
+
+
+## Gets a board by id, returns null if not found.
+func get_board(board_id: String) -> ArcweaveBoard:
+	return project.boards.get(board_id)
 
 
 ## Get all boards
