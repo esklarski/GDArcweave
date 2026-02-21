@@ -499,8 +499,8 @@ func _evaluate_expression(expr_text: String) -> Variant:
 	var var_values = []
 	
 	for var_name in var_names:
-		# Check if this is a shadow variable
-		if is_shadow_variable(var_name):
+		# Check if this is a shadow variable and in use
+		if is_shadow_variable(var_name) and normalized.contains(var_name):
 			# Get the custom value from the callback
 			var_values.append(get_variable_value(var_name))
 		else:
