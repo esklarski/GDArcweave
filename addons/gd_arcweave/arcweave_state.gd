@@ -8,10 +8,6 @@ extends Resource
 ## Story variables (shared between manager and interpreter)
 @export var variables: Dictionary = {}
 
-## Initial variable values (for reset functionality)
-## Treat as read only, or there's going to be issues.
-@export var initial_variables: Dictionary = {}
-
 ## Visit counts by element ID and title
 @export var visit_counts: Dictionary = {}
 
@@ -31,7 +27,6 @@ extends Resource
 ## Create a new state with default values
 func _init():
 	variables = {}
-	initial_variables = {}
 	visit_counts = {}
 	current_element_id = ""
 	element_history = []
@@ -39,17 +34,16 @@ func _init():
 
 
 ## Reset state to initial values
-func reset() -> void:
+func reset(initial_variables: Dictionary) -> void:
 	variables.clear()
 	visit_counts.clear()
 	current_element_id = ""
 	element_history.clear()
-	
-	reset_variables()
+	_reset_variables(initial_variables)
 
 
 ## Reset all variables to initial values.
-func reset_variables() -> void:
+func _reset_variables(initial_variables: Dictionary) -> void:
 	for var_name in initial_variables.keys():
 		var initial_value = initial_variables[var_name]
 		variables[var_name] = initial_value
@@ -112,7 +106,6 @@ static func load_from_file(file_path: String) -> ArcweaveState:
 func duplicate_state() -> ArcweaveState:
 	var new_state = ArcweaveState.new()
 	new_state.variables = variables.duplicate(true)
-	new_state.initial_variables = initial_variables.duplicate(true)
 	new_state.visit_counts = visit_counts.duplicate(true)
 	new_state.current_element_id = current_element_id
 	new_state.element_history = element_history.duplicate()

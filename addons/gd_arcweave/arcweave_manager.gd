@@ -76,8 +76,7 @@ func load_project_from_file(file_path: String) -> bool:
 func load_from_project_resource(project_resource: GDArcweaveProject) -> bool:
 	project = project_resource
 	
-	state.initial_variables = project_resource.initial_variables
-	state.reset()
+	state.reset(project.initial_variables)
 	project_updated.emit()
 	
 	return not project_resource == null
@@ -470,8 +469,7 @@ func get_visits(element_id: String) -> int:
 
 ## Reset story state (variables and visits)
 func reset_story_state() -> void:
-	state.reset()
-	state.reset_variables()
+	state.reset(project.initial_variables)
 
 
 # ******************** PROJECT ACCESSORS ********************
