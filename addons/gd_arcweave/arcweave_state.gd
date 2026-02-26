@@ -6,7 +6,7 @@ class_name ArcweaveState
 extends Resource
 
 ## Story variables (shared between manager and interpreter)
-@export var variables: Dictionary = {}
+@export var variables: Dictionary[StringName, Variant] = {}
 
 ## Visit counts by element ID and title
 @export var visit_counts: Dictionary = {}

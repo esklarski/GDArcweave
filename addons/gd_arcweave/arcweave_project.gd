@@ -9,7 +9,7 @@ class_name GDArcweaveProject extends Resource
 @export var starting_element_id: String = ""
 
 ## Initial variable values (for reset functionality)
-@export var initial_variables: Dictionary = {}
+@export var initial_variables: Dictionary[StringName, Variant] = {}
 
 ## Story structure
 @export var boards: Dictionary[StringName, ArcweaveBoard] = {}
