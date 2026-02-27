@@ -99,7 +99,7 @@ func set_variable_value(variable_name: String, value: Variant) -> bool:
 
 func get_shadowed_variable_default_value(variable_name: String) -> Variant:
 	if not is_shadow_variable(variable_name): return null
-
+	
 	return manager.state.variables.get(variable_name, null)
 
 
