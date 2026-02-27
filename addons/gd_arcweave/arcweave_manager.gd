@@ -122,19 +122,8 @@ func goto_element(element_id: String, increment_visit: bool = true) -> ArcweaveE
 	# Increment visit count BEFORE evaluation (if not going back)
 	# This way, visits() in the content reflects the current visit number
 	if increment_visit:
-		
-		# By ID (note: state.visit_counts and interpreter.visit_tracker are the same dictionary)
+		# By ID exclusively.
 		state.visit_counts[element_id] = state.visit_counts.get(element_id, 0) + 1
-		
-		# Also track by element title for easier Arcscript references
-		if element_title != "":
-			# Clean HTML from title (titles can have HTML tags in Arcweave)
-			var clean_title = ArcweaveUtils.strip_bbcode(
-				ArcweaveUtils.clean_string(element_title)
-			).strip_edges()
-			
-			if clean_title != "":
-				state.visit_counts[clean_title] = state.visit_counts.get(clean_title, 0) + 1
 	
 	# Get localized content (works for both single and multi-language)
 	var raw_content = localization.get_element_content(element_id)
