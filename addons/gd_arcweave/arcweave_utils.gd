@@ -211,11 +211,12 @@ static func preprocess_arcscript_html(html: String) -> String:
 	# First, decode HTML entities
 	processed = decode_html_entities(processed)
 	
-	# First, extract content from mention spans and replace with just the label
-	# This is important for Arcscript function calls like visits(element_name)
+	var mentions = extract_mentions(processed)
+	for mention in mentions:
+		var replacement = '"%s"' % (mention.label if mention.type == "component" else mention.id)
+		processed = processed.replace(mention.original_tag, replacement)
+	
 	var regex = RegEx.new()
-	regex.compile('<span[^>]+class="[^"]*mention[^"]*"[^>]+data-label="([^"]+)"[^>]*>.*?<\\/span>')
-	processed = regex.sub(processed, '"$1"', true)  # Replace with quoted label
 	
 	# Strip <pre> and <code> tags (with or without attributes) that wrap Arcscript
 	regex.compile('<pre[^>]*>')
