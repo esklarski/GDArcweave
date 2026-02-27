@@ -123,7 +123,7 @@ func goto_element(element_id: String, increment_visit: bool = true) -> ArcweaveE
 	# This way, visits() in the content reflects the current visit number
 	if increment_visit:
 		# By ID exclusively.
-		state.visit_counts[element_id] = state.visit_counts.get(element_id, 0) + 1
+		state.increment_visits(element_id)
 	
 	# Get localized content (works for both single and multi-language)
 	var raw_content = localization.get_element_content(element_id)
