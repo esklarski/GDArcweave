@@ -13,7 +13,12 @@ var manager: ArcweaveManagerInstance = null
 ## Format: { "variable_name": Callable }
 var _shadow_variables: Dictionary = {}
 
+## Assign a callable here to override the roll() return value in Arcscript.
+## Must match signature: roll(max_val: int, multiplier: int = 1) -> int
+var alt_roll: Callable
+
 ## Callback for when variables change (so manager can stay in sync)
+## TODO: this should just be a signal
 var on_variable_changed: Callable = Callable()
 
 
@@ -714,6 +719,11 @@ func resetVisits(): manager.state.visit_counts.clear()
 
 ## Roll a random number
 func roll(max_val: int, multiplier: int = 1) -> int:
+	# enable overriding of this default function
+	if not alt_roll.is_null() and alt_roll.get_argument_count() == 2:
+		return alt_roll.call(max_val, multiplier)
+	
+	# else return the default evaluation
 	return randi_range(multiplier, max_val * multiplier)
 
 
