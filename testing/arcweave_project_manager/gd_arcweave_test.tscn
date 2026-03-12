@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxnnobqm2q1e2"]
+[gd_scene format=3 uid="uid://cxnnobqm2q1e2"]
 
 [ext_resource type="Script" uid="uid://dpaq1kqo5xxbh" path="res://testing/arcweave_project_manager/gd_arcweave_test.gd" id="1_6v3nc"]
 [ext_resource type="PackedScene" uid="uid://csj1155a8smth" path="res://components/rich_text_button/rich_text_button.tscn" id="2_r77rg"]
 
-[node name="GdArcweaveTest" type="Control"]
+[node name="GdArcweaveTest" type="Control" unique_id=623759289]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ script = ExtResource("1_6v3nc")
 arcweave_project_json = "res://testing/arcweave_project_manager/the-castle.json/project_settings.json"
 option_button_scene = ExtResource("2_r77rg")
 
-[node name="TextContainer" type="MarginContainer" parent="."]
+[node name="TextContainer" type="MarginContainer" parent="." unique_id=535885800]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -28,22 +28,22 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="TextContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="TextContainer" unique_id=1598630460]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TextContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TextContainer/PanelContainer" unique_id=1339203097]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="StoryText" type="RichTextLabel" parent="TextContainer/PanelContainer/MarginContainer"]
+[node name="StoryText" type="RichTextLabel" parent="TextContainer/PanelContainer/MarginContainer" unique_id=331015719]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 
-[node name="ChoicesContainer" type="MarginContainer" parent="."]
+[node name="ChoicesContainer" type="MarginContainer" parent="." unique_id=1937660971]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -53,7 +53,7 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Choices" type="VBoxContainer" parent="ChoicesContainer"]
+[node name="Choices" type="VBoxContainer" parent="ChoicesContainer" unique_id=667911462]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2

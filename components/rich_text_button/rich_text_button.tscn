@@ -1,19 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://csj1155a8smth"]
+[gd_scene format=3 uid="uid://csj1155a8smth"]
 
 [ext_resource type="Script" uid="uid://faqxi5rd5vhk" path="res://components/rich_text_button/rich_text_button.gd" id="1_ionpu"]
 
-[node name="RichTextButton" type="PanelContainer"]
+[node name="RichTextButton" type="PanelContainer" unique_id=1796992542]
 offset_right = 63.0
 offset_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_ionpu")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=2138800612]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=790524119]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 15
@@ -21,11 +21,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=378450186]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=1079547768]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
