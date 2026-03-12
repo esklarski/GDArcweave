@@ -274,31 +274,32 @@ func get_choices_for_element(element_id: String) -> Array:
 
 ## Process a choice label (clean HTML and evaluate variables)
 func _process_choice_label(label) -> String:
-	# Handle null or non-string labels
-	if label == null or ArcweaveUtils.clean_string(label).is_empty():
-		return "Continue"
+	# set default value for when we find empty strings
+	var processed_label: String = "Continue"
 	
-	var label_str = str(label)
-	
-	if not clean_choice_labels: return label_str
-	
-	var processed_label = label_str
-	
-	# If auto_evaluate_scripts is enabled, preprocess and evaluate first
-	if auto_evaluate_scripts:
-		# Preprocess to expose Arcscript (same as element content)
-		processed_label = ArcweaveUtils.preprocess_arcscript_html(label_str)
+	if not label == null:
+		var label_str := str(label)
 		
-		# Evaluate Arcscript for DISPLAY only (no assignments)
-		# Assignments will be executed when the choice is actually made
-		processed_label = interpreter.evaluate(processed_label, true)  # true = skip assignments
-	
-	# Then clean any remaining HTML and convert to BBCode
-	processed_label = ArcweaveUtils.parse_content(
-		processed_label,
-		use_extended_html_cleaning,
-		parse_color_tags
-	)
+		if not clean_choice_labels: return label_str
+		
+		# If auto_evaluate_scripts is enabled, preprocess and evaluate first
+		if auto_evaluate_scripts:
+			# Preprocess to expose Arcscript (same as element content)
+			label_str = ArcweaveUtils.preprocess_arcscript_html(label_str)
+			
+			# Evaluate Arcscript for DISPLAY only (no assignments)
+			# Assignments will be executed when the choice is actually made
+			label_str = interpreter.evaluate(label_str, true)  # true = skip assignments
+
+			label_str = ArcweaveUtils.parse_content(
+				label_str,
+				use_extended_html_cleaning,
+				parse_color_tags
+			)
+
+			if not label_str.is_empty():
+				# only overwrite "Continue" if label contains evaluated content.
+				processed_label = label_str
 	
 	return processed_label
 

@@ -1,0 +1,395 @@
+{
+    "startingElement": "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42",
+    "boards": {
+        "2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+            "name": "Root",
+            "root": true,
+            "children": [
+                "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+            ]
+        },
+        "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+            "name": "Main Board",
+            "notes": [],
+            "jumpers": [
+                "035d081e-fa8a-4da1-97a9-abd31b10b572"
+            ],
+            "branches": [],
+            "elements": [
+                "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42",
+                "a47e3127-0510-4b89-ba28-7f8f91161b42",
+                "8a08f81a-e312-43bd-9ac3-3bf85db18e9b",
+                "5c974234-8d76-44a8-a759-90a0845fabad"
+            ],
+            "connections": [
+                "bfab959d-ee4b-433a-9dbf-e4d8b046c5a3",
+                "051fa1bf-0309-40ef-88cb-c3f2db07379e",
+                "f2b2e14b-e1c1-428c-9135-355c5642b8ad",
+                "247d49e2-54c3-4836-8b3c-61df9c2afe5a",
+                "17e717ab-7abf-4aeb-a0db-24beb9e6e1ba",
+                "0590f060-c677-4441-ad1c-cc50b62d1f81"
+            ]
+        }
+    },
+    "notes": {},
+    "elements": {
+        "5c974234-8d76-44a8-a759-90a0845fabad": {
+            "autoHeight": true,
+            "width": 301,
+            "y": 20130,
+            "x": 15124,
+            "theme": "default",
+            "height": 121,
+            "components": [],
+            "outputs": [
+                "0590f060-c677-4441-ad1c-cc50b62d1f81"
+            ],
+            "content": "<p>Label should have been: Continue<\/p>",
+            "title": ""
+        },
+        "a47e3127-0510-4b89-ba28-7f8f91161b42": {
+            "autoHeight": true,
+            "width": 301,
+            "y": 19854,
+            "x": 15120,
+            "theme": "default",
+            "height": 121,
+            "components": [],
+            "outputs": [
+                "17e717ab-7abf-4aeb-a0db-24beb9e6e1ba"
+            ],
+            "content": "<p>Label should have been: Continue<\/p>",
+            "title": ""
+        },
+        "8a08f81a-e312-43bd-9ac3-3bf85db18e9b": {
+            "autoHeight": true,
+            "width": 301,
+            "y": 19992,
+            "x": 15123,
+            "theme": "default",
+            "height": 121,
+            "components": [],
+            "outputs": [
+                "247d49e2-54c3-4836-8b3c-61df9c2afe5a"
+            ],
+            "content": "<p>Label should have been: Puppies<\/p>",
+            "title": ""
+        },
+        "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42": {
+            "autoHeight": true,
+            "width": 301,
+            "y": 19989,
+            "x": 14565,
+            "theme": "default",
+            "height": 121,
+            "components": [],
+            "outputs": [
+                "bfab959d-ee4b-433a-9dbf-e4d8b046c5a3",
+                "051fa1bf-0309-40ef-88cb-c3f2db07379e",
+                "f2b2e14b-e1c1-428c-9135-355c5642b8ad"
+            ],
+            "content": "<p>All the choices should have text...<\/p>",
+            "title": "<p>Label Stress Test<\/p>"
+        }
+    },
+    "jumpers": {
+        "035d081e-fa8a-4da1-97a9-abd31b10b572": {
+            "y": 20011,
+            "x": 15658,
+            "elementId": "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42",
+            "align": {
+                "y": "center",
+                "x": "left"
+            },
+            "height": 86,
+            "width": 185
+        }
+    },
+    "connections": {
+        "0590f060-c677-4441-ad1c-cc50b62d1f81": {
+            "targetFace": "left",
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "targetid": "035d081e-fa8a-4da1-97a9-abd31b10b572",
+            "sourceid": "5c974234-8d76-44a8-a759-90a0845fabad",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "247d49e2-54c3-4836-8b3c-61df9c2afe5a": {
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "targetid": "035d081e-fa8a-4da1-97a9-abd31b10b572",
+            "sourceid": "8a08f81a-e312-43bd-9ac3-3bf85db18e9b",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "bfab959d-ee4b-433a-9dbf-e4d8b046c5a3": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "a47e3127-0510-4b89-ba28-7f8f91161b42",
+            "sourceid": "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "17e717ab-7abf-4aeb-a0db-24beb9e6e1ba": {
+            "targetFace": "left",
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "targetid": "035d081e-fa8a-4da1-97a9-abd31b10b572",
+            "sourceid": "a47e3127-0510-4b89-ba28-7f8f91161b42",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "f2b2e14b-e1c1-428c-9135-355c5642b8ad": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "5c974234-8d76-44a8-a759-90a0845fabad",
+            "sourceid": "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": "<pre><code>test_bool = true<\/code><\/pre>"
+        },
+        "051fa1bf-0309-40ef-88cb-c3f2db07379e": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "8a08f81a-e312-43bd-9ac3-3bf85db18e9b",
+            "sourceid": "0e3c5906-0e5e-4a46-9f62-c0c0cc4b8e42",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": "<p>Puppies<\/p>"
+        }
+    },
+    "branches": {},
+    "components": {
+        "1cac5440-8b5c-48c7-9898-531c9ba39d9c": {
+            "attributes": [
+                "50b3bacb-d9da-46c3-8a1f-091a27e3df31"
+            ],
+            "name": "Log Message"
+        },
+        "33bcf1f2-bc39-4f3a-9c3d-e5366242b825": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/dolphin",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "4ba7b4c1-1fae-4031-b2b2-881c548acbb6"
+            ],
+            "name": "Sub Sub Component 1"
+        },
+        "450e5413-9fe3-4c16-ab99-9b9f58334c32": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/radio-tower",
+                    "type": "icon"
+                }
+            },
+            "attributes": [],
+            "name": "Radio_Chatter"
+        },
+        "5b329aff-116d-400d-8a27-89ab6d86ccc9": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/pocket-radio",
+                    "type": "icon"
+                }
+            },
+            "attributes": [],
+            "name": "Radio_Broadcast"
+        },
+        "65005bda-15d0-41c5-867f-68c118829f08": {
+            "root": true,
+            "children": [
+                "1cac5440-8b5c-48c7-9898-531c9ba39d9c",
+                "5b329aff-116d-400d-8a27-89ab6d86ccc9",
+                "450e5413-9fe3-4c16-ab99-9b9f58334c32",
+                "c8878972-9360-43fc-89d3-c4592627cac8",
+                "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                "7e6c719b-5960-46ab-923a-808d4937a929",
+                "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+            ],
+            "name": "Root"
+        },
+        "7e6c719b-5960-46ab-923a-808d4937a929": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/button-finger",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "6cca1543-6b0b-4e80-8797-797991d34454",
+                "9eda5800-309d-464b-be4b-0dc5a09b56fd",
+                "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81"
+            ],
+            "name": "Testing"
+        },
+        "c8878972-9360-43fc-89d3-c4592627cac8": {
+            "assets": {
+                "cover": {
+                    "file": "delapouite\/tomahawk",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191"
+            ],
+            "name": "Sub Sub Component 2"
+        },
+        "f2ac2730-9aad-43a1-821a-16ca11f4437d": {
+            "assets": {
+                "cover": {
+                    "file": "carl-olsen\/mite-alt",
+                    "type": "icon"
+                }
+            },
+            "attributes": [
+                "f81e401d-d1df-4728-b68f-0fa524b59e1c",
+                "a08f7279-a64a-4172-8c2a-ee7a8ef56692"
+            ],
+            "name": "Sub Component"
+        }
+    },
+    "attributes": {
+        "0f0f6644-86a0-4bfa-8fb5-ad61a90ac191": {
+            "cId": "c8878972-9360-43fc-89d3-c4592627cac8",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Thingy",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "4ba7b4c1-1fae-4031-b2b2-881c548acbb6": {
+            "cId": "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Stringy",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "50b3bacb-d9da-46c3-8a1f-091a27e3df31": {
+            "cId": "1cac5440-8b5c-48c7-9898-531c9ba39d9c",
+            "name": null,
+            "cType": "components",
+            "value": {
+                "data": "Dog",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "6cca1543-6b0b-4e80-8797-797991d34454": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Bob",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "9eda5800-309d-464b-be4b-0dc5a09b56fd": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "rich_name",
+            "cType": "components",
+            "value": {
+                "data": "<p>Bob\ud83e\udd73<\/p>",
+                "type": "string"
+            }
+        },
+        "a08f7279-a64a-4172-8c2a-ee7a8ef56692": {
+            "cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+            "name": "sub sub components",
+            "cType": "components",
+            "value": {
+                "data": [
+                    "33bcf1f2-bc39-4f3a-9c3d-e5366242b825",
+                    "c8878972-9360-43fc-89d3-c4592627cac8"
+                ],
+                "type": "component-list"
+            }
+        },
+        "f81e401d-d1df-4728-b68f-0fa524b59e1c": {
+            "cId": "f2ac2730-9aad-43a1-821a-16ca11f4437d",
+            "name": "name",
+            "cType": "components",
+            "value": {
+                "data": "Susan",
+                "type": "string",
+                "plain": true
+            }
+        },
+        "caa7460e-dd6f-4a2f-b660-e49c7bdbfb81": {
+            "cId": "7e6c719b-5960-46ab-923a-808d4937a929",
+            "name": "sub components",
+            "cType": "components",
+            "value": {
+                "data": [
+                    "f2ac2730-9aad-43a1-821a-16ca11f4437d"
+                ],
+                "type": "component-list"
+            }
+        }
+    },
+    "assets": {
+        "647d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": []
+        }
+    },
+    "variables": {
+        "22993cb2-c88b-4de8-ba32-48f7eaa07fef": {
+            "name": "shadowed_variable_1",
+            "type": "string",
+            "value": "cat"
+        },
+        "23574100-5748-4720-a531-1709ce4a8254": {
+            "name": "Hidden_Roll",
+            "type": "integer",
+            "value": 0
+        },
+        "2a7a1df1-8bef-4487-abbf-d61487f04f45": {
+            "name": "Dice_roll",
+            "type": "integer",
+            "value": 0
+        },
+        "5b6870be-0fc3-45e4-ae3c-b10673f99e57": {
+            "name": "score",
+            "type": "integer",
+            "value": 0
+        },
+        "6d532015-19ab-4356-baca-439fe6e3fdc1": {
+            "name": "visits_count",
+            "type": "integer",
+            "value": 0
+        },
+        "747d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": [
+                "2a7a1df1-8bef-4487-abbf-d61487f04f45",
+                "23574100-5748-4720-a531-1709ce4a8254",
+                "5b6870be-0fc3-45e4-ae3c-b10673f99e57",
+                "22993cb2-c88b-4de8-ba32-48f7eaa07fef",
+                "6d532015-19ab-4356-baca-439fe6e3fdc1",
+                "2f5cac69-5d3a-4989-8969-5c70a7837351"
+            ]
+        },
+        "2f5cac69-5d3a-4989-8969-5c70a7837351": {
+            "type": "boolean",
+            "name": "test_bool",
+            "value": false
+        }
+    },
+    "conditions": {},
+    "name": "Test_Project",
+    "cover": null
+}
