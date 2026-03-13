@@ -125,33 +125,8 @@ func goto_element(element_id: String, increment_visit: bool = true) -> ArcweaveE
 		# By ID exclusively.
 		state.increment_visits(element_id)
 	
-	# Get localized content (works for both single and multi-language)
-	var raw_content = localization.get_element_content(element_id)
-	var evaluated_content = ""
-	
-	if raw_content != "":
-		var content_to_evaluate = raw_content
-		
-		# Preprocess: Remove <code> tags from Arcscript keywords
-		# Arcweave wraps if/endif/show/etc in <pre><code> tags
-		if auto_evaluate_scripts:
-			content_to_evaluate = ArcweaveUtils.preprocess_arcscript_html(raw_content)
-		
-		# Evaluate Arcscript on preprocessed content
-		# HTML tags like <a> remain but won't be treated as assignments (see _is_assignment)
-		var arcscript_evaluated = content_to_evaluate
-		if auto_evaluate_scripts:
-			arcscript_evaluated = interpreter.evaluate(content_to_evaluate)
-		
-		# Then clean remaining HTML and convert to BBCode
-		evaluated_content = ArcweaveUtils.parse_content(
-			arcscript_evaluated, 
-			use_extended_html_cleaning, 
-			parse_color_tags
-		)
-	
 	# Always add evaluated_content to element (even if empty)
-	element.evaluated_content = evaluated_content
+	element.evaluated_content = get_evaluated_element_content(element_id)
 	
 	# Emit signals
 	element_changed.emit(element)
@@ -427,6 +402,37 @@ func get_element_by_title(title: String) -> ArcweaveElement:
 		if element.title.to_lower() == title_lower:
 			return element
 	return null
+
+
+## Returns the element's content, localized, with arcscript evaluated according to preference flags.
+## Text will contain bbcode tags, use ArcweaveUtils.strip_bbcode() to remove those too.
+func get_evaluated_element_content(element_id: String) -> String:
+	# Get localized content (works for both single and multi-language)
+	var raw_content := localization.get_element_content(element_id)
+	var evaluated_content := ""
+	
+	if raw_content != "":
+		var content_to_evaluate := raw_content
+		
+		# Preprocess: Remove <code> tags from Arcscript keywords
+		# Arcweave wraps if/endif/show/etc in <pre><code> tags
+		if auto_evaluate_scripts:
+			content_to_evaluate = ArcweaveUtils.preprocess_arcscript_html(raw_content)
+		
+		# Evaluate Arcscript on preprocessed content
+		# HTML tags like <a> remain but won't be treated as assignments (see _is_assignment)
+		var arcscript_evaluated := content_to_evaluate
+		if auto_evaluate_scripts:
+			arcscript_evaluated = interpreter.evaluate(content_to_evaluate)
+		
+		# Then clean remaining HTML and convert to BBCode
+		evaluated_content = ArcweaveUtils.parse_content(
+			arcscript_evaluated, 
+			use_extended_html_cleaning, 
+			parse_color_tags
+		)
+	
+	return evaluated_content
 
 
 ## Get component by ID
