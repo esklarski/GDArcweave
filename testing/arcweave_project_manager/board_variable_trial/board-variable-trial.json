@@ -1,0 +1,171 @@
+{
+    "startingElement": "90fdbc6d-b27f-4c57-a052-57dd885375fe",
+    "boards": {
+        "2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+            "name": "Root",
+            "root": true,
+            "children": [
+                "1fe97f08-9280-408e-9eb8-f6f151083c9d",
+                "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+            ]
+        },
+        "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+            "name": "Main Board",
+            "notes": [],
+            "jumpers": [
+                "c968004d-f226-4e75-a4c3-a6bf7ddcd057"
+            ],
+            "branches": [],
+            "elements": [
+                "90fdbc6d-b27f-4c57-a052-57dd885375fe",
+                "dc3e7b57-2808-4a33-a7a1-c56d735217d5"
+            ],
+            "connections": [
+                "6452a7fb-0aeb-44c2-8a87-09de548f203a",
+                "9cb20469-e7bc-4fa5-8cfc-0141c4ee248f"
+            ],
+            "customId": "main_board",
+            "variables": [
+                "c66bf3e9-0cef-4784-8252-d891725da1c7"
+            ]
+        },
+        "1fe97f08-9280-408e-9eb8-f6f151083c9d": {
+            "name": "Another Board",
+            "notes": [],
+            "elements": [
+                "e64b7a48-2b34-4d4b-9b5c-62aabf6da02c",
+                "187043a6-237c-41e4-9919-b3c909a33516"
+            ],
+            "connections": [
+                "bf238a37-d9cd-4c93-a09f-35f82eaac720"
+            ],
+            "branches": [],
+            "jumpers": [],
+            "customId": "another_board",
+            "variables": [
+                "520fd197-158e-4e93-9a61-71dbdbfa6593"
+            ]
+        }
+    },
+    "notes": {},
+    "elements": {
+        "e64b7a48-2b34-4d4b-9b5c-62aabf6da02c": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "bf238a37-d9cd-4c93-a09f-35f82eaac720"
+            ],
+            "content": "<pre><code>show(another_board.variable_1)<\/code><\/pre>",
+            "title": "<p>Another Board Start<\/p>"
+        },
+        "90fdbc6d-b27f-4c57-a052-57dd885375fe": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "6452a7fb-0aeb-44c2-8a87-09de548f203a"
+            ],
+            "content": "<pre><code>show(main_board.variable_1)<\/code><\/pre>",
+            "title": "<p>Main Board Start<\/p>"
+        },
+        "dc3e7b57-2808-4a33-a7a1-c56d735217d5": {
+            "theme": "default",
+            "components": [],
+            "outputs": [
+                "9cb20469-e7bc-4fa5-8cfc-0141c4ee248f"
+            ],
+            "content": "<pre><code>show(main_board.variable_1)<\/code><\/pre>",
+            "title": null
+        },
+        "187043a6-237c-41e4-9919-b3c909a33516": {
+            "theme": "default",
+            "components": [],
+            "outputs": [],
+            "content": "<pre><code>show(another_board.variable_1)<\/code><\/pre>",
+            "title": null
+        }
+    },
+    "jumpers": {
+        "c968004d-f226-4e75-a4c3-a6bf7ddcd057": {
+            "elementId": "e64b7a48-2b34-4d4b-9b5c-62aabf6da02c",
+            "align": {
+                "y": "bottom",
+                "x": "center"
+            },
+            "height": 86,
+            "width": 185
+        }
+    },
+    "connections": {
+        "6452a7fb-0aeb-44c2-8a87-09de548f203a": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "dc3e7b57-2808-4a33-a7a1-c56d735217d5",
+            "sourceid": "90fdbc6d-b27f-4c57-a052-57dd885375fe",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": "<pre><code>main_board.variable_1 = \"now it holds this\"<\/code><\/pre>"
+        },
+        "9cb20469-e7bc-4fa5-8cfc-0141c4ee248f": {
+            "type": "Bezier",
+            "targetType": "jumpers",
+            "targetid": "c968004d-f226-4e75-a4c3-a6bf7ddcd057",
+            "sourceid": "dc3e7b57-2808-4a33-a7a1-c56d735217d5",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": null
+        },
+        "bf238a37-d9cd-4c93-a09f-35f82eaac720": {
+            "type": "Bezier",
+            "targetType": "elements",
+            "targetid": "187043a6-237c-41e4-9919-b3c909a33516",
+            "sourceid": "e64b7a48-2b34-4d4b-9b5c-62aabf6da02c",
+            "theme": "default",
+            "sourceType": "elements",
+            "label": "<pre><code>another_board.variable_1 = \"and now it says: hello!\"<\/code><\/pre>"
+        }
+    },
+    "branches": {},
+    "components": {
+        "65005bda-15d0-41c5-867f-68c118829f08": {
+            "root": true,
+            "children": [
+                "f11f40d8-75b8-4b1f-ba29-4b88f9024b2d"
+            ],
+            "name": "Root"
+        },
+        "f11f40d8-75b8-4b1f-ba29-4b88f9024b2d": {
+            "attributes": [],
+            "name": "Untitled component"
+        }
+    },
+    "attributes": {},
+    "assets": {
+        "647d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": []
+        }
+    },
+    "variables": {
+        "747d0495-341f-42b2-8788-b47dace22bf8": {
+            "root": true,
+            "children": []
+        },
+        "c66bf3e9-0cef-4784-8252-d891725da1c7": {
+            "type": "string",
+            "name": "variable_1",
+            "value": "this is a main board variable.",
+            "cType": "boards",
+            "cId": "630fdb8a-48d6-473e-9974-2460f7eb2b41"
+        },
+        "520fd197-158e-4e93-9a61-71dbdbfa6593": {
+            "type": "string",
+            "name": "variable_1",
+            "value": "this is on another board",
+            "cType": "boards",
+            "cId": "1fe97f08-9280-408e-9eb8-f6f151083c9d"
+        }
+    },
+    "conditions": {},
+    "name": "Board Variable Trial",
+    "cover": null
+}
