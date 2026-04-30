@@ -17,11 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ArcweaveManager="*res://addons/gd_arcweave/arcweave_manager.gd"
+ArcweaveManager="*uid://cy10po08uunow"
 
 [dotnet]
 
 project/assembly_name="GD_Arcweave"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gd_arcweave/plugin.cfg")
 
 [gui]
 
