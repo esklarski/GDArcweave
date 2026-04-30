@@ -2,9 +2,11 @@
 
 A GDScript interpreter for [Arcweave](https://arcweave.com) interactive narrative projects in Godot 4.
 
+
 ## ⚠️ Status
 
 **Early stage and largely untested.** Use at your own risk. Contributions and bug reports welcome.
+
 
 ## Features
 
@@ -21,49 +23,19 @@ Load and navigate Arcweave story projects exported as JSON, with support for:
 - ❌ Note objects not implemented
 - ❌ Coordinates not parsed
 
+
 ## Quick Start
 
 1. Export your Arcweave project as JSON
-2. Add the scripts to your Godot project
+2. Copy the gd_arcweave folder into your `res://addons` folder
+3. Enable the plugin in Project Settings
 
-### Method 1: instance manager in a script
+Enabling the plugin will create an autoload entry of the base `ArcweaveManagerInstance` class. It is assumed that the user will extend this class to implement custom functionality, but this fallback autoload provides all the necessary features to run the project test scene. If you override this autoload, enabling the plugin is not required.
 
-Instance and connect to an `ArcweaveManager` then load json project.
+An example of connecting to the autoload and starting a project:
+```c++
+@export_file_path("*.json") var arcweave_project_json: String
 
-```gdscript
-var arcweave_manager: ArcweaveManagerInstance
-
-func _ready():
-	arcweave_manager = ArcweaveManagerInstance.new()
-
-	# Connect signals
-	arcweave_manager.element_changed.connect(_on_element_changed)
-	arcweave_manager.choice_presented.connect(_on_choices_presented)
-	arcweave_manager.story_ended.connect(_on_story_ended)
-	
-	# Load and start
-	if arcweave_manager.load_project_from_file(arcweave_project_json):
-		arcweave_manager.start_story()
-	else:
-		$StoryText.text = "Failed to load story!"
-
-func _on_element_changed(element):
-	print(element.evaluated_content)
-
-func _on_choice_presented(choices):
-	for choice in choices:
-		print(choice.label)
-	
-	await get_tree().create_timer(2.0).timeout
-	ArcweaveManager.make_choice(choices.pick_random())
-```
-
-### Method 2: via autoload
-
-Set `arcweave_manager.gd` as an autoload `ArcweaveManager` in Project Settings.
-Connect to signals and load json project.
-
-```gdscript
 func _ready():
 	ArcweaveManager.element_changed.connect(_on_element_changed)
 	ArcweaveManager.choice_presented.connect(_on_choice_presented)
@@ -83,6 +55,9 @@ func _on_choice_presented(choices):
 	await get_tree().create_timer(2.0).timeout
 	ArcweaveManager.make_choice(choices.pick_random())
 ```
+
+In the full project see: `res://testing/arcweave_project_manager/gd_arcweave_test.tscn` for a more complete example.
+
 
 ## Documentation
 
