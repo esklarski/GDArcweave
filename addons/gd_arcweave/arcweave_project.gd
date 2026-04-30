@@ -240,16 +240,28 @@ func _parse_assets(assets_data: Dictionary) -> void:
 func _initialize_project_variables(variables_data: Dictionary) -> void:
 	# Arcweave variables are organized in a tree (folders and variables)
 	# Only items with "name" are actual variables
+	
+	# Build a map from board UUID -> customId for quick lookup
+	var board_custom_ids: Dictionary = {}
+	for board_id in boards:
+		var board: ArcweaveBoard = boards[board_id]
+		if board.custom_id != "":
+			board_custom_ids[board_id] = board.custom_id
+	
 	for var_id in variables_data:
 		var var_data = variables_data[var_id]
-		
-		# Skip folders (they have "root" or "children" but no "name")
 		if not var_data.has("name"):
 			continue
 		
 		var var_name = var_data.get("name", "")
 		if var_name == "":
 			continue
+		
+		# If this variable belongs to a board, qualify its name
+		if var_data.get("cType", "") == "boards":
+			var c_id = var_data.get("cId", "")
+			if c_id != "" and board_custom_ids.has(c_id):
+				var_name = board_custom_ids[c_id] + "." + var_name
 		
 		var value = var_data.get("value", null)
 		

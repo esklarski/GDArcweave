@@ -496,21 +496,23 @@ func _evaluate_condition(condition_text: String) -> bool:
 ## Evaluate an expression and return its value
 func _evaluate_expression(expr_text: String) -> Variant:
 	var normalized = _normalize_arcscript(expr_text)
-	
 	var expr = Expression.new()
 	
-	# Build variable lists, but use shadow variable values where applicable
-	var var_names = manager.state.variables.keys()
-	var var_values = []
+	# Build name/value arrays, substituting dots in variable names
+	var var_names: Array = []
+	var var_values: Array = []
+	var name_map: Dictionary = {}  # safe_name -> qualified_name
 	
-	for var_name in var_names:
-		# Check if this is a shadow variable and in use
-		if is_shadow_variable(var_name) and normalized.contains(var_name):
-			# Get the custom value from the callback
-			var_values.append(get_variable_value(var_name))
+	for qualified_name in manager.state.variables.keys():
+		var safe_name = qualified_name.replace(".", "__")
+		name_map[safe_name] = qualified_name
+		var_names.append(safe_name)
+		if is_shadow_variable(qualified_name) and normalized.contains(qualified_name):
+			var_values.append(get_variable_value(qualified_name))
 		else:
-			# Use the stored value
-			var_values.append(manager.state.variables[var_name])
+			var_values.append(manager.state.variables[qualified_name])
+		# Also substitute the qualified name in the expression itself
+		normalized = normalized.replace(qualified_name, safe_name)
 	
 	var error = expr.parse(normalized, var_names)
 	if error != OK:

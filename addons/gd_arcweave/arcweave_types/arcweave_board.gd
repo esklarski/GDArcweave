@@ -8,6 +8,9 @@ extends Resource
 ## Unique identifier for this board
 @export var id: String = ""
 
+## Board identifier for variable lookup.
+@export var custom_id: String = ""
+
 ## Name of the board
 @export var name: String = ""
 
@@ -23,6 +26,9 @@ extends Resource
 ## Array of connection ID's on this board
 @export var connections: Array[String] = []
 
+## Variable ids for this board.
+@export var variables: Array[String] = []
+
 ## Whether this is the root/starting board
 @export var root: bool = false
 
@@ -32,6 +38,7 @@ static func from_dict(data: Dictionary, board_id: String) -> ArcweaveBoard:
 	var board = ArcweaveBoard.new()
 	
 	board.id = board_id
+	board.custom_id = data.get("customId", "")
 	board.name = data.get("name", "")
 	board.root = data.get("root", false)
 	
@@ -66,6 +73,14 @@ static func from_dict(data: Dictionary, board_id: String) -> ArcweaveBoard:
 		for connection_id in connections:
 			if typeof(connection_id) == TYPE_STRING:
 				board.connections.append(connection_id)
+	
+	# Parse elements array
+	var vars = data.get("variables", [])
+	if typeof(vars) == TYPE_ARRAY:
+		board.variables.clear()
+		for var_id in vars:
+			if typeof(var_id) == TYPE_STRING:
+				board.variables.append(var_id)
 	
 	return board
 
