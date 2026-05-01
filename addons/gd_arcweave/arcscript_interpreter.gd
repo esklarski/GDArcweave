@@ -207,18 +207,27 @@ func _is_assignment(line: String) -> bool:
 	# Must have format: variable_name = value or variable_name += value
 	# Variable names must be valid identifiers (letters, numbers, underscores)
 	# and must come before the = sign
-	var has_valid_var = false
 	for op in ["+=", "-=", "*=", "/=", "="]:
 		if op in line:
 			var parts = line.split(op, true, 1)
 			if parts.size() == 2:
 				var var_name = parts[0].strip_edges()
-				# Check if it's a valid identifier
-				if var_name != "" and not " " in var_name and not "<" in var_name:
-					has_valid_var = true
-					break
+				# Reject if LHS contains characters illegal in an identifier,
+				# including HTML attribute syntax (quotes, angle brackets, hyphens, spaces)
+				if var_name == "":
+					continue
+				if " " in var_name or "<" in var_name or ">" in var_name:
+					continue
+				if "\"" in var_name or "'" in var_name:
+					continue
+				if "-" in var_name and not var_name.begins_with("-"):
+					# Hyphens are not valid in Arcscript identifiers (e.g. data-id="…")
+					continue
+				# Confirm the LHS exists as a known variable (strongest guard)
+				if manager.has_variable(var_name):
+					return true
 	
-	return has_valid_var
+	return false
 
 
 ## Evaluate an assignment statement
