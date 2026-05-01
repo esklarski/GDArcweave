@@ -80,9 +80,9 @@ func evaluate(arcscript_text: String, skip_assignments: bool = false) -> String:
 ## Returns null if the variable doesn't exist
 func get_variable_value(variable_name: String) -> Variant:
 	# Check if it's a shadow variable first
-	if _shadow_variables.has(variable_name):
-		var callback: Callable = _shadow_variables[variable_name]
-		return callback.call()
+	var shadow_var : Callable = _shadow_variables.get(variable_name)
+	if shadow_var:
+		return shadow_var.call()
 	
 	# Otherwise, return the stored value
 	return manager.state.variables.get(variable_name, null)
@@ -670,8 +670,8 @@ func reset(args = null):
 		if typeof(var_name) != TYPE_STRING:
 			var_name = str(var_name)
 		
-		if manager.project.initial_variables.has(var_name):
-			var initial_value = manager.project.initial_variables[var_name]
+		var initial_value = manager.project.initial_variables.get(var_name)
+		if initial_value:
 			set_variable_value(var_name, initial_value)
 			
 			# Notify manager if callback is set
