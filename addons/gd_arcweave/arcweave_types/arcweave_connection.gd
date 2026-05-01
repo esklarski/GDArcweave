@@ -17,6 +17,9 @@ extends Resource
 ## ID of the target element
 @export var targetid: String = ""
 
+## ID of the target element
+@export var target_type: String = ""
+
 
 ## Create a connection from parsed JSON dictionary
 static func from_dict(data: Dictionary, connection_id: String) -> ArcweaveConnection:
@@ -27,6 +30,7 @@ static func from_dict(data: Dictionary, connection_id: String) -> ArcweaveConnec
 	connection.label = data_label if data_label else ""
 	connection.sourceid = data.get("sourceid", "")
 	connection.targetid = data.get("targetid", "")
+	connection.target_type = data.get("targetType", "")
 	
 	return connection
 
