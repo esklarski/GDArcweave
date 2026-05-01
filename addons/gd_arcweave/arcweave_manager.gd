@@ -101,148 +101,144 @@ func start_story(custom_start_id: String = "") -> ArcweaveElement:
 
 ## Navigate to a specific element
 func goto_element(element_id: String, increment_visit: bool = true) -> ArcweaveElement:
-	if not project.elements.has(element_id):
-		push_error("Element not found: " + element_id)
-		return null
-	
-	# Track history
-	if track_history and state.current_element_id != "":
-		state.element_history.append(state.current_element_id)
-		if state.element_history.size() > state.max_history_size:
-			state.element_history.pop_front()
-	
-	state.current_element_id = element_id
-	
 	# Get element data
-	var element: ArcweaveElement = project.elements[element_id]
+	var element: ArcweaveElement = project.elements.get(element_id)
 	
-	# Get localized title (works for both single and multi-language)
-	var element_title = localization.get_element_title(element_id)
-	
-	# Increment visit count BEFORE evaluation (if not going back)
-	# This way, visits() in the content reflects the current visit number
-	if increment_visit:
-		# By ID exclusively.
-		state.increment_visits(element_id)
-	
-	# Always add evaluated_content to element (even if empty)
-	element.evaluated_content = get_evaluated_element_content(element_id)
-	
-	# Emit signals
-	element_changed.emit(element)
-
-	if present_choices:
-		# Get available choices
-		var choices = get_choices_for_element(element_id)
+	if element:
+		# Track history
+		if track_history and state.current_element_id != "":
+			state.element_history.append(state.current_element_id)
+			if state.element_history.size() > state.max_history_size:
+				state.element_history.pop_front()
+		
+		state.current_element_id = element_id
+		
+		# Get localized title (works for both single and multi-language)
+		var element_title = localization.get_element_title(element_id)
+		
+		# Increment visit count BEFORE evaluation (if not going back)
+		# This way, visits() in the content reflects the current visit number
+		if increment_visit:
+			# By ID exclusively.
+			state.increment_visits(element_id)
+		
+		# Always add evaluated_content to element (even if empty)
+		element.evaluated_content = get_evaluated_element_content(element_id)
 		
 		# Emit signals
-		if choices.size() > 0:
-			choice_presented.emit(choices)
-		else:
-			# No choices means end of story
-			story_ended.emit()
+		element_changed.emit(element)
+		
+		if present_choices:
+			# Get available choices
+			var choices = get_choices_for_element(element_id)
+			
+			# Emit signals
+			if choices.size() > 0:
+				choice_presented.emit(choices)
+			else:
+				# No choices means end of story
+				story_ended.emit()
 	
 	return element
 
 
 ## Get available choices from current element
 func get_choices_for_element(element_id: String) -> Array:
-	if not project.elements.has(element_id):
-		return []
+	var element: ArcweaveElement = project.elements.get(element_id)
 	
-	var element: ArcweaveElement = project.elements[element_id]
+	if not element: return []
+	
 	var outputs := element.outputs
 	var choices := []
 	
 	for output_id in outputs:
-		# Get the connection
-		if not project.connections.has(output_id):
-			continue
+		var connection = project.connections.get(output_id)
+		if not connection: continue
 		
-		var connection = project.connections[output_id]
 		var target_id = connection.targetid
 		
 		# Check if it's a branch or direct connection
-		if project.branches.has(target_id):
-			# It's a branch - evaluate conditions
-			var branch = project.branches[target_id]
-			var condition_ids = branch.condition_ids
-			
-			# Store the incoming connection label (element -> branch) as fallback
-			var incoming_label = localization.get_connection_label(output_id)
-			if incoming_label == "":
-				incoming_label = null
-			
-			var condition_met = false
-			var output_target = ""
-			var output_connection_id = ""
-			
-			# Evaluate conditions (if any)
-			if condition_ids.size() > 0:
-				for condition_id in condition_ids:
-					if project.conditions.has(condition_id):
-						var condition_obj = project.conditions[condition_id]
-						var script = condition_obj.condition_script
-						if script != null and script != "":
-							condition_met = interpreter._evaluate_condition(script)
-						else:
-							# No script means unconditional (like else)
-							condition_met = true
-						
-						if condition_met:
-							# Get the output connection for this condition
-							output_connection_id = condition_obj.output
-							output_target = _get_target_from_connection(output_connection_id)
-							break
-			
-			if condition_met and output_target != "":
-				# CORRECTED LABEL LOGIC (matching official web player):
-				var label = null
+		match connection.target_type:
+			"branches":
+				# It's a branch - evaluate conditions
+				var branch = project.branches[target_id]
+				var condition_ids = branch.condition_ids
 				
-				# FIRST: Try outgoing connection label (condition -> element)
-				if output_connection_id != "":
-					var outgoing_label = localization.get_connection_label(output_connection_id)
-					if outgoing_label != "":
-						label = outgoing_label
+				# Store the incoming connection label (element -> branch) as fallback
+				var incoming_label = localization.get_connection_label(output_id)
+				if incoming_label == "":
+					incoming_label = null
 				
-				# SECOND: If outgoing is null, try incoming connection label (element -> branch)
-				if label == null:
-					label = incoming_label if incoming_label else ""
+				var condition_met = false
+				var output_target = ""
+				var output_connection_id = ""
 				
-				choices.append({
-					"label": _process_choice_label(label),
-					"raw_label": label,
-					"target_id": output_target,
-					"branch_id": target_id,
-					"connection_id": output_connection_id,
-				})
-		
-		elif project.elements.has(target_id):
-			# Direct connection to another element
-			var label = localization.get_connection_label(output_id)
+				# Evaluate conditions (if any)
+				if condition_ids.size() > 0:
+					for condition_id in condition_ids:
+						if project.conditions.has(condition_id):
+							var condition_obj = project.conditions[condition_id]
+							var script = condition_obj.condition_script
+							if script != null and script != "":
+								condition_met = interpreter._evaluate_condition(script)
+							else:
+								# No script means unconditional (like else)
+								condition_met = true
+							
+							if condition_met:
+								# Get the output connection for this condition
+								output_connection_id = condition_obj.output
+								output_target = _get_target_from_connection(output_connection_id)
+								break
+				
+				if condition_met and output_target != "":
+					# CORRECTED LABEL LOGIC (matching official web player):
+					var label = null
+					
+					# FIRST: Try outgoing connection label (condition -> element)
+					if output_connection_id != "":
+						var outgoing_label = localization.get_connection_label(output_connection_id)
+						if outgoing_label != "":
+							label = outgoing_label
+					
+					# SECOND: If outgoing is null, try incoming connection label (element -> branch)
+					if label == null:
+						label = incoming_label if incoming_label else ""
+					
+					choices.append({
+						"label": _process_choice_label(label),
+						"raw_label": label,
+						"target_id": output_target,
+						"branch_id": target_id,
+						"connection_id": output_connection_id,
+					})
 			
-			choices.append({
-				"label": _process_choice_label(label),
-				"raw_label": label,
-				"target_id": target_id,
-				"branch_id": "",
-				"connection_id": output_id,
-			})
-		
-		elif project.jumpers.has(target_id):
-			# Connection to a jumper
-			var jumper = project.jumpers[target_id]
-			var jumper_element_id = jumper.elementId
-			if jumper_element_id != "":
+			"elements":
+				# Direct connection to another element
 				var label = localization.get_connection_label(output_id)
 				
 				choices.append({
 					"label": _process_choice_label(label),
 					"raw_label": label,
-					"target_id": jumper_element_id,
+					"target_id": target_id,
 					"branch_id": "",
 					"connection_id": output_id,
 				})
+			
+			"jumpers":
+				# Connection to a jumper
+				var jumper = project.jumpers[target_id]
+				var jumper_element_id = jumper.elementId
+				if jumper_element_id != "":
+					var label = localization.get_connection_label(output_id)
+					
+					choices.append({
+						"label": _process_choice_label(label),
+						"raw_label": label,
+						"target_id": jumper_element_id,
+						"branch_id": "",
+						"connection_id": output_id,
+					})
 	
 	return choices
 
@@ -265,13 +261,13 @@ func _process_choice_label(label) -> String:
 			# Evaluate Arcscript for DISPLAY only (no assignments)
 			# Assignments will be executed when the choice is actually made
 			label_str = interpreter.evaluate(label_str, true)  # true = skip assignments
-
+			
 			label_str = ArcweaveUtils.parse_content(
 				label_str,
 				use_extended_html_cleaning,
 				parse_color_tags
 			)
-
+			
 			if not label_str.is_empty():
 				# only overwrite "Continue" if label contains evaluated content.
 				processed_label = label_str
@@ -290,38 +286,39 @@ func _get_target_from_condition(condition_obj: Dictionary) -> String:
 
 ## Get target element ID from a connection ID
 func _get_target_from_connection(connection_id: String) -> String:
-	if not project.connections.has(connection_id):
-		return ""
+	var connection = project.connections.get(connection_id)
 	
-	var connection = project.connections[connection_id]
-	var target_id = connection.targetid
+	if not connection: return ""
 	
-	# Check if target is a jumper
-	if project.jumpers.has(target_id):
-		var jumper = project.jumpers[target_id]
-		target_id = jumper.elementId
+	var target_id: String = ""
 	
-	# Check if target is a branch - recursively evaluate it
-	if project.branches.has(target_id):
-		target_id = _evaluate_branch_to_element(target_id)
+	# Check if target is a jumper or branch
+	match connection.target_type:
+		"elements":
+			target_id = connection.targetid
+		"jumpers":
+			var jumper = project.jumpers.get(connection.targetid)
+			if jumper:
+				target_id = jumper.elementId
+		"branches":
+			target_id = _evaluate_branch_to_element(connection.targetid)
 	
 	return target_id
 
 
 ## Recursively evaluate a branch until we reach an element (or empty if no conditions match)
 func _evaluate_branch_to_element(branch_id: String) -> String:
-	if not project.branches.has(branch_id):
-		return ""
+	var branch = project.branches.get(branch_id)
 	
-	var branch = project.branches[branch_id]
+	if not branch: return ""
+	
 	var condition_ids = branch.condition_ids
 	
 	# Evaluate conditions in order
 	for condition_id in condition_ids:
-		if not project.conditions.has(condition_id):
-			continue
-		
 		var condition_obj = project.conditions[condition_id]
+		if not condition_obj: continue
+		
 		var script = condition_obj.condition_script
 		var condition_met = false
 		
@@ -488,61 +485,22 @@ func get_all_boards() -> Array[ArcweaveBoard]:
 
 ## Get elements on a specific board
 func get_elements_on_board(board_id: String) -> Array[ArcweaveElement]:
-	if not project.boards.has(board_id):
-		return []
-	
-	var board = project.boards[board_id]
+	var board = project.boards.get(board_id)
+
+	if not board: return []
+
 	var element_ids = board.elements
 	var board_elements: Array[ArcweaveElement] = []
 	
 	for element_id in element_ids:
-		if project.elements.has(element_id):
-			board_elements.append(project.elements[element_id])
+		var element: ArcweaveElement = project.elements.get(element_id)
+		if element:
+			board_elements.append(element)
 	
 	return board_elements
 
 
-# ******************** LOAD/SAVE STATE ********************
-# UNTESTED
-
-## Save story state to a dictionary (for compatibility)
-func save_state() -> Dictionary:
-	return state.to_dict()
-
-
-## Load story state from a dictionary (for compatibility)
-func load_state(data: Dictionary) -> void:
-	state.from_dict(data)
-	
-	# Emit current element
-	if state.current_element_id != "" and project.elements.has(state.current_element_id):
-		element_changed.emit(project.elements[state.current_element_id])
-
-
-## Save state to file (new Resource-based save)
-func save_state_to_file(file_path: String) -> bool:
-	return state.save_to_file(file_path)
-
-
-## Load state from file (new Resource-based load)
-func load_state_from_file(file_path: String) -> bool:
-	var loaded_state = ArcweaveState.load_from_file(file_path)
-	if loaded_state == null:
-		return false
-	
-	# Replace our state with the loaded one
-	state = loaded_state
-	
-	# Re-share with interpreter and localization
-	interpreter.state = loaded_state
-	localization.state = loaded_state
-	
-	# Emit current element
-	if state.current_element_id != "" and project.elements.has(state.current_element_id):
-		element_changed.emit(project.elements[state.current_element_id])
-	
-	return true
-
+# ******************** DEBUG ********************
 
 ## Debug: Print current state
 func debug_print_state() -> void:
@@ -800,8 +758,9 @@ func get_element_component_data(element: ArcweaveElement) -> Array[ArcweaveCompo
 	var component_data: Array[ArcweaveComponent] = []
 	
 	for comp_id in component_ids:
-		if project.components.has(comp_id):
-			component_data.append(project.components[comp_id])
+		var component := project.components.get(comp_id)
+		if component:
+			component_data.append(component)
 	
 	return component_data
 
@@ -811,10 +770,9 @@ func get_element_component_by_name(element: ArcweaveElement, component_name: Str
 	var component_ids := element.components
 	
 	for comp_id in component_ids:
-		if project.components.has(comp_id):
-			var comp := project.components[comp_id]
-			if comp.name == component_name:
-				return comp
+		var component := project.components.get(comp_id)
+		if component and  component.name == component_name:
+			return component
 	
 	return null
 
@@ -825,8 +783,9 @@ func get_component_attributes(component: ArcweaveComponent) -> Array[ArcweaveAtt
 	var attribute_data: Array[ArcweaveAttribute] = []
 	
 	for attr_id in attribute_ids:
-		if project.attributes.has(attr_id):
-			attribute_data.append(project.attributes[attr_id])
+		var attribute := project.attributes.get(attr_id)
+		if attribute:
+			attribute_data.append(attribute)
 	
 	return attribute_data
 
@@ -837,10 +796,9 @@ func get_component_attribute_by_name(component: ArcweaveComponent, attribute_nam
 	var attribute_ids := component.attributes
 	
 	for attr_id in attribute_ids:
-		if project.attributes.has(attr_id):
-			var attr := project.attributes[attr_id]
-			if attr.name == attribute_name:
-				return attr
+		var attribute := project.attributes.get(attr_id)
+		if attribute and attribute.name == attribute_name:
+			return attribute
 	
 	return null
 
@@ -894,8 +852,8 @@ func get_component_subcomponents(component: ArcweaveComponent, recursive: bool =
 			var component_ids := get_attribute_value(attr.id, [])
 			
 			for comp_id in component_ids:
-				if project.components.has(comp_id):
-					var subcomp := project.components[comp_id]
+				var subcomp := project.components.get(comp_id)
+				if subcomp:
 					subcomponents.append(subcomp)
 					
 					# Recursively get nested subcomponents if requested
