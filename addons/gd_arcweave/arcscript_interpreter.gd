@@ -671,7 +671,7 @@ func reset(args = null):
 			var_name = str(var_name)
 		
 		var initial_value = manager.project.initial_variables.get(var_name)
-		if initial_value:
+		if initial_value != null:
 			set_variable_value(var_name, initial_value)
 			
 			# Notify manager if callback is set
