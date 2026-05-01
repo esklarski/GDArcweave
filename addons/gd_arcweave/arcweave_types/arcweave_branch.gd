@@ -22,20 +22,22 @@ static func from_dict(data: Dictionary, branch_id: String) -> ArcweaveBranch:
 	var conditions_obj = data.get("conditions", {})
 	if typeof(conditions_obj) == TYPE_DICTIONARY:
 		# If condition (required)
-		if conditions_obj.has("ifCondition"):
-			branch.condition_ids.append(conditions_obj["ifCondition"])
+		var if_condition = conditions_obj.get("ifCondition")
+		if if_condition:
+			branch.condition_ids.append(if_condition)
 		
 		# ElseIf conditions (optional, can be multiple)
-		if conditions_obj.has("elseIfConditions"):
-			var elseif_conditions = conditions_obj["elseIfConditions"]
-			if typeof(elseif_conditions) == TYPE_ARRAY:
-				for elseif_id in elseif_conditions:
+		var else_if_conditions = conditions_obj.get("elseIfConditions")
+		if else_if_conditions:
+			if typeof(else_if_conditions) == TYPE_ARRAY:
+				for elseif_id in else_if_conditions:
 					if typeof(elseif_id) == TYPE_STRING:
 						branch.condition_ids.append(elseif_id)
 		
 		# Else condition (optional)
-		if conditions_obj.has("elseCondition"):
-			branch.condition_ids.append(conditions_obj["elseCondition"])
+		var else_condition = conditions_obj.get("elseCondition")
+		if else_condition:
+			branch.condition_ids.append(else_condition)
 	
 	return branch
 

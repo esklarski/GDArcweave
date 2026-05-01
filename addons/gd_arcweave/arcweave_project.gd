@@ -250,8 +250,6 @@ func _initialize_project_variables(variables_data: Dictionary) -> void:
 	
 	for var_id in variables_data:
 		var var_data = variables_data[var_id]
-		if not var_data.has("name"):
-			continue
 		
 		var var_name = var_data.get("name", "")
 		if var_name == "":
@@ -260,8 +258,10 @@ func _initialize_project_variables(variables_data: Dictionary) -> void:
 		# If this variable belongs to a board, qualify its name
 		if var_data.get("cType", "") == "boards":
 			var c_id = var_data.get("cId", "")
-			if c_id != "" and board_custom_ids.has(c_id):
-				var_name = board_custom_ids[c_id] + "." + var_name
+			var board_name = board_custom_ids.get(c_id)
+			
+			if board_name:
+				var_name = board_name + "." + var_name
 		
 		var value = var_data.get("value", null)
 		

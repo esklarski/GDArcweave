@@ -53,10 +53,10 @@ func to_dict() -> Dictionary:
 
 ## Get the cover asset ID if present
 func get_cover_id() -> String:
-	if typeof(assets) == TYPE_DICTIONARY and assets.has("cover"):
-		var cover_data = assets["cover"]
-		if typeof(cover_data) == TYPE_DICTIONARY:
-			return cover_data.get("id", "")
+	var cover_data = assets.get("cover")
+	if cover_data and typeof(cover_data) == TYPE_DICTIONARY:
+		return cover_data.get("id", "")
+	
 	return ""
 
 

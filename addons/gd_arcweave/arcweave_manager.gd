@@ -176,8 +176,8 @@ func get_choices_for_element(element_id: String) -> Array:
 				# Evaluate conditions (if any)
 				if condition_ids.size() > 0:
 					for condition_id in condition_ids:
-						if project.conditions.has(condition_id):
-							var condition_obj = project.conditions[condition_id]
+						var condition_obj = project.conditions.get(condition_id)
+						if condition_obj:
 							var script = condition_obj.condition_script
 							if script != null and script != "":
 								condition_met = interpreter._evaluate_condition(script)

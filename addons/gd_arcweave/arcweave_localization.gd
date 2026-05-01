@@ -81,17 +81,20 @@ func _get_localized_field(
 		locale = manager.state.current_locale
 	
 	# Try multi-language format first
-	if manager.project.is_multi_language_project and manager.project.contents.has(item_id):
-		var content_data = manager.project.contents[item_id]
-		if typeof(content_data) == TYPE_DICTIONARY and content_data.has(field_name):
-			var field_data = content_data[field_name]
-			var fallback_chain = get_fallback_chain(locale)
-			
-			for i in range(fallback_chain.size()):
-				var try_locale = fallback_chain[i]
-				if typeof(field_data) == TYPE_DICTIONARY and field_data.has(try_locale):
-					var locale_data = field_data[try_locale]
-					if typeof(locale_data) == TYPE_DICTIONARY:
+	if manager.project.is_multi_language_project:
+		var content_data = manager.project.contents.get(item_id)
+
+		if content_data and typeof(content_data) == TYPE_DICTIONARY:
+			var field_data = content_data.get(field_name)
+
+			if field_data and typeof(field_data) == TYPE_DICTIONARY:
+				var fallback_chain = get_fallback_chain(locale)
+				
+				for i in range(fallback_chain.size()):
+					var try_locale = fallback_chain[i]
+					var locale_data = field_data.get(try_locale)
+					
+					if locale_data and typeof(locale_data) == TYPE_DICTIONARY:
 						var text = locale_data.get("text", "")
 						var status = get_translation_status(item_id, try_locale)
 						
@@ -111,36 +114,53 @@ func _get_localized_field(
 ## Works with both single-language and multi-language JSON
 ## Falls back to base language if translation status is "untranslated"
 func get_element_title(element_id: String, locale: String = "") -> String:
-	return _get_localized_field(element_id, "title",
-		func(id): return manager.project.elements[id].title if manager.project.elements.has(id) else "",
-		locale)
+	return _get_localized_field(element_id, "title", _check_element_title, locale)
+
+
+func _check_element_title(id):
+	var element: ArcweaveElement = manager.project.elements.get(id)
+	if element: return element.title
+	return ""
 
 
 ## Get element content in current or specified language
 ## Works with both single-language and multi-language JSON
 ## Falls back to base language if translation status is "untranslated"
 func get_element_content(element_id: String, locale: String = "") -> String:
-	return _get_localized_field(element_id, "content",
-		func(id): return manager.project.elements[id].content if manager.project.elements.has(id) else "",
-		locale)
+	return _get_localized_field(element_id, "content", _check_element_content, locale)
+
+
+func _check_element_content(id) -> String:
+	var element: ArcweaveElement = manager.project.elements.get(id)
+	if element: return element.content
+	return ""
 
 
 ## Get component name in current or specified language
 ## Works with both single-language and multi-language JSON
 ## Falls back to base language if translation status is "untranslated"
 func get_component_name(component_id: String, locale: String = "") -> String:
-	return _get_localized_field(component_id, "name",
-		func(id): return manager.project.components[id].name if manager.project.components.has(id) else "", 
-		locale)
+	return _get_localized_field(component_id, "name", _check_component_name, locale)
+
+
+func _check_component_name(id) -> String:
+	var component: ArcweaveComponent = manager.project.components.get(id)
+	if component: return component.name
+	return ""
 
 
 ## Get connection label in current or specified language
 ## Works with both single-language and multi-language JSON
 ## Falls back to base language if translation status is "untranslated"
 func get_connection_label(connection_id: String, locale: String = "") -> String:
-	return _get_localized_field(connection_id, "label",
-		func(id): return str(manager.project.connections[id].label) if manager.project.connections.has(id) and manager.project.connections[id].label != null else "", 
-		locale)
+	return _get_localized_field(connection_id, "label", _check_connection_label, locale)
+
+
+func _check_connection_label(id) -> String:
+	var connection: ArcweaveConnection = manager.project.connections.get(id)
+	if connection and typeof(connection.label) == TYPE_STRING:
+		return connection.label
+	return ""
 
 
 ## Get translation status for an item in a specific locale
@@ -152,11 +172,10 @@ func get_translation_status(item_id: String, locale: String = "") -> String:
 	if not manager.project.is_multi_language_project:
 		return ""
 	
-	if manager.project.contents.has(item_id):
-		var content_data = manager.project.contents[item_id]
-		if typeof(content_data) == TYPE_DICTIONARY and content_data.has("_status"):
-			var status_data = content_data["_status"]
-			if typeof(status_data) == TYPE_DICTIONARY:
-				return status_data.get(locale, "")
+	var content_data = manager.project.contents.get(item_id)
+	if content_data and typeof(content_data) == TYPE_DICTIONARY:
+		var status_data = content_data.get("_status")
+		if status_data and typeof(status_data) == TYPE_DICTIONARY:
+			return status_data.get(locale, "")
 	
 	return ""

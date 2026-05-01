@@ -78,10 +78,9 @@ static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
 		element.assets = assets_data.duplicate(true)
 		
 		# Extract cover image if present
-		if element.assets.has("cover"):
-			var cover_data = element.assets["cover"]
-			if typeof(cover_data) == TYPE_DICTIONARY:
-				element.cover = cover_data.get("id", null)
+		var cover_data = element.assets.get("cover")
+		if cover_data and typeof(cover_data) == TYPE_DICTIONARY:
+			element.cover = cover_data.get("id", null)
 	
 	return element
 
