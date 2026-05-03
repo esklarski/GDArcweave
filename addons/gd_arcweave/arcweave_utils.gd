@@ -8,14 +8,33 @@ class_name ArcweaveUtils
 const CODE_HEX_COLOR = "#27b7f5"
 
 
+static var _regex_mention := _compile('<span[^>]*class="[^"]*mention[^"]*"[^>]*data-id="([^"]*)"[^>]*data-label="([^"]*)"[^>]*data-type="([^"]*)"[^>]*>([^<]*)</span>')
+static var _regex_mention_label := _compile('<span[^>]*class="[^"]*mention[^"]*"[^>]*data-label="([^"]*)"[^>]*>.*?</span>')
+static var _regex_strip_tags := _compile("<[^>]*>")
+static var _regex_pre_tag := _compile("<pre[^>]*>")
+static var _regex_code_tag := _compile("<code[^>]*>")
+static var _regex_p_tag := _compile("<p[^>]*>")
+static var _regex_newlines := _compile("\\n{3,}") # or: \n{3,} ? I think the double is correct...
+static var _regex_html_entity_dec := _compile("&#(\\d+);")
+static var _regex_html_entity_hex := _compile("&#x([0-9a-fA-F]+);")
+static var _regex_strip_bbcode := _compile("\\[/?[^\\]]*\\]")
+static var _regex_color_span := _compile("<span[^>]*style=[\"']color:\\s*#([0-9a-fA-F]{6})[\"'][^>]*>")
+static var _regex_color_font := _compile("<font[^>]*color=[\"']#([0-9a-fA-F]{6})[\"'][^>]*>")
+
+
+# Helper to keep the static var declarations clean
+static func _compile(pattern: String) -> RegEx:
+	var regex := RegEx.new()
+	regex.compile(pattern)
+	return regex
+
+
 ## Extract Arcweave component mentions from span tags
 ## Returns array of dictionaries with mention info: [{id, label, type, original_tag}, ...]
 static func extract_mentions(s: String) -> Array:
 	var mentions = []
-	var regex = RegEx.new()
-	regex.compile('<span[^>]*class="[^"]*mention[^"]*"[^>]*data-id="([^"]*)"[^>]*data-label="([^"]*)"[^>]*data-type="([^"]*)"[^>]*>([^<]*)</span>')
 	
-	var matches = regex.search_all(s)
+	var matches = _regex_mention.search_all(s)
 	for match in matches:
 		mentions.append({
 			"original_tag": match.get_string(0),
@@ -52,9 +71,7 @@ static func clean_string(s: String) -> String:
 	
 	# First, handle Arcweave component mentions (preserve the label text)
 	# Pattern matches: <span class="mention..." data-label="Text">...</span>
-	var regex = RegEx.new()
-	regex.compile('<span[^>]*class="[^"]*mention[^"]*"[^>]*data-label="([^"]*)"[^>]*>.*?</span>')
-	s = regex.sub(s, "$1", true)  # Replace with just the label (group 1)
+	s = _regex_mention_label.sub(s, "$1", true)  # Replace with just the label (group 1)
 	
 	# Replace common HTML tags with temporary placeholders
 	# (to avoid them being stripped by the regex)
@@ -75,9 +92,7 @@ static func clean_string(s: String) -> String:
 	s = s.replace("</code>", "{/code}")
 	
 	# Remove all remaining HTML tags
-	regex = RegEx.new()
-	regex.compile("<[^>]*>")
-	s = regex.sub(s, "", true)  # true = replace all occurrences
+	s = _regex_strip_tags.sub(s, "", true)  # true = replace all occurrences
 	
 	# Convert placeholders to Godot BBCode
 	s = s.replace("{bold}", "[b]")
@@ -99,9 +114,7 @@ static func clean_string_extended(s: String) -> String:
 		return s
 	
 	# First, handle Arcweave component mentions
-	var regex = RegEx.new()
-	regex.compile('<span[^>]*class="[^"]*mention[^"]*"[^>]*data-label="([^"]*)"[^>]*>.*?</span>')
-	s = regex.sub(s, "$1", true)
+	s = _regex_mention_label.sub(s, "$1", true)
 	
 	# Basic formatting
 	s = s.replace("<strong>", "{bold}")
@@ -158,9 +171,7 @@ static func clean_string_extended(s: String) -> String:
 	s = s.replace("&nbsp;", " ")
 	
 	# Remove all remaining HTML tags
-	regex = RegEx.new()
-	regex.compile("<[^>]*>")
-	s = regex.sub(s, "", true)
+	s = _regex_strip_tags.sub(s, "", true)
 	
 	# Convert placeholders to Godot BBCode
 	s = s.replace("{bold}", "[b]")
@@ -216,20 +227,15 @@ static func preprocess_arcscript_html(html: String) -> String:
 		var replacement = '"%s"' % (mention.label if mention.type == "component" else mention.id)
 		processed = processed.replace(mention.original_tag, replacement)
 	
-	var regex = RegEx.new()
-	
 	# Strip <pre> and <code> tags (with or without attributes) that wrap Arcscript
-	regex.compile('<pre[^>]*>')
-	processed = regex.sub(processed, "", true)
+	processed = _regex_pre_tag.sub(processed, "", true)
 	processed = processed.replace("</pre>", "\n")  # Convert to newline
 	
-	regex.compile('<code[^>]*>')
-	processed = regex.sub(processed, "", true)
+	processed = _regex_code_tag.sub(processed, "", true)
 	processed = processed.replace("</code>", "")
 	
 	# Convert paragraph tags to newlines for the interpreter
-	regex.compile('<p[^>]*>')
-	processed = regex.sub(processed, "", true)
+	processed = _regex_p_tag.sub(processed, "", true)
 	processed = processed.replace("</p>", "\n\n")
 	
 	# Handle blockquote tags
@@ -237,9 +243,7 @@ static func preprocess_arcscript_html(html: String) -> String:
 	processed = processed.replace("</blockquote>", "\n\n")
 	
 	# Clean up multiple consecutive newlines
-	var newline_regex = RegEx.new()
-	newline_regex.compile("\n{3,}")
-	processed = newline_regex.sub(processed, "\n\n", true)
+	processed = _regex_newlines.sub(processed, "\n\n", true)
 	
 	return processed
 
@@ -257,17 +261,14 @@ static func decode_html_entities(text: String) -> String:
 	result = result.replace("&nbsp;", " ")
 	
 	# Numeric entities (basic support)
-	var regex = RegEx.new()
-	regex.compile("&#(\\d+);")
-	var matches = regex.search_all(result)
+	var matches = _regex_html_entity_dec.search_all(result)
 	for match_obj in matches:
 		var code = int(match_obj.get_string(1))
 		var char = char(code)
 		result = result.replace(match_obj.get_string(0), char)
 	
 	# Hex entities
-	regex.compile("&#x([0-9a-fA-F]+);")
-	matches = regex.search_all(result)
+	matches = _regex_html_entity_hex.search_all(result)
 	for match_obj in matches:
 		var code = ("0x" + match_obj.get_string(1)).hex_to_int()
 		var char = char(code)
@@ -278,19 +279,14 @@ static func decode_html_entities(text: String) -> String:
 
 ## Strip all BBCode/formatting tags (for plain text display)
 static func strip_bbcode(s: String) -> String:
-	var regex = RegEx.new()
-	regex.compile("\\[/?[^\\]]*\\]")
-	return regex.sub(s, "", true)
+	return _regex_strip_bbcode.sub(s, "", true)
 
 
 ## Convert color hex codes in HTML to BBCode
 static func convert_color_tags(s: String) -> String:
 	# Match <span style="color: #rrggbb"> or <font color="#rrggbb">
-	var regex = RegEx.new()
-	
 	# Handle span style colors
-	regex.compile("<span[^>]*style=[\"']color:\\s*#([0-9a-fA-F]{6})[\"'][^>]*>")
-	var matches = regex.search_all(s)
+	var matches = _regex_color_span.search_all(s)
 	for match in matches:
 		var full_match = match.get_string(0)
 		var color = match.get_string(1)
@@ -298,8 +294,7 @@ static func convert_color_tags(s: String) -> String:
 	s = s.replace("</span>", "[/color]")
 	
 	# Handle font color
-	regex.compile("<font[^>]*color=[\"']#([0-9a-fA-F]{6})[\"'][^>]*>")
-	matches = regex.search_all(s)
+	matches = _regex_color_font.search_all(s)
 	for match in matches:
 		var full_match = match.get_string(0)
 		var color = match.get_string(1)
