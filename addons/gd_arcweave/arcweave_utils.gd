@@ -230,11 +230,11 @@ static func preprocess_arcscript_html(html: String) -> String:
 	# Convert paragraph tags to newlines for the interpreter
 	regex.compile('<p[^>]*>')
 	processed = regex.sub(processed, "", true)
-	processed = processed.replace("</p>", "\n")
+	processed = processed.replace("</p>", "\n\n")
 	
 	# Handle blockquote tags
-	processed = processed.replace("<blockquote>", "")
-	processed = processed.replace("</blockquote>", "\n")
+	processed = processed.replace("<blockquote>", "\n\n")
+	processed = processed.replace("</blockquote>", "\n\n")
 	
 	# Clean up multiple consecutive newlines
 	var newline_regex = RegEx.new()

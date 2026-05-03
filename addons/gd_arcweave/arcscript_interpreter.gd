@@ -34,41 +34,61 @@ func evaluate(arcscript_text: String, skip_assignments: bool = false) -> String:
 	var lines = arcscript_text.split("\n")
 	var output = ""
 	var i = 0
+	var had_blank_line = false  # tracks whether a blank line preceded the current line
 	
 	while i < lines.size():
 		var line = lines[i].strip_edges()
 		
-		# Skip empty lines and comments
-		if line.is_empty() or line.begins_with("//"):
+		# Track blank lines — they represent paragraph boundaries in the source HTML
+		if line.is_empty():
+			had_blank_line = true
 			i += 1
 			continue
 		
-		# Handle conditionals
+		# Skip comments
+		if line.begins_with("//"):
+			i += 1
+			continue
+		
 		if line.begins_with("if "):
 			var result = _evaluate_conditional_block(lines, i, skip_assignments)
-			# Add space before conditional content if we already have output
-			if output != "" and result.text != "" and not output.ends_with(" "):
-				output += " "
-			output += result.text
+			if result.text != "":
+				if output != "" and not output.ends_with("\n\n"):
+					output += "\n\n"
+				output += result.text
+			had_blank_line = false
 			i = result.next_line
 			continue
 		
-		# Handle assignments
+		# Handle assignments (silent - no output, no paragraph effect)
 		elif _is_assignment(line):
 			if not skip_assignments:
 				_evaluate_assignment(line)
 			i += 1
 			continue
 		
-		# Handle show() function
+		# Handle show() - always inline, joined to preceding text with a space
 		elif line.begins_with("show("):
+			if output != "" and not output.ends_with(" "):
+				output += " "
 			output += _evaluate_show(line)
+			had_blank_line = false
 			i += 1
 			continue
 		
-		# Regular text (possibly with inline expressions)
+		# Regular text
 		else:
-			output += _evaluate_text_line(line) + _end_of_line(i, line, lines)
+			# A blank line between the previous content and this line = new paragraph.
+			# No blank line = same paragraph, join with a space.
+			if output != "":
+				if had_blank_line:
+					if not output.ends_with("\n\n"):
+						output += "\n\n"
+				else:
+					if not output.ends_with(" ") and not output.ends_with("\n"):
+						output += " "
+			output += _evaluate_text_line(line)
+			had_blank_line = false
 			i += 1
 	
 	return output.strip_edges()
@@ -321,7 +341,7 @@ func _evaluate_conditional_block(lines: Array, start_index: int, skip_assignment
 			if condition_met:
 				# Execute this block
 				var block_result = _execute_block_until_else_or_endif(lines, i, skip_assignments)
-				output += block_result.text + "\n"
+				output = block_result.text.strip_edges()
 				i = _skip_to_endif(lines, i)
 				break
 			else:
@@ -335,7 +355,7 @@ func _evaluate_conditional_block(lines: Array, start_index: int, skip_assignment
 			
 			if condition_met:
 				var block_result = _execute_block_until_else_or_endif(lines, i, skip_assignments)
-				output += block_result.text + "\n\n"
+				output = block_result.text.strip_edges()
 				i = _skip_to_endif(lines, i)
 				break
 			else:
@@ -345,7 +365,7 @@ func _evaluate_conditional_block(lines: Array, start_index: int, skip_assignment
 		elif line.begins_with("else"):
 			i += 1
 			var block_result = _execute_block_until_endif(lines, i, skip_assignments)
-			output += block_result.text + "\n\n"
+			output = block_result.text.strip_edges()
 			i = _skip_to_endif(lines, i)
 			break
 		
@@ -364,6 +384,7 @@ func _evaluate_conditional_block(lines: Array, start_index: int, skip_assignment
 func _execute_block_until_else_or_endif(lines: Array, start_index: int, skip_assignments: bool = false) -> Dictionary:
 	var output = ""
 	var i = start_index
+	var had_blank_line = false
 	
 	while i < lines.size():
 		var line = lines[i].strip_edges()
@@ -374,19 +395,32 @@ func _execute_block_until_else_or_endif(lines: Array, start_index: int, skip_ass
 		# Recursively handle nested conditionals
 		if line.begins_with("if "):
 			var result = _evaluate_conditional_block(lines, i, skip_assignments)
-			output += result.text
+			if result.text != "":
+				if output != "" and not output.ends_with("\n\n"):
+					output += "\n\n"
+				output += result.text
+			had_blank_line = false
 			i = result.next_line
 		elif _is_assignment(line):
 			if not skip_assignments:
 				_evaluate_assignment(line)
 			i += 1
 		elif line.begins_with("show("):
+			if output != "" and not output.ends_with(" "):
+				output += " "          # ← space prefix
 			output += _evaluate_show(line)
-			i += 1
-		elif not line.is_empty() and not line.begins_with("//"):
-			output += _evaluate_text_line(line) + _end_of_line(i, line, lines)
+			had_blank_line = false
 			i += 1
 		else:
+			if output != "":
+				if had_blank_line:
+					if not output.ends_with("\n\n"):
+						output += "\n\n"
+				else:
+					if not output.ends_with(" ") and not output.ends_with("\n"):
+						output += " "  # ← same paragraph
+			output += _evaluate_text_line(line)
+			had_blank_line = false
 			i += 1
 	
 	return {"text": output, "next_line": i}
@@ -396,6 +430,7 @@ func _execute_block_until_else_or_endif(lines: Array, start_index: int, skip_ass
 func _execute_block_until_endif(lines: Array, start_index: int, skip_assignments: bool = false) -> Dictionary:
 	var output = ""
 	var i = start_index
+	var had_blank_line = false
 	
 	while i < lines.size():
 		var line = lines[i].strip_edges()
@@ -403,21 +438,35 @@ func _execute_block_until_endif(lines: Array, start_index: int, skip_assignments
 		if line.begins_with("endif"):
 			break
 		
+		# Recursively handle nested conditionals
 		if line.begins_with("if "):
 			var result = _evaluate_conditional_block(lines, i, skip_assignments)
-			output += result.text
+			if result.text != "":
+				if output != "" and not output.ends_with("\n\n"):
+					output += "\n\n"
+				output += result.text
+			had_blank_line = false
 			i = result.next_line
 		elif _is_assignment(line):
 			if not skip_assignments:
 				_evaluate_assignment(line)
 			i += 1
 		elif line.begins_with("show("):
+			if output != "" and not output.ends_with(" "):
+				output += " "          # ← space prefix
 			output += _evaluate_show(line)
-			i += 1
-		elif not line.is_empty() and not line.begins_with("//"):
-			output += _evaluate_text_line(line) + _end_of_line(i, line, lines)
+			had_blank_line = false
 			i += 1
 		else:
+			if output != "":
+				if had_blank_line:
+					if not output.ends_with("\n\n"):
+						output += "\n\n"
+				else:
+					if not output.ends_with(" ") and not output.ends_with("\n"):
+						output += " "  # ← same paragraph
+			output += _evaluate_text_line(line)
+			had_blank_line = false
 			i += 1
 	
 	return {"text": output, "next_line": i}
@@ -463,21 +512,6 @@ func _skip_to_endif(lines: Array, start_index: int) -> int:
 		i += 1
 	
 	return i
-
-
-func _end_of_line(i: int, line: String, lines: Array) -> String:
-	if i == (lines.size() - 1):
-		return ""
-	elif i < (lines.size() - 1):
-		var next_line: String = lines[i+1].strip_edges()
-		# Add a space before show() since it's inline content that needs separation
-		if next_line.contains("show"):
-			return " "
-		# Don't add newlines if next line is a control structure - they should flow inline
-		if next_line.begins_with("if ") or next_line.begins_with("endif") or next_line.begins_with("elseif ") or next_line.begins_with("else"):
-			return ""
-	
-	return "\n\n"
 
 
 ## Evaluate a boolean condition
