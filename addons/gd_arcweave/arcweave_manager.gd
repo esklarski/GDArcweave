@@ -93,7 +93,7 @@ func start_story(custom_start_id: String = "") -> ArcweaveElement:
 	
 	if start_id == "":
 		push_error("No starting element found")
-		return
+		return null
 	
 	story_started.emit()
 	return goto_element(start_id)
