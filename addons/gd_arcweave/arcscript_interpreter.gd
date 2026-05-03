@@ -22,8 +22,13 @@ var alt_roll: Callable
 var on_variable_changed: Callable = Callable()
 
 
+## Compiled once at init — reused across all _evaluate_text_line() calls
+var _re_inline_expr: RegEx
+
 func _init(arcweave_manager: ArcweaveManagerInstance) -> void:
 	manager = arcweave_manager
+	_re_inline_expr = RegEx.new()
+	_re_inline_expr.compile("\\{([^}]+)\\}")
 
 
 ## Main entry point: evaluate a complete Arcscript segment
@@ -200,10 +205,8 @@ func register_shadow_variables(variables: Dictionary) -> void:
 func _evaluate_text_line(line: String) -> String:
 	# Handle {expression} syntax for inline evaluation
 	var result = line
-	var regex = RegEx.new()
-	regex.compile("\\{([^}]+)\\}")
 	
-	for match_result in regex.search_all(line):
+	for match_result in _re_inline_expr.search_all(line):
 		var expr_text = match_result.get_string(1)
 		var value = _evaluate_expression(expr_text)
 		result = result.replace(match_result.get_string(0), str(value))
