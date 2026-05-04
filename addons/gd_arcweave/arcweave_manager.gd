@@ -729,7 +729,7 @@ func get_element_component_by_name(element: ArcweaveElement, component_name: Str
 	
 	for comp_id in component_ids:
 		var component := project.components.get(comp_id)
-		if component and  component.name == component_name:
+		if component and component.name == component_name:
 			return component
 	
 	return null
