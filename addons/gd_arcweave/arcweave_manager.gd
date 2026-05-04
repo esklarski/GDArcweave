@@ -786,6 +786,8 @@ func get_attribute_type(attribute_id: String) -> String:
 ## Convenience method: Get attribute value from component by name
 func get_component_attribute_value(component: ArcweaveComponent, attribute_name: String, default_value = null) -> Variant:
 	var attribute := get_component_attribute_by_name(component, attribute_name)
+	if attribute == null:
+		return default_value
 	return get_attribute_value(attribute.id, default_value)
 
 
