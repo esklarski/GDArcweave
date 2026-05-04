@@ -404,7 +404,7 @@ func set_variable(var_name: String, value) -> void:
 ## Get a story variable
 func get_variable(var_name: String, default_value = null):
 	var value = interpreter.get_variable_value(var_name)
-	if value: return value
+	if value != null: return value
 	return default_value
 
 
