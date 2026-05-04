@@ -99,13 +99,13 @@ func start_story(custom_start_id: String = "") -> ArcweaveElement:
 
 
 ## Navigate to a specific element
-func goto_element(element_id: String, increment_visit: bool = true) -> ArcweaveElement:
+func goto_element(element_id: String, increment_visit: bool = true, add_to_history: bool = true) -> ArcweaveElement:
 	# Get element data
 	var element: ArcweaveElement = project.elements.get(element_id)
 	
 	if element:
 		# Track history
-		if track_history and state.current_element_id != "":
+		if track_history and add_to_history and state.current_element_id != "":
 			state.element_history.append(state.current_element_id)
 			if state.element_history.size() > state.max_history_size:
 				state.element_history.pop_front()
@@ -332,15 +332,7 @@ func go_back() -> ArcweaveElement:
 		return null
 	
 	var previous_id := state.element_history.pop_back()
-	state.current_element_id = previous_id
-	
-	# Don't add to history or increment visits when going back
-	var old_track := track_history
-	track_history = false
-	var element := goto_element(previous_id, false)  # false = don't increment visits
-	track_history = old_track
-	
-	return element
+	return goto_element(previous_id, false, false)
 
 
 ## Get current element data
