@@ -159,57 +159,21 @@ func get_choices_for_element(element_id: String) -> Array:
 		# Check if it's a branch or direct connection
 		match connection.target_type:
 			"branches":
-				# It's a branch - evaluate conditions
-				var branch = project.branches[target_id]
-				var condition_ids = branch.condition_ids
-				
-				# Store the incoming connection label (element -> branch) as fallback
+				print("BRANCHES")
 				var incoming_label = localization.get_connection_label(output_id)
 				if incoming_label == "":
 					incoming_label = null
 				
-				var condition_met = false
-				var output_target = ""
-				var output_connection_id = ""
-				
-				# Evaluate conditions (if any)
-				if condition_ids.size() > 0:
-					for condition_id in condition_ids:
-						var condition_obj = project.conditions.get(condition_id)
-						if condition_obj:
-							var script = condition_obj.condition_script
-							if script != null and script != "":
-								condition_met = interpreter.evaluate_condition(script)
-							else:
-								# No script means unconditional (like else)
-								condition_met = true
-							
-							if condition_met:
-								# Get the output connection for this condition
-								output_connection_id = condition_obj.output
-								output_target = _get_target_from_connection(output_connection_id)
-								break
-				
-				if condition_met and output_target != "":
-					# CORRECTED LABEL LOGIC (matching official web player):
-					var label = null
-					
-					# FIRST: Try outgoing connection label (condition -> element)
-					if output_connection_id != "":
-						var outgoing_label = localization.get_connection_label(output_connection_id)
-						if outgoing_label != "":
-							label = outgoing_label
-					
-					# SECOND: If outgoing is null, try incoming connection label (element -> branch)
-					if label == null:
-						label = incoming_label if incoming_label else ""
-					
+				var resolved = _resolve_branch(target_id)
+				if resolved.target_id != "":
+					var outgoing_label = localization.get_connection_label(resolved.connection_id)
+					var label = outgoing_label if outgoing_label != "" else (incoming_label if incoming_label else "")
 					choices.append({
 						"label": _process_choice_label(label),
 						"raw_label": label,
-						"target_id": output_target,
+						"target_id": resolved.target_id,
 						"branch_id": target_id,
-						"connection_id": output_connection_id,
+						"connection_id": resolved.connection_id,
 					})
 			
 			"elements":
@@ -307,37 +271,38 @@ func _get_target_from_connection(connection_id: String) -> String:
 
 ## Recursively evaluate a branch until we reach an element (or empty if no conditions match)
 func _evaluate_branch_to_element(branch_id: String) -> String:
+	return _resolve_branch(branch_id).target_id
+
+
+## Evaluate a branch's conditions in order and return the first that passes.
+## Returns a dict with 'target_id' and 'connection_id', or empty strings if none match.
+func _resolve_branch(branch_id: String) -> Dictionary:
 	var branch = project.branches.get(branch_id)
-	
-	if not branch: return ""
-	
-	var condition_ids = branch.condition_ids
-	
-	# Evaluate conditions in order
-	for condition_id in condition_ids:
-		var condition_obj = project.conditions[condition_id]
-		if not condition_obj: continue
-		
+	if not branch:
+		return {"target_id": "", "connection_id": ""}
+    
+	for condition_id in branch.condition_ids:
+		var condition_obj = project.conditions.get(condition_id)
+		if not condition_obj:
+			continue
+        
 		var script = condition_obj.condition_script
 		var condition_met = false
-		
+        
 		if script != null and script != "":
 			condition_met = interpreter.evaluate_condition(script)
 		else:
-			# No script means unconditional (like else)
+			# No script = unconditional (acts as else)
 			condition_met = true
-		
+        
 		if condition_met:
-			# Get the output connection for this condition
-			var output_connection_id = condition_obj.output
-			if output_connection_id == "":
-				return ""
-			
-			# Recursively resolve the target (might be another branch, jumper, or element)
-			return _get_target_from_connection(output_connection_id)
-	
-	# No conditions matched - return empty (dead end)
-	return ""
+			var connection_id = condition_obj.output
+			return {
+				"target_id": _get_target_from_connection(connection_id),
+				"connection_id": connection_id
+			}
+    
+	return {"target_id": "", "connection_id": ""}
 
 
 ## Make a choice and navigate to the target element
