@@ -159,7 +159,6 @@ func get_choices_for_element(element_id: String) -> Array:
 		# Check if it's a branch or direct connection
 		match connection.target_type:
 			"branches":
-				print("BRANCHES")
 				var incoming_label = localization.get_connection_label(output_id)
 				if incoming_label == "":
 					incoming_label = null
