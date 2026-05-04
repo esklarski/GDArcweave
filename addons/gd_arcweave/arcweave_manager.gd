@@ -280,28 +280,28 @@ func _resolve_branch(branch_id: String) -> Dictionary:
 	var branch = project.branches.get(branch_id)
 	if not branch:
 		return {"target_id": "", "connection_id": ""}
-    
+	
 	for condition_id in branch.condition_ids:
 		var condition_obj = project.conditions.get(condition_id)
 		if not condition_obj:
 			continue
-        
+		
 		var script = condition_obj.condition_script
 		var condition_met = false
-        
+		
 		if script != null and script != "":
 			condition_met = interpreter.evaluate_condition(script)
 		else:
 			# No script = unconditional (acts as else)
 			condition_met = true
-        
+		
 		if condition_met:
 			var connection_id = condition_obj.output
 			return {
 				"target_id": _get_target_from_connection(connection_id),
 				"connection_id": connection_id
 			}
-    
+	
 	return {"target_id": "", "connection_id": ""}
 
 
