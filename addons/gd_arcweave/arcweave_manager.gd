@@ -42,8 +42,7 @@ func _init():
 	localization = ArcweaveLocalization.new(self)
 	
 	# Set up callback to emit variable changes
-	interpreter.on_variable_changed = func(var_name: String, value: Variant):
-		variable_changed.emit(var_name, value)
+	interpreter.variable_changed.connect(variable_changed.emit)
 
 
 ## Load Arcweave project from JSON file

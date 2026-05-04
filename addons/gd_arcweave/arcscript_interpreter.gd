@@ -6,6 +6,10 @@ class_name ArcscriptInterpreter
 extends RefCounted
 
 
+## Emitted when variables change.
+signal variable_changed(var_name: String, value: Variant)
+
+
 ## Game Manager
 var manager: ArcweaveManagerInstance = null
 
@@ -16,10 +20,6 @@ var _shadow_variables: Dictionary = {}
 ## Assign a callable here to override the roll() return value in Arcscript.
 ## Must match signature: roll(max_val: int, multiplier: int = 1) -> int
 var alt_roll: Callable
-
-## Callback for when variables change (so manager can stay in sync)
-## TODO: this should just be a signal
-var on_variable_changed: Callable = Callable()
 
 
 ## Compiled once at init — reused across all _evaluate_text_line() calls
@@ -320,9 +320,7 @@ func _evaluate_assignment(line: String) -> void:
 		
 		set_variable_value(var_name, value)
 		
-		# Notify manager if callback is set
-		if on_variable_changed.is_valid():
-			on_variable_changed.call(var_name, value)
+		variable_changed.emit(var_name, value)
 
 
 ## Evaluate a conditional block (if/elseif/else/endif)
@@ -719,10 +717,7 @@ func reset(args = null):
 		var initial_value = manager.project.initial_variables.get(var_name)
 		if initial_value != null:
 			set_variable_value(var_name, initial_value)
-			
-			# Notify manager if callback is set
-			if on_variable_changed.is_valid():
-				on_variable_changed.call(var_name, initial_value)
+			variable_changed.emit(var_name, initial_value)
 		else:
 			push_warning("Cannot reset variable '%s': no initial value found" % var_name)
 
@@ -757,10 +752,7 @@ func resetAll(args = null):
 		if not exclude_set.has(var_name):
 			var initial_value = manager.project.initial_variables[var_name]
 			set_variable_value(var_name, initial_value)
-			
-			# Notify manager if callback is set
-			if on_variable_changed.is_valid():
-				on_variable_changed.call(var_name, initial_value)
+			variable_changed.emit(var_name, initial_value)
 
 # reset visit counts
 func resetVisits(): manager.state.visit_counts.clear()
