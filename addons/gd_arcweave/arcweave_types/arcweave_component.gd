@@ -131,5 +131,5 @@ func has_cover() -> bool:
 
 
 ## Get a debug-friendly string representation
-func to_string() -> String:
+func _to_string() -> String:
 	return "ArcweaveComponent(id=%s, name=%s, attributes=%d)" % [id, name, attributes.size()]
