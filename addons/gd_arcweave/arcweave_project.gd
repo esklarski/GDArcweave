@@ -138,10 +138,7 @@ func parse_locales(locales_data: Array) -> void:
 
 ## Parse contents from multi-language project data
 func parse_contents(contents_data: Dictionary) -> void:
-	contents.clear()
-	
-	for item_id in contents_data:
-		contents[item_id] = contents_data[item_id]
+	contents = contents_data.duplicate(false)
 
 
 ## Parse elements from project data
