@@ -179,7 +179,7 @@ func get_choices_for_element(element_id: String) -> Array:
 						if condition_obj:
 							var script = condition_obj.condition_script
 							if script != null and script != "":
-								condition_met = interpreter._evaluate_condition(script)
+								condition_met = interpreter.evaluate_condition(script)
 							else:
 								# No script means unconditional (like else)
 								condition_met = true
@@ -322,7 +322,7 @@ func _evaluate_branch_to_element(branch_id: String) -> String:
 		var condition_met = false
 		
 		if script != null and script != "":
-			condition_met = interpreter._evaluate_condition(script)
+			condition_met = interpreter.evaluate_condition(script)
 		else:
 			# No script means unconditional (like else)
 			condition_met = true

@@ -99,6 +99,13 @@ func evaluate(arcscript_text: String, skip_assignments: bool = false) -> String:
 	return output.strip_edges()
 
 
+## Public API: evaluate an Arcscript condition string and return the result.
+## Use this from outside the interpreter (e.g. ArcweaveManager) instead of
+## calling _evaluate_condition() directly.
+func evaluate_condition(condition: String) -> bool:
+	return _evaluate_condition(condition)
+
+
 ## Get the value for a variable,
 ## or calls registered callback if it's a shadowed variable.
 ## [br]
