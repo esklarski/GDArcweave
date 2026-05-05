@@ -87,13 +87,25 @@ func has_project() -> bool:
 
 ## Start the story from the beginning if no start id is provided.
 func start_story(custom_start_id: String = "") -> ArcweaveElement:
-	# Determine starting element
-	var start_id = custom_start_id if custom_start_id != "" else project.starting_element_id
+	if not has_project():
+		printerr("No project, not starting arcweave flow.")
+		# skip starting, but signal to allow operation without project
+		story_ended.emit()
+		return null
+	
+	# determine starting element
+	var start_id: String = ""
+	
+	if not custom_start_id.is_empty() and project.elements.has(custom_start_id):
+		start_id = custom_start_id
+	else:
+		start_id = project.starting_element_id
 	
 	if start_id == "":
 		push_error("No starting element found")
 		return null
 	
+	# start flow
 	story_started.emit()
 	return goto_element(start_id)
 
