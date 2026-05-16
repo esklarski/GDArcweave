@@ -112,8 +112,8 @@ func evaluate_condition(condition: String) -> bool:
 ## Returns null if the variable doesn't exist
 func get_variable_value(variable_name: String) -> Variant:
 	# Check if it's a shadow variable first
-	var shadow_var : Callable = _shadow_variables.get(variable_name)
-	if shadow_var:
+	var shadow_var = _shadow_variables.get(variable_name)
+	if shadow_var and shadow_var is Callable:
 		return shadow_var.call()
 	
 	# Otherwise, return the stored value
