@@ -38,7 +38,8 @@ static func from_dict(data: Dictionary, board_id: String) -> ArcweaveBoard:
 	var board = ArcweaveBoard.new()
 	
 	board.id = board_id
-	board.custom_id = data.get("customId", "")
+	var found_custom_id = data.get("customId")
+	board.custom_id = found_custom_id if found_custom_id else ""
 	board.name = data.get("name", "")
 	board.root = data.get("root", false)
 	
