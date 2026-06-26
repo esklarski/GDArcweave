@@ -401,7 +401,7 @@ func get_evaluated_element_content(element_id: String) -> String:
 
 ## Get component by ID
 func get_component(component_id: String) -> ArcweaveComponent:
-	return project.components.get(component_id, {})
+	return project.components.get(component_id, null)
 
 
 # ******************** STATE ACCESSORS ********************
