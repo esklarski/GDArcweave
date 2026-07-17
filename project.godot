@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="GD_Arcweave"
+config/tags=PackedStringArray("plugin")
 run/main_scene="uid://cxnnobqm2q1e2"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("plugin")
 
 [autoload]
 
