@@ -567,7 +567,7 @@ func _evaluate_expression(expr_text: String) -> Variant:
 	
 	var error = expr.parse(normalized, var_names)
 	if error != OK:
-		push_error("Arcscript parse error: " + expr.get_error_text() + " in expression: " + expr_text)
+		push_error("Arcscript parse error: " + expr.get_error_text() + " in expression: " + expr_text + " Element: " + manager.state.current_element_id)
 		return null
 	
 	var result = expr.execute(var_values, self)
