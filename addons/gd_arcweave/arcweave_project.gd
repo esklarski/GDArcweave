@@ -292,7 +292,6 @@ func _initialize_project_variables(variables_data: Dictionary) -> void:
 		
 		# Store initial values
 		initial_variables[var_name] = value  # Store for reset() and resetAll()
-		print("  Initialized variable: ", var_name, " = ", value)
 
 
 ## Find the starting element (first element in root board)
