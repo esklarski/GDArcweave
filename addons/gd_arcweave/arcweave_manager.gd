@@ -78,7 +78,12 @@ func load_from_project_resource(project_resource: GDArcweaveProject) -> bool:
 	state.reset(project.initial_variables)
 	project_updated.emit()
 	
-	return not project_resource == null
+	if project_resource == null:
+		return false
+	else:
+		print("Post Initialization time")
+		project.post_initialize()
+		return true
 
 
 func has_project() -> bool:

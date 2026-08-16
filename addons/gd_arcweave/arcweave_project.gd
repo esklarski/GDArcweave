@@ -141,6 +141,11 @@ func parse_contents(contents_data: Dictionary) -> void:
 	contents = contents_data.duplicate(false)
 
 
+func post_initialize() -> void:
+	# Coming Soon?
+	pass
+
+
 ## Parse elements from project data
 func _parse_elements(elements_data: Dictionary) -> void:
 	elements.clear()
