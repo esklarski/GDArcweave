@@ -23,9 +23,6 @@ static func from_dict(data: Dictionary, condition_id: String) -> ArcscriptCondit
 
 	var found_script = data.get("script", null)
 	condition.condition_script = found_script if found_script else ""
-
-	if not condition.condition_script.is_empty():
-		condition.condition_script = ArcweaveUtils.preprocess_arcscript_html(condition.condition_script)
 	
 	var data_output = data.get("output", "")
 	condition.output = data_output if data_output else ""

@@ -217,6 +217,11 @@ func get_choices_for_element(element_id: String) -> Array:
 	return choices
 
 
+## Styles text in a mention dictionary. Override to customize behaviour.
+func style_mention(mention: Dictionary) -> String:
+	return mention.label if mention.type == "component" else mention.id
+
+
 ## Process a choice label (clean HTML and evaluate variables)
 func _process_choice_label(label) -> String:
 	# set default value for when we find empty strings
@@ -230,7 +235,7 @@ func _process_choice_label(label) -> String:
 		# If auto_evaluate_scripts is enabled, preprocess and evaluate first
 		if auto_evaluate_scripts:
 			# Preprocess to expose Arcscript (same as element content)
-			label_str = ArcweaveUtils.preprocess_arcscript_html(label_str)
+			label_str = ArcweaveUtils.preprocess_arcscript_html(label_str, style_mention)
 			
 			# Evaluate Arcscript for DISPLAY only (no assignments)
 			# Assignments will be executed when the choice is actually made
@@ -297,7 +302,7 @@ func _resolve_branch(branch_id: String) -> Dictionary:
 		if not condition_obj:
 			continue
 		
-		var script = condition_obj.condition_script
+		var script = ArcweaveUtils.preprocess_arcscript_html(condition_obj.condition_script, style_mention)
 		var condition_met = false
 		
 		if script != null and script != "":
@@ -327,7 +332,7 @@ func make_choice(choice: Dictionary) -> ArcweaveElement:
 	var raw_label = choice.get("raw_label", "")
 	if auto_evaluate_scripts and raw_label != "":
 		# Preprocess and evaluate with assignments ENABLED
-		var preprocessed = ArcweaveUtils.preprocess_arcscript_html(raw_label)
+		var preprocessed = ArcweaveUtils.preprocess_arcscript_html(raw_label, style_mention)
 		interpreter.evaluate(preprocessed, false)  # false = do execute assignments
 	
 	# Then navigate to target
@@ -381,7 +386,7 @@ func get_evaluated_element_content(element_id: String) -> String:
 		# Preprocess: Remove <code> tags from Arcscript keywords
 		# Arcweave wraps if/endif/show/etc in <pre><code> tags
 		if auto_evaluate_scripts:
-			content_to_evaluate = ArcweaveUtils.preprocess_arcscript_html(raw_content)
+			content_to_evaluate = ArcweaveUtils.preprocess_arcscript_html(raw_content, style_mention)
 		
 		# Evaluate Arcscript on preprocessed content
 		# HTML tags like <a> remain but won't be treated as assignments (see _is_assignment)

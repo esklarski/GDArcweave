@@ -20,6 +20,7 @@ static var _regex_html_entity_hex := _compile("&#x([0-9a-fA-F]+);")
 static var _regex_strip_bbcode := _compile("\\[/?[^\\]]*\\]")
 static var _regex_color_span := _compile("<span[^>]*style=[\"']color:\\s*#([0-9a-fA-F]{6})[\"'][^>]*>")
 static var _regex_color_font := _compile("<font[^>]*color=[\"']#([0-9a-fA-F]{6})[\"'][^>]*>")
+static var _regex_script_range := _compile("(?s)<pre[^>]*>.*?</pre>|<code[^>]*>.*?</code>")
 
 
 # Helper to keep the static var declarations clean
@@ -216,15 +217,26 @@ static func clean_string_extended(s: String) -> String:
 
 ## Preprocess HTML to expose Arcscript keywords for evaluation
 ## Arcweave wraps keywords like 'if', 'endif', 'show' in <pre><code> tags
-static func preprocess_arcscript_html(html: String) -> String:
+static func preprocess_arcscript_html(html: String, narrative_style_callback: Callable = Callable()) -> String:
 	var processed = html
-	
-	# First, decode HTML entities
 	processed = decode_html_entities(processed)
-	
+
+	var script_ranges = _find_script_ranges(processed)  # [{start, end}, ...] for <pre>/<code> blocks
 	var mentions = extract_mentions(processed)
+
 	for mention in mentions:
-		var replacement = '"%s"' % (mention.label if mention.type == "component" else mention.id)
+		var tag_pos = processed.find(mention.original_tag)
+		var in_script = _pos_in_ranges(tag_pos, script_ranges)
+
+		var replacement: String
+		if in_script:
+			# Engine requirement: Arcscript needs a quoted string literal to parse.
+			replacement = '"%s"' % (mention.label if mention.type == "component" else mention.id)
+		elif narrative_style_callback.is_valid():
+			replacement = narrative_style_callback.call(mention)
+		else:
+			replacement = mention.label if mention.type == "component" else mention.id
+
 		processed = processed.replace(mention.original_tag, replacement)
 	
 	# Strip <pre> and <code> tags (with or without attributes) that wrap Arcscript
@@ -246,6 +258,25 @@ static func preprocess_arcscript_html(html: String) -> String:
 	processed = _regex_newlines.sub(processed, "\n\n", true)
 	
 	return processed
+
+
+## Returns an array of {start, end} char-offset dicts for every <pre>/<code>
+## block in the string, using the SAME html the mentions were extracted from.
+static func _find_script_ranges(html: String) -> Array:
+	var ranges = []
+	for m in _regex_script_range.search_all(html):
+		ranges.append({"start": m.get_start(), "end": m.get_end()})
+	return ranges
+
+
+## True if pos falls inside any of the given ranges.
+static func _pos_in_ranges(pos: int, ranges: Array) -> bool:
+	if pos < 0:
+		return false
+	for r in ranges:
+		if pos >= r.start and pos < r.end:
+			return true
+	return false
 
 
 static func decode_html_entities(text: String) -> String:
