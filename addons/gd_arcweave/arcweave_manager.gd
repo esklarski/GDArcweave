@@ -369,12 +369,37 @@ func get_element(element_id: String) -> ArcweaveElement:
 
 
 ## Get element by title (case-insensitive)
+## DEPRECATED -- this is a bad way to get elements...
 func get_element_by_title(title: String) -> ArcweaveElement:
 	var title_lower := title.to_lower()
 	for element_id in project.elements:
 		var element := project.elements[element_id]
 		if element.title.to_lower() == title_lower:
 			return element
+	return null
+
+
+## Get element by title, scoped to a single board (looked up by its customId).
+func get_element_from_board_by_title(board_custom_id: String, element_title: String) -> ArcweaveElement:
+	var board := get_board_by_custom_id(board_custom_id)
+	if board == null:
+		push_error("No board found with customId '%s'" % board_custom_id)
+		return null
+
+	var title_lower := element_title.to_lower()
+	for element_id in board.elements:
+		var element: ArcweaveElement = project.elements.get(element_id)
+		if element and element.title_cleaned.to_lower() == title_lower:
+			return element
+
+	return null
+
+
+## Get a board by its customId (not its internal Arcweave UUID).
+func get_board_by_custom_id(board_custom_id: String) -> ArcweaveBoard:
+	for board in project.boards.values():
+		if board.custom_id == board_custom_id:
+			return board
 	return null
 
 
