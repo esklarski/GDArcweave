@@ -403,6 +403,21 @@ func get_board_by_custom_id(board_custom_id: String) -> ArcweaveBoard:
 	return null
 
 
+## Returns the element's title, localized. Mirrors get_evaluated_element_content()
+## but titles don't carry the <pre>/<code> script wrapping content does, so no
+## Arcscript evaluation step is needed — just localization + mention styling.
+func get_evaluated_element_title(element_id: String) -> String:
+	var raw_title := localization.get_element_title(element_id)
+	if raw_title == "":
+		return ""
+
+	var title_to_process := raw_title
+	if auto_evaluate_scripts:
+		title_to_process = ArcweaveUtils.preprocess_arcscript_html(raw_title, style_mention)
+
+	return ArcweaveUtils.parse_content(title_to_process, use_extended_html_cleaning, parse_color_tags)
+
+
 ## Returns the element's content, localized, with arcscript evaluated according to preference flags.
 ## Text will contain bbcode tags, use ArcweaveUtils.strip_bbcode() to remove those too.
 func get_evaluated_element_content(element_id: String) -> String:
