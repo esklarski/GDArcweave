@@ -217,7 +217,7 @@ static func clean_string_extended(s: String) -> String:
 
 ## Preprocess HTML to expose Arcscript keywords for evaluation
 ## Arcweave wraps keywords like 'if', 'endif', 'show' in <pre><code> tags
-static func preprocess_arcscript_html(html: String, narrative_style_callback: Callable = Callable()) -> String:
+static func preprocess_arcscript_html(html: String, narrative_style_callback: Callable = Callable(), force_all_script: bool = false) -> String:
 	var processed = html
 	processed = decode_html_entities(processed)
 
@@ -226,7 +226,7 @@ static func preprocess_arcscript_html(html: String, narrative_style_callback: Ca
 
 	for mention in mentions:
 		var tag_pos = processed.find(mention.original_tag)
-		var in_script = _pos_in_ranges(tag_pos, script_ranges)
+		var in_script = force_all_script or _pos_in_ranges(tag_pos, script_ranges)
 
 		var replacement: String
 		if in_script:

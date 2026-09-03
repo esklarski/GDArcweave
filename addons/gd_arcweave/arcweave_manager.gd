@@ -310,7 +310,7 @@ func _resolve_branch(branch_id: String) -> Dictionary:
 		if not condition_obj:
 			continue
 		
-		var script = ArcweaveUtils.preprocess_arcscript_html(condition_obj.condition_script, style_mention)
+		var script = ArcweaveUtils.preprocess_arcscript_html(condition_obj.condition_script, style_mention, true)
 		var condition_met = false
 		
 		if script != null and script != "":
