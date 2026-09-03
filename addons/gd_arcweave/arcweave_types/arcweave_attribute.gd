@@ -17,6 +17,9 @@ extends Resource
 ## Component ID this attribute is associated with
 @export var cId: String = ""
 
+## Script-safe identifier (Arcweave "customId").
+@export var custom_id: String = ""
+
 ## Value data for this attribute
 @export var value: AttributeValue = null
 
@@ -30,6 +33,8 @@ static func from_dict(data: Dictionary, attribute_id: String) -> ArcweaveAttribu
 	attribute.name = found_name if found_name else ""
 	attribute.cType = data.get("cType", "")
 	attribute.cId = data.get("cId", "")
+	var found_custom_id = data.get("customId")
+	attribute.custom_id = found_custom_id if found_custom_id else ""
 	
 	# Parse value
 	var value_data = data.get("value", {})
@@ -46,6 +51,7 @@ func to_dict() -> Dictionary:
 		"name": name,
 		"cType": cType,
 		"cId": cId,
+		"customId": custom_id,
 	}
 	
 	if value != null:
@@ -66,6 +72,13 @@ func get_name_string() -> String:
 	if name == null:
 		return ""
 	return str(name)
+
+
+## Get the script-safe name to use when this attribute is exposed as an Arcscript variable.
+func get_variable_name_string() -> String:
+	if custom_id != "":
+		return custom_id
+	return get_name_string()
 
 
 ## Check if attribute has a value

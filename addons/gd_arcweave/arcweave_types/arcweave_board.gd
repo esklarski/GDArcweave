@@ -26,7 +26,7 @@ extends Resource
 ## Array of connection ID's on this board
 @export var connections: Array[String] = []
 
-## Variable ids for this board.
+## Board-variable attribute ids for this board.
 @export var variables: Array[String] = []
 
 ## Whether this is the root/starting board
@@ -75,13 +75,15 @@ static func from_dict(data: Dictionary, board_id: String) -> ArcweaveBoard:
 			if typeof(connection_id) == TYPE_STRING:
 				board.connections.append(connection_id)
 	
-	# Parse elements array
-	var vars = data.get("variables", [])
-	if typeof(vars) == TYPE_ARRAY:
-		board.variables.clear()
-		for var_id in vars:
-			if typeof(var_id) == TYPE_STRING:
-				board.variables.append(var_id)
+	# Parse board-variable ids.
+	board.variables.clear()
+	# Arcscript3 (Sep 2026+) lists under "attributes", older exports used "variables".
+	for key in ["variables", "attributes"]:
+		var ids = data.get(key, [])
+		if typeof(ids) == TYPE_ARRAY:
+			for item_id in ids:
+				if typeof(item_id) == TYPE_STRING and not board.variables.has(item_id):
+					board.variables.append(item_id)
 	
 	return board
 

@@ -250,6 +250,7 @@ func _initialize_project_variables(variables_data: Dictionary) -> void:
 		if board.custom_id != "":
 			board_custom_ids[board_id] = board.custom_id
 	
+	# --- global variables living in the top-level "variables" object ---
 	for var_id in variables_data:
 		var var_data = variables_data[var_id]
 		
@@ -265,38 +266,69 @@ func _initialize_project_variables(variables_data: Dictionary) -> void:
 			if board_name:
 				var_name = board_name + "." + var_name
 		
-		var value = var_data.get("value", null)
+		_register_initial_variable(var_name, var_data.get("value", null), var_data.get("type", ""))
+	
+	# --- board variables live in the shared "attributes" object ---
+	for board_id in boards:
+		var board: ArcweaveBoard = boards[board_id]
+		var board_name = board_custom_ids.get(board_id, "")
 		
-		# Convert type if specified
-		var var_type = var_data.get("type", "")
+		for attr_id in board.variables:
+			var attribute: ArcweaveAttribute = attributes.get(attr_id)
+			if attribute == null:
+				continue  # not an attribute-based board variable (or old-format ID)
+			
+			var var_name = attribute.get_variable_name_string()
+			if var_name == "":
+				continue
+			
+			if board_name != "":
+				var_name = board_name + "." + var_name
+			
+			_register_initial_variable(var_name, attribute.get_data(), attribute.get_type())
+	
+	# --- Component variables ---
+	for component_id in components:
+		var component: ArcweaveComponent = components[component_id]
+		if component.custom_id == "":
+			continue
 		
-		# Proper type conversion
-		match var_type:
-			"integer", "number":
-				if value != null:
-					value = int(value)
+		for attr_id in component.attributes:
+			var attribute: ArcweaveAttribute = attributes.get(attr_id)
+			if attribute == null or attribute.custom_id == "":
+				continue
+			
+			var var_name = component.custom_id + "." + attribute.custom_id
+			_register_initial_variable(var_name, attribute.get_data(), attribute.get_type())
+
+
+## Convert a raw variable value to its declared type and store it as an initial value
+func _register_initial_variable(var_name: String, value: Variant, var_type: String) -> void:
+	match var_type:
+		"integer", "number":
+			if value != null:
+				value = int(value)
+			else:
+				value = 0
+		
+		"boolean", "bool":
+			if value != null:
+				# Handle various boolean representations
+				if typeof(value) == TYPE_STRING:
+					value = value.to_lower() in ["true", "1", "yes"]
 				else:
-					value = 0
-			
-			"boolean", "bool":
-				if value != null:
-					# Handle various boolean representations
-					if typeof(value) == TYPE_STRING:
-						value = value.to_lower() in ["true", "1", "yes"]
-					else:
-						value = bool(value)
-				else:
-					value = false
-			
-			"string":
-				value = str(value) if value != null else ""
-			
-			_:
-				# Keep original value for unknown types
-				pass
+					value = bool(value)
+			else:
+				value = false
 		
-		# Store initial values
-		initial_variables[var_name] = value  # Store for reset() and resetAll()
+		"string":
+			value = str(value) if value != null else ""
+		
+		_:
+			# Keep original value for unknown types
+			pass
+	
+	initial_variables[var_name] = value  # Store for reset() and resetAll()
 
 
 ## Find the starting element (first element in root board)

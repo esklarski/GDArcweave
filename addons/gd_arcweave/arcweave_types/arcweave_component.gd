@@ -11,6 +11,9 @@ extends Resource
 ## Component name (can be localized)
 @export var name: String = ""
 
+## Optional custom identifier (Arcweave "customId"), e.g. for external lookup
+@export var custom_id: String = ""
+
 ## Array of attribute IDs attached to this component
 @export var attributes: Array[String] = []
 
@@ -24,6 +27,8 @@ static func from_dict(data: Dictionary, project_id: String) -> ArcweaveComponent
 	
 	component.id = project_id
 	component.name = data.get("name", "")
+	var found_custom_id = data.get("customId")
+	component.custom_id = found_custom_id if found_custom_id else ""
 	
 	# Parse attributes array
 	var attrs = data.get("attributes", [])
