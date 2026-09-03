@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6v3nc")
-arcweave_project_json = "res://testing/arcweave_project_manager/the-castle.json/project_settings.json"
+arcweave_project_json = "res://testing/arcweave_project_manager/the-castle.json/the-castle-2026-09-02.json"
 option_button_scene = ExtResource("2_r77rg")
 
 [node name="TextContainer" type="MarginContainer" parent="." unique_id=535885800]
