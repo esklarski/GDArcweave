@@ -13,6 +13,9 @@ signal variable_changed(var_name: String, value: Variant)
 signal story_started()
 signal story_ended()
 
+## If true, project will be scanned for errors on load. See Debugger->Errors for output.
+@export var check_project_integrity: bool = false
+
 ## The Arcscript interpreter instance
 var interpreter: ArcscriptInterpreter
 
@@ -73,17 +76,17 @@ func load_project_from_file(file_path: String) -> bool:
 
 
 func load_from_project_resource(project_resource: GDArcweaveProject) -> bool:
+	if project_resource == null: return false
 	project = project_resource
 	
 	state.reset(project.initial_variables)
-	project_updated.emit()
 	
-	if project_resource == null:
-		return false
-	else:
-		print("Post Initialization time")
-		project.post_initialize()
-		return true
+	print("Post Initialization time")
+	if check_project_integrity: _validate_project_integrity()
+	project.post_initialize()
+	
+	project_updated.emit()
+	return true
 
 
 func has_project() -> bool:
@@ -916,3 +919,85 @@ func debug_print_element_components(element: ArcweaveElement) -> void:
 					print("        -> ", subcomp.name)
 	
 	print("================================")
+
+
+## Walk every entity in the project and warn about dangling id references
+## (missing components/attributes/outputs/etc). Purely diagnostic - never
+## mutates or removes anything. Run once at load so broken data surfaces
+## immediately instead of as a blank mention or silent no-op mid-playthrough.
+func _validate_project_integrity() -> void:
+	var warning_count := 0
+	
+	for element in project.elements.values():
+		for component_id in element.components:
+			if not project.components.has(component_id):
+				push_warning("Element '%s' (%s) references missing component '%s'" % [element.title, element.id, component_id])
+				warning_count += 1
+		for attribute_id in element.attributes:
+			if not project.attributes.has(attribute_id):
+				push_warning("Element '%s' (%s) references missing attribute '%s'" % [element.title, element.id, attribute_id])
+				warning_count += 1
+		for output_id in element.outputs:
+			if not (project.connections.has(output_id) or project.branches.has(output_id) or project.jumpers.has(output_id)):
+				push_warning("Element '%s' (%s) references missing output '%s'" % [element.title, element.id, output_id])
+				warning_count += 1
+	
+	for board in project.boards.values():
+		for element_id in board.elements:
+			if not project.elements.has(element_id):
+				push_warning("Board '%s' (%s) references missing element '%s'" % [board.name, board.id, element_id])
+				warning_count += 1
+		for jumper_id in board.jumpers:
+			if not project.jumpers.has(jumper_id):
+				push_warning("Board '%s' (%s) references missing jumper '%s'" % [board.name, board.id, jumper_id])
+				warning_count += 1
+		for branch_id in board.branches:
+			if not project.branches.has(branch_id):
+				push_warning("Board '%s' (%s) references missing branch '%s'" % [board.name, board.id, branch_id])
+				warning_count += 1
+		for connection_id in board.connections:
+			if not project.connections.has(connection_id):
+				push_warning("Board '%s' (%s) references missing connection '%s'" % [board.name, board.id, connection_id])
+				warning_count += 1
+		for attribute_id in board.variables:
+			var attribute: ArcweaveAttribute = project.attributes.get(attribute_id)
+			if attribute == null:
+				push_warning("Board '%s' (%s) references missing variable/attribute '%s'" % [board.name, board.id, attribute_id])
+				warning_count += 1
+			elif attribute.cId != "" and attribute.cId != board.id:
+				push_warning("Board variable '%s' (%s) cId '%s' does not match owning board '%s'" % [attribute.name, attribute.id, attribute.cId, board.id])
+				warning_count += 1
+	
+	for component in project.components.values():
+		for attribute_id in component.attributes:
+			var attribute: ArcweaveAttribute = project.attributes.get(attribute_id)
+			if attribute == null:
+				push_warning("Component '%s' (%s) references missing attribute '%s'" % [component.name, component.id, attribute_id])
+				warning_count += 1
+			elif attribute.cId != "" and attribute.cId != component.id:
+				push_warning("Attribute '%s' (%s) cId '%s' does not match owning component '%s'" % [attribute.name, attribute.id, attribute.cId, component.id])
+				warning_count += 1
+	
+	for connection in project.connections.values():
+		if connection.sourceid != "" and not (project.elements.has(connection.sourceid) or project.branches.has(connection.sourceid) or project.conditions.has(connection.sourceid)):
+			push_warning("Connection '%s' has missing source element '%s'" % [connection.id, connection.sourceid])
+			warning_count += 1
+		if connection.targetid != "" and not (project.elements.has(connection.targetid) or project.branches.has(connection.targetid) or project.jumpers.has(connection.targetid)):
+			push_warning("Connection '%s' has missing target '%s' (target_type: %s)" % [connection.id, connection.targetid, connection.target_type])
+			warning_count += 1
+	
+	for branch in project.branches.values():
+		for condition_id in branch.condition_ids:
+			if not project.conditions.has(condition_id):
+				push_warning("Branch '%s' references missing condition '%s'" % [branch.id, condition_id])
+				warning_count += 1
+	
+	for jumper in project.jumpers.values():
+		if jumper.elementId != "" and not project.elements.has(jumper.elementId):
+			push_warning("Jumper '%s' targets missing element '%s'" % [jumper.id, jumper.elementId])
+			warning_count += 1
+	
+	if warning_count > 0:
+		push_warning("Arcweave project integrity check found %d issue(s) - see warnings above." % warning_count)
+	else:
+		print("Arcweave project integrity check passed with no issues.")
