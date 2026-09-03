@@ -238,68 +238,78 @@ func _parse_assets(assets_data: Dictionary) -> void:
 		}
 
 
+## Determine whether an attribute qualifies as an Arcscript scoped variable.
+func _is_scoped_variable_attribute(attribute: ArcweaveAttribute) -> bool:
+	if attribute == null or attribute.value == null:
+		return false
+	if attribute.cType != "boards" and attribute.cType != "components":
+		return false
+	if attribute.custom_id == "":
+		return false
+	match attribute.value.type:
+		"boolean", "integer", "float":
+			return true
+		"string":
+			return attribute.value.plain
+		_:
+			return false
+
+
 ## Initialize project variables
 func _initialize_project_variables(variables_data: Dictionary) -> void:
-	# Arcweave variables are organized in a tree (folders and variables)
-	# Only items with "name" are actual variables
-	
-	# Build a map from board UUID -> customId for quick lookup
+	# Build owner UUID -> customId lookups (an owner without a customId can't
+	# be scoped-referenced from Arcscript at all, per the migration guide).
 	var board_custom_ids: Dictionary = {}
 	for board_id in boards:
 		var board: ArcweaveBoard = boards[board_id]
 		if board.custom_id != "":
 			board_custom_ids[board_id] = board.custom_id
 	
+	var component_custom_ids: Dictionary = {}
+	for component_id in components:
+		var component: ArcweaveComponent = components[component_id]
+		if component.custom_id != "":
+			component_custom_ids[component_id] = component.custom_id
+	
 	# --- global variables living in the top-level "variables" object ---
 	for var_id in variables_data:
 		var var_data = variables_data[var_id]
+		if typeof(var_data) != TYPE_DICTIONARY:
+			continue
+		if var_data.has("root") or var_data.has("children"):
+			continue  # tree-structure record (folder/root), not a variable
 		
 		var var_name = var_data.get("name", "")
 		if var_name == "":
 			continue
 		
-		# If this variable belongs to a board, qualify its name
-		if var_data.get("cType", "") == "boards":
-			var c_id = var_data.get("cId", "")
-			var board_name = board_custom_ids.get(c_id)
-			
-			if board_name:
-				var_name = board_name + "." + var_name
+		var c_type = var_data.get("cType", "")
 		
-		_register_initial_variable(var_name, var_data.get("value", null), var_data.get("type", ""))
+		if c_type == "" or c_type == "global":
+			_register_initial_variable(var_name, var_data.get("value", null), var_data.get("type", ""))
+		elif c_type == "boards":
+			var board_name = board_custom_ids.get(var_data.get("cId", ""), "")
+			if board_name == "":
+				continue  # no customId on the owning board — can't be scripted
+			_register_initial_variable(board_name + "." + var_name, var_data.get("value", null), var_data.get("type", ""))
+		# else: unrecognized cType (shouldn't occur pre-5.11.0) — ignore
 	
-	# --- board variables live in the shared "attributes" object ---
-	for board_id in boards:
-		var board: ArcweaveBoard = boards[board_id]
-		var board_name = board_custom_ids.get(board_id, "")
-		
-		for attr_id in board.variables:
-			var attribute: ArcweaveAttribute = attributes.get(attr_id)
-			if attribute == null:
-				continue  # not an attribute-based board variable (or old-format ID)
-			
-			var var_name = attribute.get_variable_name_string()
-			if var_name == "":
-				continue
-			
-			if board_name != "":
-				var_name = board_name + "." + var_name
-			
-			_register_initial_variable(var_name, attribute.get_data(), attribute.get_type())
-	
-	# --- Component variables ---
-	for component_id in components:
-		var component: ArcweaveComponent = components[component_id]
-		if component.custom_id == "":
+	# --- Walk every attribute directly and resolve ownership via cType/cId ---
+	for attr_id in attributes:
+		var attribute: ArcweaveAttribute = attributes[attr_id]
+		if not _is_scoped_variable_attribute(attribute):
 			continue
 		
-		for attr_id in component.attributes:
-			var attribute: ArcweaveAttribute = attributes.get(attr_id)
-			if attribute == null or attribute.custom_id == "":
-				continue
-			
-			var var_name = component.custom_id + "." + attribute.custom_id
-			_register_initial_variable(var_name, attribute.get_data(), attribute.get_type())
+		var owner_name = ""
+		if attribute.cType == "boards":
+			owner_name = board_custom_ids.get(attribute.cId, "")
+		else:  # "components", guaranteed by _is_scoped_variable_attribute
+			owner_name = component_custom_ids.get(attribute.cId, "")
+		
+		if owner_name == "":
+			continue  # owner has no customId — can't be scripted, skip
+		
+		_register_initial_variable(owner_name + "." + attribute.custom_id, attribute.get_data(), attribute.get_type())
 
 
 ## Convert a raw variable value to its declared type and store it as an initial value
@@ -310,6 +320,12 @@ func _register_initial_variable(var_name: String, value: Variant, var_type: Stri
 				value = int(value)
 			else:
 				value = 0
+		
+		"float":
+			if value != null:
+				value = float(value)
+			else:
+				value = 0.0
 		
 		"boolean", "bool":
 			if value != null:
