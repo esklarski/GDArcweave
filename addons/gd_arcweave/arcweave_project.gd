@@ -66,7 +66,8 @@ func update_project(json_text: String) -> bool:
 ## Load Arcweave project from Dictionary
 func load_project_from_data(data: Dictionary) -> bool:
 	# Parse project metadata
-	project_name = data.get("name", "")
+	var data_name = data.get("name", "")
+	project_name = data_name if data_name else ""
 	# Handle null cover gracefully
 	var cover_data = data.get("cover", null)
 	if cover_data != null and typeof(cover_data) == TYPE_DICTIONARY:

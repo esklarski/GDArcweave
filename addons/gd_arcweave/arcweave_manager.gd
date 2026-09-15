@@ -549,12 +549,14 @@ func get_project_cover() -> Dictionary:
 
 ## Get the project cover file name (empty string if no cover)
 func get_project_cover_file() -> String:
-	return project.project_cover.get("file", "")
+	var cover_file = project.project_cover.get("file", "")
+	return cover_file if cover_file else ""
 
 
 ## Get the project cover type (empty string if no cover)
 func get_project_cover_type() -> String:
-	return project.project_cover.get("type", "")
+	var cover_type = project.project_cover.get("type", "")
+	return cover_type if cover_type else ""
 
 
 ## Get the project cover asset (returns full asset Dictionary or empty)

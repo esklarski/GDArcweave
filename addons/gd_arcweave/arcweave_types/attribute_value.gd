@@ -14,7 +14,8 @@ extends Resource
 ## Create an AttributeValue from a dictionary
 static func from_dict(value_dict: Dictionary) -> AttributeValue:
 	var av = AttributeValue.new()
-	av.type = value_dict.get("type", "")
+	var dict_type = value_dict.get("type", "")
+	av.type = dict_type if dict_type else ""
 	av.data = value_dict.get("data", null)
 	av.plain = value_dict.get("plain", false)
 	return av

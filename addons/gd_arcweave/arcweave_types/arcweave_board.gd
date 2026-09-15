@@ -40,7 +40,8 @@ static func from_dict(data: Dictionary, board_id: String) -> ArcweaveBoard:
 	board.id = board_id
 	var found_custom_id = data.get("customId")
 	board.custom_id = found_custom_id if found_custom_id else ""
-	board.name = data.get("name", "")
+	var data_name = data.get("name", "")
+	board.name = data_name if data_name else ""
 	board.root = data.get("root", false)
 	
 	# Parse elements array

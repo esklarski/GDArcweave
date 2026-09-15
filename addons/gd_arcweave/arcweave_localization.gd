@@ -178,6 +178,7 @@ func get_translation_status(item_id: String, locale: String = "") -> String:
 	if content_data and typeof(content_data) == TYPE_DICTIONARY:
 		var status_data = content_data.get("_status")
 		if status_data and typeof(status_data) == TYPE_DICTIONARY:
-			return status_data.get(locale, "")
+			var status_value = status_data.get(locale, "")
+			return status_value if status_value else ""
 	
 	return ""

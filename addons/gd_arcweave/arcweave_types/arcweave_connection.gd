@@ -28,9 +28,12 @@ static func from_dict(data: Dictionary, connection_id: String) -> ArcweaveConnec
 	connection.id = connection_id
 	var data_label  = data.get("label", "")
 	connection.label = data_label if data_label else ""
-	connection.sourceid = data.get("sourceid", "")
-	connection.targetid = data.get("targetid", "")
-	connection.target_type = data.get("targetType", "")
+	var data_sourceid = data.get("sourceid", "")
+	connection.sourceid = data_sourceid if data_sourceid else ""
+	var data_targetid = data.get("targetid", "")
+	connection.targetid = data_targetid if data_targetid else ""
+	var data_target_type = data.get("targetType", "")
+	connection.target_type = data_target_type if data_target_type else ""
 	
 	return connection
 

@@ -26,7 +26,8 @@ static func from_dict(data: Dictionary, project_id: String) -> ArcweaveComponent
 	var component = ArcweaveComponent.new()
 	
 	component.id = project_id
-	component.name = data.get("name", "")
+	var data_name = data.get("name", "")
+	component.name = data_name if data_name else ""
 	var found_custom_id = data.get("customId")
 	component.custom_id = found_custom_id if found_custom_id else ""
 	

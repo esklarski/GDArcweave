@@ -31,8 +31,10 @@ static func from_dict(data: Dictionary, attribute_id: String) -> ArcweaveAttribu
 	attribute.id = attribute_id
 	var found_name = data.get("name")
 	attribute.name = found_name if found_name else ""
-	attribute.cType = data.get("cType", "")
-	attribute.cId = data.get("cId", "")
+	var data_ctype = data.get("cType", "")
+	attribute.cType = data_ctype if data_ctype else ""
+	var data_cid = data.get("cId", "")
+	attribute.cId = data_cid if data_cid else ""
 	var found_custom_id = data.get("customId")
 	attribute.custom_id = found_custom_id if found_custom_id else ""
 	
