@@ -96,6 +96,8 @@ func _get_localized_field(
 					
 					if locale_data and typeof(locale_data) == TYPE_DICTIONARY:
 						var text = locale_data.get("text", "")
+						if text == null: text = ""
+						
 						var status = get_translation_status(item_id, try_locale)
 						
 						if status != "untranslated" or try_locale == fallback_chain.back():
