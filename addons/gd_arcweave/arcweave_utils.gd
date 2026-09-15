@@ -31,7 +31,7 @@ static func _compile(pattern: String) -> RegEx:
 
 
 ## Extract Arcweave component mentions from span tags
-## Returns array of dictionaries with mention info: [{id, label, type, original_tag}, ...]
+## Returns array of dictionaries with mention info: [{id, label, type, original_tag, start, end}, ...]
 static func extract_mentions(s: String) -> Array:
 	var mentions = []
 	
@@ -42,7 +42,9 @@ static func extract_mentions(s: String) -> Array:
 			"id": match.get_string(1),
 			"label": match.get_string(2),
 			"type": match.get_string(3),
-			"content": match.get_string(4)
+			"content": match.get_string(4),
+			"start": match.get_start(),
+			"end": match.get_end(),
 		})
 	
 	return mentions
@@ -224,20 +226,29 @@ static func preprocess_arcscript_html(html: String, narrative_style_callback: Ca
 	var script_ranges = _find_script_ranges(processed)  # [{start, end}, ...] for <pre>/<code> blocks
 	var mentions = extract_mentions(processed)
 
-	for mention in mentions:
-		var tag_pos = processed.find(mention.original_tag)
-		var in_script = force_all_script or _pos_in_ranges(tag_pos, script_ranges)
+	# Build the output in a single left-to-right pass using each mention's
+	# stable offset in the ORIGINAL (untouched) string.
+	if not mentions.is_empty():
+		var result := ""
+		var cursor := 0
+		for mention in mentions:
+			result += processed.substr(cursor, mention.start - cursor)
 
-		var replacement: String
-		if in_script:
-			# Engine requirement: Arcscript needs a quoted string literal to parse.
-			replacement = '"%s"' % (mention.label if mention.type == "component" else mention.id)
-		elif narrative_style_callback.is_valid():
-			replacement = narrative_style_callback.call(mention)
-		else:
-			replacement = mention.label if mention.type == "component" else mention.id
+			var in_script = force_all_script or _pos_in_ranges(mention.start, script_ranges)
+			var replacement: String
+			if in_script:
+				# Engine requirement: Arcscript needs a quoted string literal to parse.
+				replacement = '"%s"' % (mention.label if mention.type == "component" else mention.id)
+			elif narrative_style_callback.is_valid():
+				replacement = narrative_style_callback.call(mention)
+			else:
+				replacement = mention.label if mention.type == "component" else mention.id
 
-		processed = processed.replace(mention.original_tag, replacement)
+			result += replacement
+			cursor = mention.end
+
+		result += processed.substr(cursor)
+		processed = result
 	
 	# Strip <pre> and <code> tags (with or without attributes) that wrap Arcscript
 	processed = _regex_pre_tag.sub(processed, "", true)
