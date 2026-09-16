@@ -7,6 +7,7 @@ extends Node
 
 ## Signals for story navigation and events
 signal project_updated()
+signal localization_updated()
 signal element_changed(element: ArcweaveElement)
 signal choice_presented(choices: Array)
 signal variable_changed(var_name: String, value: Variant)
@@ -760,12 +761,7 @@ func set_current_locale(locale_iso: String) -> bool:
 	if not localization.change_language(locale_iso):
 		return false
 	
-	# Re-display current element in new language
-	if state.current_element_id != "":
-		var element := goto_element(state.current_element_id, false)
-		if not element == null:
-			element_changed.emit(element)
-	
+	localization_updated.emit()
 	return true
 
 
