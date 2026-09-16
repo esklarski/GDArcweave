@@ -16,12 +16,16 @@ func _init(arcweave_manager: ArcweaveManagerInstance) -> void:
 ## Change the current language
 ## Returns true if successful, false if locale not available
 func change_language(locale_iso: String) -> bool:
+	if manager.project == null:
+		push_error("Cannot set language, project is not loaded yet!")
+		return false
+	
 	if not manager.project.is_multi_language_project:
 		push_warning("Cannot change language: project is single-language")
 		return false
 	
 	if not manager.is_locale_available(locale_iso):
-		push_warning("Locale not available: " + locale_iso)
+		push_error("Locale not available: " + locale_iso)
 		return false
 	
 	var old_locale = manager.state.current_locale
