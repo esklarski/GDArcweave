@@ -212,16 +212,15 @@ func get_choices_for_element(element_id: String) -> Array:
 				# Connection to a jumper
 				var jumper = project.jumpers[target_id]
 				var jumper_element_id = jumper.elementId
-				if jumper_element_id != "":
-					var label = localization.get_connection_label(output_id)
-					
-					choices.append({
-						"label": _process_choice_label(label),
-						"raw_label": label,
-						"target_id": jumper_element_id,
-						"branch_id": "",
-						"connection_id": output_id,
-					})
+				var label = localization.get_connection_label(output_id)
+				
+				choices.append({
+					"label": _process_choice_label(label),
+					"raw_label": label,
+					"target_id": jumper_element_id,
+					"branch_id": "",
+					"connection_id": output_id,
+				})
 	
 	return choices
 
@@ -332,17 +331,17 @@ func _resolve_branch(branch_id: String) -> Dictionary:
 
 ## Make a choice and navigate to the target element
 func make_choice(choice: Dictionary) -> ArcweaveElement:
-	var target_id = choice.get("target_id", "")
-	if target_id == "":
-		push_error("Invalid choice: no target_id")
-		return null
-	
 	# Execute any assignments in the choice label (if it had Arcscript)
 	var raw_label = choice.get("raw_label", "")
 	if auto_evaluate_scripts and raw_label != "":
 		# Preprocess and evaluate with assignments ENABLED
 		var preprocessed = ArcweaveUtils.preprocess_arcscript_html(raw_label, style_mention)
 		interpreter.evaluate(preprocessed, false)  # false = do execute assignments
+	
+	var target_id = choice.get("target_id", "")
+	if target_id == "":
+		story_ended.emit()
+		return null
 	
 	# Then navigate to target
 	return goto_element(target_id)
