@@ -38,15 +38,25 @@ var evaluated_content: String = ""
 
 
 ## Create an element from parsed JSON dictionary
-static func from_dict(data: Dictionary, element_id: String) -> ArcweaveElement:
+static func from_dict(data: Dictionary, element_id: String, contents: Dictionary = {}, locales: Array = []) -> ArcweaveElement:
 	var element := ArcweaveElement.new()
 	
 	element.id = element_id
 	var found_title = data.get("title")
 	element.title = found_title if found_title else ""
-	element.title_cleaned = ArcweaveUtils.clean_string(element.title)
 	var found_content =  data.get("content")
 	element.content = found_content if found_content else ""
+	
+	# Fall back to the root locale's text so title-based lookups (e.g. searching a board
+	# for an element by title) work without going through ArcweaveLocalization.
+	if not contents.is_empty() and not locales.is_empty():
+		var root_locale = ArcweaveUtils.get_root_locale_iso(locales)
+		if element.title == "":
+			element.title = ArcweaveUtils.get_content_text(contents, element_id, "title", root_locale)
+		if element.content == "":
+			element.content = ArcweaveUtils.get_content_text(contents, element_id, "content", root_locale)
+	
+	element.title_cleaned = ArcweaveUtils.clean_string(element.title)
 	
 	# Parse components array
 	var comps = data.get("components", [])

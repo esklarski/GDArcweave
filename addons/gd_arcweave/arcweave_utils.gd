@@ -346,6 +346,32 @@ static func convert_color_tags(s: String) -> String:
 	return s
 
 
+## Find the root/base locale ISO in a project's locales array (the entry with no "base" of its own)
+static func get_root_locale_iso(locales: Array) -> String:
+	for locale in locales:
+		if typeof(locale) == TYPE_DICTIONARY and locale.get("base", null) == null:
+			return locale.get("iso", "")
+	return ""
+
+
+## Read a field's text directly out of a `contents` dictionary for a given locale.
+## Returns "" if the item, field, or locale entry is missing, or if the text is null.
+static func get_content_text(contents: Dictionary, item_id: String, field_name: String, locale_iso: String) -> String:
+	if locale_iso == "":
+		return ""
+	
+	var content_data = contents.get(item_id)
+	if content_data and typeof(content_data) == TYPE_DICTIONARY:
+		var field_data = content_data.get(field_name)
+		if field_data and typeof(field_data) == TYPE_DICTIONARY:
+			var locale_data = field_data.get(locale_iso)
+			if locale_data and typeof(locale_data) == TYPE_DICTIONARY:
+				var text = locale_data.get("text", "")
+				return text if text else ""
+	
+	return ""
+
+
 ## Helper to apply formatting to a RichTextLabel
 static func apply_to_label(label: RichTextLabel, html_text: String, use_extended: bool = false) -> void:
 	if label == null:

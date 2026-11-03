@@ -75,6 +75,20 @@ func _get_base_locale(locale_iso: String) -> String:
 	return ""
 
 
+## Get the root/base locale ISO for the project (the locale with no "base" of its own)
+func _get_root_locale_iso() -> String:
+	return ArcweaveUtils.get_root_locale_iso(manager.project.locales)
+
+
+## Read a field's text directly out of `contents` for the project's root locale.
+## This is what the non-localized fallback (element.title, component.name, etc.)
+## should use in multi-language projects, since those base fields are never
+## populated with real text there - only `contents` carries the actual text.
+func _get_base_content_text(item_id: String, field_name: String) -> String:
+	var root_locale = _get_root_locale_iso()
+	return ArcweaveUtils.get_content_text(manager.project.contents, item_id, field_name, root_locale)
+
+
 func _get_localized_field(
 	item_id: String, 
 	field_name: String,
@@ -100,8 +114,8 @@ func _get_localized_field(
 					
 					if locale_data and typeof(locale_data) == TYPE_DICTIONARY:
 						var text = locale_data.get("text", "")
-						if text == null: text = ""
-						
+						if text == null:
+							text = ""
 						var status = get_translation_status(item_id, try_locale)
 						
 						if status != "untranslated" or try_locale == fallback_chain.back():
@@ -124,6 +138,8 @@ func get_element_title(element_id: String, locale: String = "") -> String:
 
 
 func _check_element_title(id):
+	if manager.project.is_multi_language_project:
+		return _get_base_content_text(id, "title")
 	var element: ArcweaveElement = manager.project.elements.get(id)
 	if element: return element.title
 	return ""
@@ -137,6 +153,8 @@ func get_element_content(element_id: String, locale: String = "") -> String:
 
 
 func _check_element_content(id) -> String:
+	if manager.project.is_multi_language_project:
+		return _get_base_content_text(id, "content")
 	var element: ArcweaveElement = manager.project.elements.get(id)
 	if element: return element.content
 	return ""
@@ -150,6 +168,8 @@ func get_component_name(component_id: String, locale: String = "") -> String:
 
 
 func _check_component_name(id) -> String:
+	if manager.project.is_multi_language_project:
+		return _get_base_content_text(id, "name")
 	var component: ArcweaveComponent = manager.project.components.get(id)
 	if component: return component.name
 	return ""
@@ -163,6 +183,8 @@ func get_connection_label(connection_id: String, locale: String = "") -> String:
 
 
 func _check_connection_label(id) -> String:
+	if manager.project.is_multi_language_project:
+		return _get_base_content_text(id, "label")
 	var connection: ArcweaveConnection = manager.project.connections.get(id)
 	if connection and typeof(connection.label) == TYPE_STRING:
 		return connection.label

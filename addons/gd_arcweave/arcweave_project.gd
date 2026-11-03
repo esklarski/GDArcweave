@@ -153,7 +153,7 @@ func _parse_elements(elements_data: Dictionary) -> void:
 	
 	for element_id in elements_data:
 		var element = elements_data[element_id]
-		elements[element_id] = ArcweaveElement.from_dict(element, element_id)
+		elements[element_id] = ArcweaveElement.from_dict(element, element_id, contents, locales)
 
 
 ## Parse boards from project data
