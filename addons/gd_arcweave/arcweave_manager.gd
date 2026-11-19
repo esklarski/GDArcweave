@@ -10,7 +10,7 @@ signal project_updated()
 signal localization_updated()
 signal element_changed(element: ArcweaveElement)
 signal choice_presented(choices: Array)
-signal variable_changed(var_name: String, value: Variant)
+signal variable_changed(var_name: String, value: Variant, previous_value: Variant)
 signal story_started()
 signal story_ended()
 
@@ -461,8 +461,9 @@ func get_component(component_id: String) -> ArcweaveComponent:
 
 ## Set a story variable
 func set_variable(var_name: String, value) -> void:
+	var current_value = state.variables.get(var_name, 0)
 	if interpreter.set_variable_value(var_name, value):
-		variable_changed.emit(var_name, value)
+		variable_changed.emit(var_name, value, current_value)
 
 
 ## Get a story variable

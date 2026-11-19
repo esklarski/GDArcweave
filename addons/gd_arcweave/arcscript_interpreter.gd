@@ -7,7 +7,7 @@ extends RefCounted
 
 
 ## Emitted when variables change.
-signal variable_changed(var_name: String, value: Variant)
+signal variable_changed(var_name: String, value: Variant, previous_value: Variant)
 
 
 ## Game Manager
@@ -309,9 +309,10 @@ func _evaluate_assignment(line: String) -> void:
 	var value = _evaluate_expression(expr_text)
 	
 	if value != null:
+		var current_value = manager.state.variables.get(var_name, 0)
+		
 		# For compound operators, combine with existing value
 		if operator != "":
-			var current_value = manager.state.variables.get(var_name, 0)
 			if operator == "+":
 				value = current_value + value
 			elif operator == "-":
@@ -327,7 +328,7 @@ func _evaluate_assignment(line: String) -> void:
 		
 		set_variable_value(var_name, value)
 		
-		variable_changed.emit(var_name, value)
+		variable_changed.emit(var_name, value, current_value)
 
 
 ## Evaluate a conditional block (if/elseif/else/endif)
@@ -724,7 +725,6 @@ func reset(args = null):
 		var initial_value = manager.project.initial_variables.get(var_name)
 		if initial_value != null:
 			set_variable_value(var_name, initial_value)
-			variable_changed.emit(var_name, initial_value)
 		else:
 			push_warning("Cannot reset variable '%s': no initial value found" % var_name)
 
@@ -759,7 +759,6 @@ func resetAll(args = null):
 		if not exclude_set.has(var_name):
 			var initial_value = manager.project.initial_variables[var_name]
 			set_variable_value(var_name, initial_value)
-			variable_changed.emit(var_name, initial_value)
 
 # reset visit counts
 func resetVisits(): manager.state.visit_counts.clear()
