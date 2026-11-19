@@ -233,7 +233,7 @@ func style_mention(mention: Dictionary) -> String:
 ## Process a choice label (clean HTML and evaluate variables)
 func _process_choice_label(label) -> String:
 	# set default value for when we find empty strings
-	var processed_label: String = "Continue"
+	var processed_label: String = "PROCEED"
 	
 	if not label == null:
 		var label_str := str(label)
