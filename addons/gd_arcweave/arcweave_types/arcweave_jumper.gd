@@ -23,7 +23,6 @@ static func from_dict(data: Dictionary, jumper_id: String) -> ArcweaveJumper:
 		jumper.elementId = output_id
 	else:
 		jumper.elementId = ""
-		printerr("No element id on jumper: %s" % jumper_id)
 	
 	return jumper
 
